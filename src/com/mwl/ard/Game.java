@@ -3,6 +3,7 @@ package com.mwl.ard;
 import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
+import com.mwl.environment.RoomMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,16 +12,17 @@ import java.util.Map;
 
 public class Game {
     Player player;
-    Map<Integer, Room> gameMap;
+    RoomMap gameMap;
     List<Monster> monsters;
 
     public Game() {
         // default constructor
         player = new Player();
-        gameMap = new HashMap<Integer, Room>();
+        gameMap = new RoomMap();
         monsters = new ArrayList<Monster>();
 
-        gameMap.put(0, new Room());
+        player.setCurrentRoom(gameMap.getStart());
+
     }
 
     void round() {

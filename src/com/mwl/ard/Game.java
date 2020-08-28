@@ -17,7 +17,7 @@ public class Game {
 
     public Game() {
         // default constructor
-        player = new Player();
+       // player = new Player();
         gameMap = new HashMap<Integer, Room>();
         monsters = new ArrayList<Monster>();
 
@@ -31,6 +31,6 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
-        ConsoleManager.gameExplanation();
+        //ConsoleManager.gameExplanation();
     }
 }

@@ -1,5 +1,8 @@
 package com.mwl.environment;
 
+import com.mwl.characters.Monster;
+import com.mwl.characters.Player;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,29 +45,60 @@ public class RoomMap {
 
     /**
      * Logic for moving around on the game map. Moves in the passed direction from given room, and returns the new room
-     * location. If the room moving to has not yet been visited, creates one and updates the map accordingly. New rooms
-     * are linked in the opposite direction. If the given direction is not applicable, or if room passed is null, throws
-     * an IllegalArgumentException.
+     * location. If the room moving to has not yet been visited and is a player, creates one and updates the map
+     * accordingly. New rooms are linked in the opposite direction. If a monster type, tries the direction and returns
+     * same room if that room was not yet created. If room passed is null, throws an IllegalArgumentException.
      * @param currRoom room moving from
      * @param direction which direction to go through
      * @return room that was moved to
      * @throws IllegalArgumentException thrown if given direction is not applicable, or if currRoom is null
      */
-    public Room moveRoom(Room currRoom, Direction direction) throws IllegalArgumentException {
+    private Room moveRoom(Room currRoom, Direction direction, String type) throws IllegalArgumentException {
         if (currRoom != null) {
             Map<Direction, Room> options = map.get(currRoom); // get submap for ease
 
-            if (!options.containsKey(direction)) { // room hasn't been created yet, make one now
-                Room temp = makeNewRoom();
-                options.put(direction, temp);
-                map.put(temp, new HashMap<>());
-                map.get(temp).put(flipDirection(direction),currRoom);
+            switch (type) {
+                case "player" -> { // player can go where no rooms are created
+                    if (!options.containsKey(direction)) { // room hasn't been created yet, make one now
+                        Room temp = makeNewRoom();
+                        options.put(direction, temp);
+                        map.put(temp, new HashMap<>());
+                        map.get(temp).put(flipDirection(direction),currRoom);
+                    }
+                    return options.get(direction);
+                }
+                case "monster" -> { // monster can only move if room attempting to go has already been created
+                    return options.getOrDefault(direction, currRoom);
+                }
+                default -> {return currRoom;}
             }
 
-            return options.get(direction);
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    /**
+     * Moves the given character from their current room to room in given direction. If player's current room is null,
+     * throws an IllegalArgumentException.
+     * @param player to move rooms
+     * @param direction which room to move to
+     * @throws IllegalArgumentException
+     */
+    public void moveCharacter(Player player, Direction direction) throws IllegalArgumentException {
+        player.setCurrentRoom(moveRoom(player.getCurrentRoom(), direction, "player"));
+    }
+
+    /**
+     * Move monster around the map. Pass in which direction they want to move to. If direction is not one that player
+     * has already visited, then returns the same room monster was in. Throws IllegalArgumentException if the monster's
+     * room is null.
+     * @param monster the monster in which to move
+     * @param direction which direction to move into
+     * @throws IllegalArgumentException
+     */
+    public void moveCharacter(Monster monster, Direction direction) throws IllegalArgumentException {
+        monster.setCurrentRoom(moveRoom(monster.getCurrentRoom(), direction, "monster"));
     }
 
     /**

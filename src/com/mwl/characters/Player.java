@@ -5,7 +5,7 @@ import com.mwl.environment.Room;
 import com.mwl.environment.Item;
 
 
-public class Player {
+public abstract class Player {
     private String name;
     private int life;
     private Room currentRoom;
@@ -33,9 +33,7 @@ public class Player {
         //remove the item dropped by the user from the item inventory collection
     }
 
-    public void attack(){
-        //decrease the life value of the monsters
-    }
+    public abstract void attack();
 
     public String getName() {
         return name;

@@ -3,6 +3,7 @@ package com.mwl.ard;
 import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
+import com.mwl.util.ConsoleManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,5 +30,7 @@ public class Game {
 
     public void newGame() {
         // new game logic
+        ConsoleManager.gameIntro();
+        ConsoleManager.gameExplanation();
     }
 }

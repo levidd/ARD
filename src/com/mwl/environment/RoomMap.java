@@ -1,11 +1,10 @@
 package com.mwl.environment;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RoomMap {
-    private final Map<Room, Map<String, Room>> map; // underlying data structure
+    private final Map<Room, Map<Direction, Room>> map; // underlying data structure
     private final Room start; // starting room
 
     /**
@@ -37,7 +36,7 @@ public class RoomMap {
      * Returns the underlying data structure for Testing purposes
      * @return
      */
-    Map<Room, Map<String, Room>> getMap() {
+    Map<Room, Map<Direction, Room>> getMap() {
         return map;
     }
 
@@ -51,10 +50,9 @@ public class RoomMap {
      * @return room that was moved to
      * @throws IllegalArgumentException thrown if given direction is not applicable, or if currRoom is null
      */
-    public Room moveRoom(Room currRoom, String direction) throws IllegalArgumentException {
-        direction = direction.strip().toLowerCase();
-        if (isValidKey(direction) && currRoom != null) {
-            Map<String, Room> options = map.get(currRoom); // get submap for ease
+    public Room moveRoom(Room currRoom, Direction direction) throws IllegalArgumentException {
+        if (currRoom != null) {
+            Map<Direction, Room> options = map.get(currRoom); // get submap for ease
 
             if (!options.containsKey(direction)) { // room hasn't been created yet, make one now
                 Room temp = makeNewRoom();
@@ -74,13 +72,12 @@ public class RoomMap {
      * @param direction starting direction
      * @return opposite direction
      */
-    private String flipDirection(String direction) {
+    private Direction flipDirection(Direction direction) {
         return switch (direction) {
-            case "south" -> "north";
-            case "north" -> "south";
-            case "west" -> "east";
-            case "east" -> "west";
-            default -> "";
+            case North -> Direction.South;
+            case West -> Direction.East;
+            case East -> Direction.West;
+            default -> Direction.North; // for north and whatever else
         };
 
     }
@@ -91,15 +88,5 @@ public class RoomMap {
      */
     private Room makeNewRoom() {
         return new Room("Room #", map.size());
-    }
-
-    /**
-     * Check if string is a valid direction (e.g. north, south, east, west)
-     * @param key
-     * @return
-     */
-    private boolean isValidKey(String key) {
-        List<String> options = List.of("north", "south", "east", "west");
-        return options.contains(key.strip().toLowerCase());
     }
 }

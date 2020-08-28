@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
+import static com.mwl.environment.Direction.*;
 
 import static org.junit.Assert.*;
 
@@ -18,19 +19,19 @@ public class RoomMapTest {
     @Test
     public void moveRoom_makesNewRoom_whenNewDirection() {
         assertEquals(1, map.size());
-        map.moveRoom(map.getStart(), "north");
+        map.moveRoom(map.getStart(), North);
         assertEquals(2, map.size());
     }
 
     @Test
     public void moveRoom_linksRoomsCorrectly() {
-        Room temp = map.moveRoom(map.getStart(), "north");
-        temp = map.moveRoom(temp, "south");
+        Room temp = map.moveRoom(map.getStart(), North);
+        temp = map.moveRoom(temp, South);
 
         assertEquals(2, map.size()); // no new rooms added
         assertEquals(map.getStart(), temp); // moved back to starting room
 
-        map.moveRoom(temp, "north"); // moving back creates no new rooms
+        map.moveRoom(temp, North); // moving back creates no new rooms
         assertEquals(2, map.size());
     }
 
@@ -39,12 +40,12 @@ public class RoomMapTest {
         assertEquals(1, map.size());
         Room temp = map.getStart();
         for (int i = 0; i < 10; i++) {
-            temp = map.moveRoom(temp, "east");
+            temp = map.moveRoom(temp, East);
         }
 
         assertEquals(11, map.size());
         long only_east = map.getMap().values().stream()
-                .filter(item -> item.containsKey("east") && item.containsKey("west"))
+                .filter(item -> item.containsKey(East) && item.containsKey(West))
                 .map(Map::size)
                 .count();
         // first and last room won't have both east and west. only rooms in between
@@ -53,11 +54,7 @@ public class RoomMapTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void moveRoom_startAtNull_ThrowsIllegalArgumentException() {
-        map.moveRoom(null, "north");
+        map.moveRoom(null, North);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void moveRoom_withBadDirection_throwsIllegalArgumentException() {
-        map.moveRoom(map.getStart(), "down");
-    }
 }

@@ -49,4 +49,8 @@ public class MenuTrieNode {
     public String getDescription() {
         return description;
     }
+
+    public void setParent(MenuTrieNode parent) {
+        this.parent = parent;
+    }
 }

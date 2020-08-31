@@ -1,76 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<menu id="0" title="[- Help Menu]" description="You asked for help, what item do you want to learn about?">
-    <first_level_child id="01" title="[- Story Details]" description="This is a text based game, intro to what this help portion will be about">
-        <second_level_child id="011" title="[- How do I win]" description="You can win by finding the boss and defeating him.">
-            <third_level_child id="0111" title ="[- How to find the boss]" description="Boss Bezos spawns somewhere on the map, you need to search and find him!">
-            </third_level_child>
-            <third_level_child id="0112" title="[- How to kill the boss]" description="You need special items to defeat Bezos. They are sword, shield, potion, ...">
-            </third_level_child>
-        </second_level_child>
-        <second_level_child id="012" title="[- What are rooms]" description="Rooms are good.">
-        </second_level_child>
-        <second_level_child id="013" title="[- How do I survive]" description="You kill the monsters.">
-        </second_level_child>
-    </first_level_child>
-    <first_level_child id="02" title="[- Game Controls]" description="To play the game, you type commands into the console. There are a plethora of commands to choose from, here are a few options. To call any of these, it is [command] [option]">
-        <second_level_child id="021" title="[- move]" description="to move around the game you say move [direction]. Directions are north, south, west, east.">
-        </second_level_child>
-        <second_level_child id="022" title="[- pickup]" description="to pick up an item you say pickup [item]. If the item is in the room and can be picked up, it is added to your inventory.">
-        </second_level_child>
-        <second_level_child id="023" title="[- drop]" description="to drop an item from your inventory you say drop [item] and if the item can be dropped, it will be removed from your inventory and into the room">
-        </second_level_child>
-        <second_level_child id="024" title="[- attack]" description="to attack an enemy, say attack [monster]. MORE DETAILS LATER WHEN WE FIGURE OUT HOW IT WORKS">
-        </second_level_child>
-    </first_level_child>
+<menu title="Help Menu" description="You asked for help, what item do you want to learn about?">
+    <story title="Story Details" description="This is a text based game, intro to what this help portion will be about">
+        <winning title="How do I win" description="You can win by finding the boss and defeating him.">
+            <find_bos title ="How to find the boss" description="Boss Bezos spawns somewhere on the map, you need to search and find him!">
+            </find_bos>
+            <kill_boss title="How to kill the boss" description="You need special items to defeat Bezos. They are sword, shield, potion, ...">
+            </kill_boss>
+        </winning>
+        <rooms title="What are rooms" description="Rooms are good.">
+        </rooms>
+        <survival title="How do I survive" description="You kill the monsters.">
+        </survival>
+    </story>
+    <gameplay title="Game Controls" description="To play the game, you type commands into the console. There are a plethora of commands to choose from, here are a few options. To call any of these, it is [command] [option]">
+        <move title="move" description="to move around the game you say move [direction]. Directions are north, south, west, east.">
+        </move>
+        <pickup title="pickup" description="to pick up an item you say pickup [item]. If the item is in the room and can be picked up, it is added to your inventory.">
+        </pickup>
+        <drop title="drop" description="to drop an item from your inventory you say drop [item] and if the item can be dropped, it will be removed from your inventory and into the room">
+        </drop>
+        <attack title="attack" description="to attack an enemy, say attack [monster]. MORE DETAILS LATER WHEN WE FIGURE OUT HOW IT WORKS">
+        </attack>
+    </gameplay>
 </menu>
-
-<!--<menu id="0">-->
-<!--<title>- Help Menu</title>-->
-<!--<description>"You asked for help, what item do you want to learn about?"</description>-->
-<!--<first_level_child id="01">-->
-<!--    <title>- Story Details</title>-->
-<!--    <description>"This is a text based game, intro to what this help portion will be about"</description>-->
-<!--    <second_level_child id="011">-->
-<!--        <title>- How do I win</title>-->
-<!--        <description>"You can win by finding the boss and defeating him."</description>-->
-<!--        <third_level_child id="0111">-->
-<!--            <title>- How to find the boss</title>-->
-<!--            <description>"Boss Bezos spawns somewhere on the map, you need to search and find him!"</description>-->
-<!--        </third_level_child>-->
-<!--        <third_level_child id="0112">-->
-<!--            <title>- How to kill the boss</title>-->
-<!--            <description>"You need special items to defeat Bezos. They are sword, shield, potion, ..."</description>-->
-<!--        </third_level_child>-->
-<!--    </second_level_child>-->
-<!--    <second_level_child id="012">-->
-<!--        <title>- What are rooms</title>-->
-<!--        <description>"Rooms are good."</description>-->
-<!--    </second_level_child>-->
-<!--    <second_level_child id="013">-->
-<!--        <title>- How do I survive</title>-->
-<!--        <description>"You kill the monsters."</description>-->
-<!--    </second_level_child>-->
-<!--</first_level_child>-->
-<!--<first_level_child id="02">-->
-<!--    <title>- Game Controls</title>-->
-<!--    <description>"To play the game, you type commands into the console. There are a plethora of commands to choose from, here are a few options. To call any of these, it is [command] [option]"</description>-->
-<!--    <second_level_child id="021">-->
-<!--        <title>- move</title>-->
-<!--        <description> "to move around the game you say move [direction]. Directions are north, south, west, east."</description>-->
-<!--    </second_level_child>-->
-<!--    <second_level_child id="022">-->
-<!--        <title>- pickup</title>-->
-<!--        <description>"to pick up an item you say pickup [item]. If the item is in the room and can be picked up, it is added to your inventory."</description>-->
-<!--    </second_level_child>-->
-<!--    <second_level_child id="023">-->
-<!--        <title>- drop</title>-->
-<!--        <description>"to drop an item from your inventory you say drop [item] and if the item can be dropped, it will be removed from your inventory and into the room"</description>-->
-<!--    </second_level_child>-->
-<!--    <second_level_child id="024">-->
-<!--        <title>- attack</title>-->
-<!--        <description>"to attack an enemy, say attack [monster]. MORE DETAILS LATER WHEN WE FIGURE OUT HOW IT WORKS"</description>-->
-<!--    </second_level_child>-->
-<!--</first_level_child>-->
-<!--</menu>-->
-
-

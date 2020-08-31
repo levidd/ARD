@@ -25,11 +25,12 @@ public abstract class Player {
         //change user's location based on the input direction user chooses
     }
 
-    public void pickUpItem(String item){
+    public void pickUpItem(Item item){
         //add the item picked up by the user into the item inventory collection
     }
 
-    public void dropItem(String item){
+    public void dropItem(Item item){
+        // check if item is in player inventory
         //remove the item dropped by the user from the item inventory collection
     }
 

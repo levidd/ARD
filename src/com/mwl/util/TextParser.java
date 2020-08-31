@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static com.mwl.util.ExitGame.exit;
+
 // TextParser blueprint begins
 public class TextParser{
 
@@ -106,6 +108,8 @@ public class TextParser{
         boolean valid = false;
         do {
             playerInput = tryScanner.nextLine();
+            // check if input text is "exit." We need to do this on every input scanner.
+            exit(playerInput);
             String[] words = playerInput.toLowerCase().split("\\W+");
             if(words.length != 2){
                 System.out.println("Invalid command. Try again!");

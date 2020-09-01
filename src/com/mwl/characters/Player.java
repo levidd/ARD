@@ -1,6 +1,8 @@
 package com.mwl.characters;
 
 import java.util.Collection;
+
+import com.mwl.environment.Direction;
 import com.mwl.environment.Room;
 import com.mwl.environment.Item;
 
@@ -21,17 +23,10 @@ public abstract class Player {
         this.itemsInventory = itemsInventory;
     }
 
-    public void move(String direction){
-        //change user's location based on the input direction user chooses
-    }
 
     //add the item picked up by the user into the item inventory collection
     public void pickUpItem(Item item){
-        if(!itemsInventory.contains(item)){
             itemsInventory.add(item);
-        } else {
-            System.out.println("Can't pick up this item! It's already in player's item inventory!");
-        }
     }
 
     //remove the item dropped by the user from the item inventory collection

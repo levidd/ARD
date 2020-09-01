@@ -33,27 +33,29 @@ public class ConsoleManagerTest {
     public void testGameExplanation() {
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void testRecursiveHelper() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse("test/com/mwl/util/help_menu.xml");
+        Document doc = builder.parse("test/com/mwl/util/test.xml");
         menuNodeList = doc.getElementsByTagName("menu");
         Node menuNode = menuNodeList.item(0);
 
-        System.out.println(menuNodeList.item(0).getNodeName());
-
         MenuTrieNode menu = new MenuTrieNode("Select an option", "See the descriptions inside each option.", null);
-        menu.setParent(menu);
         MenuTrieNode option1 = new MenuTrieNode("Option 1", "This is Option 1.", menu);
         MenuTrieNode option11 = new MenuTrieNode("Option 11", "This is Option 11.", option1);
         MenuTrieNode option111 = new MenuTrieNode("Option 111", "This is Option 111", option11);
+        MenuTrieNode option112 = new MenuTrieNode("Option 112", "This is Option 112", option11);
+        MenuTrieNode option12 = new MenuTrieNode("Option 12", "This is Option 12.", option1);
+        MenuTrieNode option13 = new MenuTrieNode("Option 13", "This is Option 13.", option1);
+        MenuTrieNode option2 = new MenuTrieNode("Option 2", "This is Option 2.", menu);
+        MenuTrieNode option21 = new MenuTrieNode("Option 21", "This is Option 21.", option2);
+        MenuTrieNode option22 = new MenuTrieNode("Option 22", "This is Option 22.", option2);
+        MenuTrieNode option23 = new MenuTrieNode("Option 23", "This is Option 23.", option2);
+        MenuTrieNode option24 = new MenuTrieNode("Option 24", "This is Option 24.", option2);
 
-        assertEquals(option1, ConsoleManager.recursiveHelper(menuNode));
+        assertTrue(menu.equals(ConsoleManager.recursiveHelper(menuNode)));
 
-        MenuTrieNode actual = new MenuTrieNode("yes", "no", null);
-        assertEquals(actual, ConsoleManager.recursiveHelper(menuNode));
-
-        System.out.println(ConsoleManager.recursiveHelper(menuNode));
+        System.out.println(menuNode.getFirstChild().getNextSibling().getNodeName());
     }
 
     @Test

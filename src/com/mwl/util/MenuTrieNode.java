@@ -2,6 +2,7 @@ package com.mwl.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MenuTrieNode {
     String title;
@@ -53,4 +54,23 @@ public class MenuTrieNode {
     public void setParent(MenuTrieNode parent) {
         this.parent = parent;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuTrieNode that = (MenuTrieNode) o;
+        return Objects.equals(title, that.title) &&
+                Objects.equals(description, that.description);
+             //   &&
+              //  Objects.equals(children, that.children);
+             //   &&
+             //   Objects.equals(parent, that.parent);
+    }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(title, description, children, parent);
+//    }
+
 }

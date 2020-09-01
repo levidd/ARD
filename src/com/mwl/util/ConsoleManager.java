@@ -2,7 +2,6 @@ package com.mwl.util;
 
 import com.mwl.characters.Player;
 import com.mwl.characters.PlayerFactory;
-import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -49,7 +48,6 @@ public class ConsoleManager {
                } else {
                     System.out.println("I didn't understand that option, please try again.");
                }
-
           }
 
           return (choice == options.size() - 1 ? -1 : choice == options.size() - 2 ? -2 : choice); // -> -1 or -2 or some number in list
@@ -80,14 +78,13 @@ public class ConsoleManager {
      public static Player choosePlayer(RoomMap map) {
          System.out.println("Name your player: ");
          String name = scanner.nextLine();
-         System.out.println("Player type A has special ability of health boost;\n " +
-                 "Player type B has special ability to randomly generate one item that's already in inventory.");
+         System.out.println("[Player type A has special ability of health boost];\n " +
+                 "[Player type B has special ability to randomly generate one item that's already in inventory].");
          System.out.println("Choose Player type A or Player type B: ");
          String playerChoice = scanner.nextLine();
 
          return  PlayerFactory.createPlayer(name, 100, map.getStart(), new ArrayList<>(), playerChoice);
      }
-
 
       static MenuTrieNode recursiveHelper(Node current) {
           List<MenuTrieNode> result = new ArrayList<>();

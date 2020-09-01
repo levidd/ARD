@@ -16,7 +16,7 @@ public class PlayerFactory {
         switch (playerOption.toUpperCase().strip()) {
             case "A":
                 player = new PlayerA(name, life, currentRoom, itemInventory);
-            default:
+            case "B":
                 player = new PlayerB(name, life, currentRoom, itemInventory);
         }
         return player;

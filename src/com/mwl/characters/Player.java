@@ -25,12 +25,22 @@ public abstract class Player {
         //change user's location based on the input direction user chooses
     }
 
-    public void pickUpItem(String item){
-        //add the item picked up by the user into the item inventory collection
+    //add the item picked up by the user into the item inventory collection
+    public void pickUpItem(Item item){
+        if(!itemsInventory.contains(item)){
+            itemsInventory.add(item);
+        } else {
+            System.out.println("Can't pick up this item! It's already in player's item inventory!");
+        }
     }
 
-    public void dropItem(String item){
-        //remove the item dropped by the user from the item inventory collection
+    //remove the item dropped by the user from the item inventory collection
+    public void dropItem(Item item){
+        if(itemsInventory.contains(item)){
+            itemsInventory.remove(item);
+        } else {
+            System.out.println("Can't drop this item! It's not in player's item inventory!");
+        }
     }
 
     public abstract void attack();
@@ -60,5 +70,12 @@ public abstract class Player {
     }
     public void setItemsInventory(Collection<Item> itemsInventory) {
         this.itemsInventory = itemsInventory;
+    }
+
+    public void printStats() {
+        System.out.println("\u261b " + getName());
+        System.out.println("\u2665 " + getLife());
+        System.out.println("\u22a1 " + getCurrentRoom().getDescription());
+        System.out.println("\u2200 " + getItemsInventory());
     }
 }

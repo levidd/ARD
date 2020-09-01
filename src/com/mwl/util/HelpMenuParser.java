@@ -12,6 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -184,6 +185,28 @@ public class HelpMenuParser {
 //          }
     }
 
+    static MenuTrieNode recursiveHelper(Node current) {
+        List<MenuTrieNode> result = new ArrayList<>();
+        NodeList children = current.getChildNodes();
+
+        for (int i = 0; i < children.getLength(); i++) {
+            if (children.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                Element temp = (Element) children.item(i);
+                if (temp.getParentNode().equals(current)) {
+                    result.add(recursiveHelper(children.item(i)));
+                }
+            }
+        }
+
+        Element temp = (Element) current;
+        MenuTrieNode returning = new MenuTrieNode(temp.getAttribute("title"), temp.getAttribute("description"));
+        result.forEach(menuTrieNode -> {
+            returning.addChild(menuTrieNode);
+            menuTrieNode.setParent(returning);
+        });
+
+        return returning;
+    }
 
 
     public static void main(String[] args) throws Exception {
@@ -191,10 +214,21 @@ public class HelpMenuParser {
 
           DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
           NodeList menuNodeList = null;
+
           try {
                DocumentBuilder builder = factory.newDocumentBuilder();
-               Document doc = builder.parse("resources/menu/help_menu.xml");
-               menuNodeList = doc.getElementsByTagName("menu");
+               Document doc = builder.parse("resources/menu/temp.xml");
+               menuNodeList = doc.getElementsByTagName("node");
+
+               MenuTrieNode menu = recursiveHelper(menuNodeList.item(0));
+               menu.setParent(menu);
+
+
+
+//               var x = doc.getChildNodes();
+//               for(int i = 0; i < x.getLength(); i++) {
+//                   System.out.println(x.item(i));
+//               }
 
 //              InputStream inputStream = HelpMenuParser.class.getClassLoader().getResourceAsStream("resources/menu/help_menu.xml");
 //              DocumentBuilder builder1 = factory.newDocumentBuilder();
@@ -203,20 +237,22 @@ public class HelpMenuParser {
 //              NodeList menuNodeList1 = document.getElementsByTagName("menu");
 //              System.out.println(menuNodeList1.item(0).getNodeName());
 
-               Node n0 = menuNodeList.item(0); //menu node
+               Node n0 = menuNodeList.item(0);
+
+               NodeList temp = n0.getChildNodes();
+
                Element e0 = (Element) n0;
                System.out.println(e0.getAttribute("title"));
                System.out.println(e0.getAttribute("description"));
 
-            System.out.println(n0.getChildNodes().getLength()); //5
+            //  System.out.println(n0.getChildNodes().getLength()); //5
 
 
-               for(int i=0;i<n0.getChildNodes().getLength();i=i+1) {
+               for(int i=1;i<n0.getChildNodes().getLength();i=i+2) {
                    Node n = n0.getChildNodes().item(i);
-                   System.out.println(i+ n.getNodeName());
                    if (n.getNodeType() == Node.ELEMENT_NODE) {
                        Element e = (Element) n;
-                    //   System.out.println(i + ": " + e.getAttribute("title"));
+                       System.out.println(i + ": " + e.getAttribute("title"));
                    }
                }
 

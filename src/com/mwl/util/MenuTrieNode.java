@@ -61,11 +61,11 @@ public class MenuTrieNode {
         if (o == null || getClass() != o.getClass()) return false;
         MenuTrieNode that = (MenuTrieNode) o;
         return Objects.equals(title, that.title) &&
-                Objects.equals(description, that.description);
-             //   &&
-              //  Objects.equals(children, that.children);
-             //   &&
-             //   Objects.equals(parent, that.parent);
+                Objects.equals(description, that.description)
+//                &&
+//                Objects.equals(children, that.children)
+                &&
+                Objects.equals(parent, that.parent);
     }
 
 //    @Override

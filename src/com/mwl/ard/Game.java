@@ -52,6 +52,7 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
+        ConsoleManager.
 
         boolean playGame = true;
         while (playGame) {

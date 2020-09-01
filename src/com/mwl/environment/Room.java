@@ -6,12 +6,14 @@ import com.mwl.characters.Normal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class Room {
     private String description; // description of the room
     private List<Item> items; // list of items in room
     private List<Monster> monsters; // list of monsters in room
     private final int id; // room id (for ensuring hashcode is different)
+    private Random random = new Random(); // Generate random numbers
 
     /**
      * Constructor
@@ -23,6 +25,7 @@ public class Room {
         this.id = id;
         items = new ArrayList<>();
         monsters = new ArrayList<>();
+        generateRandomRoomItems();
     }
 
     /**
@@ -64,6 +67,18 @@ public class Room {
     public void addItem(Item item) {
         if (item != null) {
             items.add(item);
+        }
+    }
+
+    /**
+     * generates between 0 and 3 items in rooms randomly
+     */
+    private void generateRandomRoomItems(){
+        //Returns a random number.
+        //between 0 (inclusive) and 3 (exclusive).
+        int quantity = random.nextInt(3);
+        for (int i = 0; i < quantity; i++){
+            addItem(Item.values()[random.nextInt(Item.values().length)]);
         }
     }
 
@@ -123,12 +138,14 @@ public class Room {
      */
     public void overview(){
         System.out.println("You are in room " + getId() + "\n" +
-                getDescription()+"\n"+
                 itemsPresent() + "\n"+
                 monstersPresent());
-
     }
 
+    /**
+     * Check for items present in a room
+     * @return prints list of items present or no items message
+     */
     private String itemsPresent(){
         if(getItems().size() > 0){
             return getItems().size() + " item(s):"+ getItems().toString();
@@ -137,6 +154,10 @@ public class Room {
         }
     }
 
+    /**
+     * Check for monsters present in a room
+     * @return Prints list of monsters or no monsters message
+     */
     private String monstersPresent(){
         if(getMonsters().size() > 0){
             return getMonsters().size() + " monster(s):"+ getMonsters().toString();
@@ -157,5 +178,10 @@ public class Room {
     @Override
     public int hashCode() {
         return Objects.hash(getDescription(), getId());
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println();
     }
 }

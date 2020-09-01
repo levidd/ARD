@@ -18,13 +18,11 @@ import java.util.List;
 public class Game {
     Player player;
     RoomMap gameMap;
-//    List<Monster> monsters;
 
     public Game() {
         // default constructor
         gameMap = new RoomMap();
         player = new PlayerA("player1", 100, gameMap.getStart(), new ArrayList<>());
-//        monsters = new ArrayList<Monster>();
 
     }
 
@@ -54,7 +52,6 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
-        //ConsoleManager.gameExplanation();
 
         boolean playGame = true;
         while (playGame) {

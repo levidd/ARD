@@ -47,7 +47,7 @@ public class TextParser{
     public static class Look implements Command {
         @Override
         public void do_command(String option) {
-            List<String> valid = List.of("Around", "Item", "Me");
+            List<String> valid = List.of("Around", "Me");
             if (option == null || !valid.contains(option))
                 throw new IllegalArgumentException("Look where?");
 

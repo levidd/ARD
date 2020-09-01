@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <menu title="Help Menu" description="You asked for help, what item do you want to learn about?">
-    <story title="Story Details" description="This is a text based game, intro to what this help portion will be about">
+    <story title="Story Details" description="This is a text based game, intro to what this help portion will be about.">
         <winning title="How do I win" description="You can win by finding the boss and defeating him.">
             <find_bos title ="How to find the boss" description="Boss Bezos spawns somewhere on the map, you need to search and find him!">
             </find_bos>

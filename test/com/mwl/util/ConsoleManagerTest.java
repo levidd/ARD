@@ -45,8 +45,8 @@ public class ConsoleManagerTest {
         MenuTrieNode menu = new MenuTrieNode("Select an option", "See the descriptions inside each option.");
         MenuTrieNode option1 = new MenuTrieNode("Option 1", "This is Option 1.");
         MenuTrieNode option11 = new MenuTrieNode("Option 11", "This is Option 11.");
-        MenuTrieNode option111 = new MenuTrieNode("Option 111", "This is Option 111");
-        MenuTrieNode option112 = new MenuTrieNode("Option 112", "This is Option 112");
+        MenuTrieNode option111 = new MenuTrieNode("Option 111", "This is Option 111.");
+        MenuTrieNode option112 = new MenuTrieNode("Option 112", "This is Option 112.");
         option11.addChild(option111);
         option111.setParent(option11);
         option11.addChild(option112);
@@ -77,8 +77,9 @@ public class ConsoleManagerTest {
         menu.addChild(option2);
         option2.setParent(menu);
 
-        assertTrue(menu.equals(ConsoleManager.recursiveHelper(menuNode)));
+    //    assertTrue(menu.equals(ConsoleManager.recursiveHelper(menuNode)));
 
+       assertEquals(menu, ConsoleManager.recursiveHelper(menuNode));
         System.out.println(menuNode.getFirstChild().getNextSibling().getNodeName());
     }
 
@@ -133,8 +134,27 @@ public class ConsoleManagerTest {
         System.out.println(menu.getChildren());
         System.out.println(ConsoleManager.read_xml().getChildren());
 
+        MenuTrieNode node = ConsoleManager.read_xml();
 
-        assertTrue(ConsoleManager.read_xml().equals(menu));
+       // assertTrue(ConsoleManager.read_xml().equals(menu));
+
+        assertEquals(menu, node);
+
+    }
+
+    @Test
+    public void testMethod() {
+        MenuTrieNode node1 = new MenuTrieNode("1","this is 1");
+        MenuTrieNode node2 = new MenuTrieNode("2", "this is 2");
+        MenuTrieNode node3 = new MenuTrieNode("2","this is 2");
+        MenuTrieNode node4 = new MenuTrieNode("1", "this is 1");
+        node2.addChild(node4);
+        node3.addChild(node1);
+        node1.setParent(node1);
+
+
+
+        assertEquals(node2, node3);
 
 
     }

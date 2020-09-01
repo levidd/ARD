@@ -60,17 +60,24 @@ public class MenuTrieNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MenuTrieNode that = (MenuTrieNode) o;
-        return Objects.equals(title, that.title) &&
+        boolean result = Objects.equals(title, that.title) &&
                 Objects.equals(description, that.description)
-//                &&
-//                Objects.equals(children, that.children)
                 &&
-                Objects.equals(parent, that.parent);
+                Objects.equals(children, that.children);
+//                &&
+//                Objects.equals(parent, that.parent);
+//        for(int i=0;i<children.size();i++) {
+//            result = children.get(i).equals(that.children.get(i));
+//            if (result == false) {
+//                System.out.println("These two are different");
+//            }
+//        }
+        return result;
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(title, description, children, parent);
-//    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description);
+    }
 
 }

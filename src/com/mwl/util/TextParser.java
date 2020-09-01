@@ -88,6 +88,23 @@ public class TextParser{
                 // run method to do the action or make this method return a value to pass to another method
             }
         }
+
+
+    }
+
+    public static class Help implements Command {
+
+        @Override
+        public void do_command(String option) {
+            // Check if the argument word do not match the items in the enum
+            if (option != "help"){
+                throw new IllegalArgumentException("Invalid command. Try again!");
+            }else{
+
+            }
+        }
+
+
     }
 
 
@@ -99,6 +116,7 @@ public class TextParser{
         commands.put("flight", new Flight());
         commands.put("look", new Look());
         commands.put("fight",  new Fight());
+        commands.put("help", new Help());
 
         // Parse text
         Scanner tryScanner = new Scanner(System.in);

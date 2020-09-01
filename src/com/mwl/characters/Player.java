@@ -1,6 +1,7 @@
 package com.mwl.characters;
 
 import java.util.Collection;
+import java.util.List;
 
 import com.mwl.environment.Direction;
 import com.mwl.environment.Room;
@@ -11,12 +12,12 @@ public abstract class Player {
     private String name;
     private int life;
     private Room currentRoom;
-    private Collection<Item> itemsInventory;
+    private List<Item> itemsInventory;
 
     public Player(){
     }
 
-    public Player(String name, int life, Room currentRoom, Collection<Item> itemsInventory){
+    public Player(String name, int life, Room currentRoom, List<Item> itemsInventory){
         this.name = name;
         this.life = life;
         this.currentRoom = currentRoom;
@@ -60,10 +61,10 @@ public abstract class Player {
         this.currentRoom = currentRoom;
     }
 
-    public Collection<Item> getItemsInventory() {
+    public List<Item> getItemsInventory() {
         return itemsInventory;
     }
-    public void setItemsInventory(Collection<Item> itemsInventory) {
+    public void setItemsInventory(List<Item> itemsInventory) {
         this.itemsInventory = itemsInventory;
     }
 

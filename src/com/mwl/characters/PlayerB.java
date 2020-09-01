@@ -4,9 +4,10 @@ import com.mwl.environment.Item;
 import com.mwl.environment.Room;
 
 import java.util.Collection;
+import java.util.List;
 
 public class PlayerB extends Player{
-    public PlayerB(String name, int life, Room currentRoom, Collection<Item> itemsInventory){
+    public PlayerB(String name, int life, Room currentRoom, List<Item> itemsInventory){
         super(name, life, currentRoom, itemsInventory);
     }
 
@@ -15,8 +16,13 @@ public class PlayerB extends Player{
 
     }
 
-    public void be_invisible(){
-
+    public void more_power (){
+        List<Item> inventory = getItemsInventory();
+        int len = inventory.size();
+       if( len >=1) {
+           int random = (int) (Math.random()*len + 1);
+           inventory.add(inventory.get(random));
+       }
     }
 
 }

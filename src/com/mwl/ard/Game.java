@@ -18,11 +18,13 @@ import java.util.List;
 public class Game {
     Player player;
     RoomMap gameMap;
+//    List<Monster> monsters;
 
     public Game() {
         // default constructor
         gameMap = new RoomMap();
         player = new PlayerA("player1", 100, gameMap.getStart(), new ArrayList<>());
+//        monsters = new ArrayList<Monster>();
 
     }
 
@@ -36,7 +38,7 @@ public class Game {
             // do that thing
         switch (command[0]) {
             case "move" -> gameMap.moveCharacter(player, Direction.valueOf(command[1]));
-            case "look" -> Look(player, command[1]);
+            case "look" -> player.getCurrentRoom().overview();
             case "flight" -> Flight(player, command[1]);
             case "fight" -> Fight(player, command[1]);
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
@@ -73,13 +75,6 @@ public class Game {
     void Fight (Player player, String option) {
             System.out.println("fighting " + option);
             // run method to do the action
-    }
-
-    void Look(Player player, String option) {
-        switch (option) {
-            case "Around" -> player.getCurrentRoom().overview();
-            case "Me" -> player.printStats();
-        }
     }
 
 }

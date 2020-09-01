@@ -1,5 +1,9 @@
 package com.mwl.util;
 
+import com.mwl.characters.Player;
+import com.mwl.characters.PlayerFactory;
+import com.mwl.environment.Room;
+import com.mwl.environment.RoomMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,17 +22,11 @@ import java.util.stream.IntStream;
 
 public class ConsoleManager {
      private String input;
+     RoomMap gameMap;
      private static final Scanner scanner = new Scanner(System.in);
      private static MenuTrieNode menu = read_xml();
 
      public ConsoleManager(){}
-
-     public static void check(String userInput){
-       /*check whether user input matches the target commands
-       * if so, game continues
-       * otherwise, a warning pops up and the question repeats
-       * */
-     }
 
      public static void gameIntro() {
           System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
@@ -78,6 +76,18 @@ public class ConsoleManager {
                }
           }
      }
+
+     public static Player choosePlayer(RoomMap map) {
+         System.out.println("Name your player: ");
+         String name = scanner.nextLine();
+         System.out.println("Player type A has special ability of health boost;\n " +
+                 "Player type B has special ability to randomly generate one item that's already in inventory.");
+         System.out.println("Choose Player type A or Player type B: ");
+         String playerChoice = scanner.nextLine();
+
+         return  PlayerFactory.createPlayer(name, 100, map.getStart(), new ArrayList<>(), playerChoice);
+     }
+
 
       static MenuTrieNode recursiveHelper(Node current) {
           List<MenuTrieNode> result = new ArrayList<>();

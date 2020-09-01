@@ -88,8 +88,6 @@ public class TextParser{
                 // run method to do the action or make this method return a value to pass to another method
             }
         }
-
-
     }
 
     public static class Help implements Command {
@@ -97,10 +95,8 @@ public class TextParser{
         @Override
         public void do_command(String option) {
             // Check if the argument word do not match the items in the enum
-            if (option != "help"){
+            if (!option.equals("Me")){
                 throw new IllegalArgumentException("Invalid command. Try again!");
-            }else{
-
             }
         }
 

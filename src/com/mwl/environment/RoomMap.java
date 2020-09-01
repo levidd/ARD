@@ -1,3 +1,4 @@
+
 package com.mwl.environment;
 
 import com.mwl.characters.Monster;

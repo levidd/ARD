@@ -19,10 +19,11 @@ public class Game {
     Player player;
     RoomMap gameMap;
 
-
     public Game() {
         // default constructor
         gameMap = new RoomMap();
+        player = new PlayerA("player1", 100, gameMap.getStart(), new ArrayList<>());
+
     }
 
     boolean play() {
@@ -30,12 +31,12 @@ public class Game {
         System.out.println(player.getCurrentRoom().getDescription());
 
         // ask what player wants to do
-            // Text parser
+        // Text parser
         String[] command = TextParser.parser();
-            // do that thing
+        // do that thing
         switch (command[0]) {
             case "move" -> gameMap.moveCharacter(player, Direction.valueOf(command[1]));
-            case "look" -> player.getCurrentRoom().overview();
+            case "look" -> Look(player, command[1]);
             case "flight" -> Flight(player, command[1]);
             case "fight" -> Fight(player, command[1]);
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
@@ -51,7 +52,6 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
-        player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
         while (playGame) {
@@ -65,13 +65,21 @@ public class Game {
     }
 
     void Flight(Player player, String option) {
-            System.out.println("Flying " + option);
-            // run method to do the action
+        System.out.println("Flying " + option);
+        // run method to do the action
     }
 
     void Fight (Player player, String option) {
-            System.out.println("fighting " + option);
-            // run method to do the action
+        System.out.println("fighting " + option);
+        // run method to do the action
+    }
+
+    void Look(Player player, String option) {
+        switch (option) {
+            case "Around" -> player.getCurrentRoom().overview();
+            case "Me" -> player.printStats();
+        }
     }
 
 }
+

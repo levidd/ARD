@@ -78,6 +78,7 @@ public class ConsoleManager {
      public static Player choosePlayer(RoomMap map) {
          System.out.println("Name your player: ");
          String name = scanner.nextLine();
+
          System.out.println("[Player type A has special ability of health boost];\n " +
                  "[Player type B has special ability to randomly generate one item that's already in inventory].");
          System.out.println("Choose Player type A or Player type B: ");

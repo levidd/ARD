@@ -47,4 +47,14 @@ public abstract class Monster {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Monster{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", life=" + life +
+                ", currentRoom=" + currentRoom +
+                '}';
+    }
 }

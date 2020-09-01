@@ -1,4 +1,3 @@
-
 package com.mwl.util;
 
 import java.util.Scanner;
@@ -10,3 +9,5 @@ public class ExitGame {
         }
     }
 }
+
+

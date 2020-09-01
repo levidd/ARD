@@ -43,6 +43,7 @@ public class Game {
             case "fight" -> Fight(player, command[1]);
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
             case "drop" -> player.dropItem(Item.valueOf(command[1]));
+            case "help" -> ConsoleManager.gameExplanation();
         }
 
         // if any monsters on map, have them move to new location if applicable

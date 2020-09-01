@@ -1,14 +1,18 @@
 package com.mwl.util;
 
 // importing enum classes
-import com.mwl.characters.Player;
+
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
 
-// importing java classes
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 import static com.mwl.util.ExitGame.exit;
+
+// importing java classes
 
 // TextParser blueprint begins
 public class TextParser{

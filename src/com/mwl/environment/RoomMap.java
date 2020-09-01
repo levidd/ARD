@@ -122,6 +122,6 @@ public class RoomMap {
      * @return
      */
     private Room makeNewRoom() {
-        return new Room("Room #", map.size());
+        return new Room("Room #"+ String.valueOf(map.size()), map.size());
     }
 }

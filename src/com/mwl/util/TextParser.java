@@ -1,14 +1,12 @@
 package com.mwl.util;
 
 // importing enum classes
+import com.mwl.characters.Player;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
 
 // importing java classes
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static com.mwl.util.ExitGame.exit;
 
@@ -22,7 +20,6 @@ public class TextParser{
 
     //  Move parser implementing Command interface
     public static class Move implements Command {
-        // must implement methods
         @Override
         public void do_command(String direction) {
             // Check if the argument direction do not match a direction in the Direction enum
@@ -31,7 +28,7 @@ public class TextParser{
                 throw new IllegalArgumentException("Move where?");
             }else{
                 // this runs if match is found in the Direction enum
-                System.out.println("Moving " + direction);
+//                System.out.println("Moving " + direction);
                 // here we can run method to do action or make this method return a value to pass to another method
             }
         }
@@ -42,7 +39,7 @@ public class TextParser{
         public void do_command(String option) {
             if (option == null)
                 throw new IllegalArgumentException("Flight where?");
-            System.out.println("Flying " + option);
+//            System.out.println("Flying " + option);
             // run method to do the action
         }
     }
@@ -52,7 +49,7 @@ public class TextParser{
         public void do_command(String option) {
             if (option == null)
                 throw new IllegalArgumentException("Look where?");
-            System.out.println("Looking " + option);
+//            System.out.println("Looking " + option);
             // run method to do the action
         }
     }
@@ -62,22 +59,24 @@ public class TextParser{
         public void do_command(String option) {
             if (option == null)
                 throw new IllegalArgumentException("Fight who?");
-            System.out.println("fighting " + option);
+//            System.out.println("fighting " + option);
             // run method to do the action
         }
     }
 
     public static class Pickup implements Command {
+
         @Override
         public void do_command(String option) {
             if (option == null)
                 throw new IllegalArgumentException("pickup what?");
-            System.out.println("Picking up " + option);
+//            System.out.println("Picking up " + option);
             // run method to do the action
         }
     }
 
     public static class Drop implements Command {
+
         @Override
         public void do_command(String option) {
             // Save word to use multiple times.
@@ -85,15 +84,31 @@ public class TextParser{
             if (!Arrays.stream(Item.values()).anyMatch((item) -> item.name().equals(option))){
                 throw new IllegalArgumentException("Drop what?");
             }else{
-                System.out.println("Dropping " + option);
+//                System.out.println("Dropping " + option);
                 // run method to do the action or make this method return a value to pass to another method
             }
         }
+
+
+    }
+
+    public static class Help implements Command {
+
+        @Override
+        public void do_command(String option) {
+            // Check if the argument word do not match the items in the enum
+            if (option != "help"){
+                throw new IllegalArgumentException("Invalid command. Try again!");
+            }else{
+
+            }
+        }
+
+
     }
 
 
-    public static void parser(){
-        System.out.println("Type something");
+    public static String[] parser() {
         Map<String, Command> commands = new HashMap<>();
         commands.put("pickup", new Pickup());
         commands.put("drop", new Drop());
@@ -101,35 +116,37 @@ public class TextParser{
         commands.put("flight", new Flight());
         commands.put("look", new Look());
         commands.put("fight",  new Fight());
+        commands.put("help", new Help());
 
         // Parse text
         Scanner tryScanner = new Scanner(System.in);
         String playerInput;
         boolean valid = false;
+        String[] words;
         do {
             playerInput = tryScanner.nextLine();
             // check if input text is "exit." We need to do this on every input scanner.
             exit(playerInput);
-            String[] words = playerInput.toLowerCase().split("\\W+");
+            words = playerInput.toLowerCase().split("\\W+");
             if(words.length != 2){
-                System.out.println("Invalid command. Try again!");
-                continue;
-            }else {
+                System.out.println("Not a valid action. Try again!");
+            } else {
                 if(commands.containsKey(words[0])){
                     try {
                         String capitalize = words[1].substring(0, 1).toUpperCase() + words[1].substring(1);
                         commands.get(words[0]).do_command(capitalize);
+                        words[1] = capitalize;
                         valid = true;
                     }catch (IllegalArgumentException e){
                         System.out.println("Not a valid action. Try again!");
                     }
                 }else {
-                    System.out.println("Not a valid action. Try again!");
-                }            }
-        }while (!valid);
+                    System.out.println("Invalid command. Try again!");
+                }
+            }
+        } while (!valid);
+
+        return words;
     }
 
-    public static void main(String[] args) {
-        parser();
-    }
 }

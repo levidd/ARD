@@ -47,10 +47,10 @@ public class TextParser{
     public static class Look implements Command {
         @Override
         public void do_command(String option) {
-            if (option == null)
+            List<String> valid = List.of("Around", "Item", "Me");
+            if (option == null || !valid.contains(option))
                 throw new IllegalArgumentException("Look where?");
-//            System.out.println("Looking " + option);
-            // run method to do the action
+
         }
     }
 

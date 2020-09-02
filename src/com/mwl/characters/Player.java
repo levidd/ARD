@@ -1,22 +1,21 @@
 package com.mwl.characters;
 
-import java.util.Collection;
-
-import com.mwl.environment.Direction;
-import com.mwl.environment.Room;
 import com.mwl.environment.Item;
+import com.mwl.environment.Room;
+
+import java.util.List;
 
 
 public abstract class Player {
     private String name;
     private int life;
     private Room currentRoom;
-    private Collection<Item> itemsInventory;
+    private List<Item> itemsInventory;
 
     public Player(){
     }
 
-    public Player(String name, int life, Room currentRoom, Collection<Item> itemsInventory){
+    public Player(String name, int life, Room currentRoom, List<Item> itemsInventory){
         this.name = name;
         this.life = life;
         this.currentRoom = currentRoom;
@@ -24,21 +23,41 @@ public abstract class Player {
     }
 
 
-    //add the item picked up by the user into the item inventory collection
+    /*If the item is in current room, add the item picked up by the user into the item inventory
+    * and remove the item from the room item list
+    * if input is not in Item Enum, throw Exception
+    * */
     public void pickUpItem(Item item){
+//        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
+//            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
+//        }
+         if(currentRoom.getItems().contains(item)){
             itemsInventory.add(item);
+            currentRoom.grabItem(item);
+        } else {
+            System.out.println("Can't pick up! This item is not in the current room!");
+        }
+
     }
 
-    //remove the item dropped by the user from the item inventory collection
+    /*If the item is in player inventory, remove the item dropped by the user from the item inventory
+    * and add the item into the room item list
+    * if input is not in Item Enum, throw Exception
+    * */
     public void dropItem(Item item){
-        if(itemsInventory.contains(item)){
+//        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
+//            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
+//        }
+         if(itemsInventory.contains(item)){
             itemsInventory.remove(item);
+            currentRoom.addItem(item);
         } else {
             System.out.println("Can't drop this item! It's not in player's item inventory!");
         }
     }
 
     public abstract void attack();
+    public abstract void useSpecialPower();
 
     public String getName() {
         return name;
@@ -60,10 +79,10 @@ public abstract class Player {
         this.currentRoom = currentRoom;
     }
 
-    public Collection<Item> getItemsInventory() {
+    public List<Item> getItemsInventory() {
         return itemsInventory;
     }
-    public void setItemsInventory(Collection<Item> itemsInventory) {
+    public void setItemsInventory(List<Item> itemsInventory) {
         this.itemsInventory = itemsInventory;
     }
 

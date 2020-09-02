@@ -1,5 +1,8 @@
 package com.mwl.util;
 
+import com.mwl.characters.Player;
+import com.mwl.characters.PlayerFactory;
+import com.mwl.environment.RoomMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,19 +19,15 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.mwl.util.ExitGame.exit;
+
 public class ConsoleManager {
      private String input;
+     RoomMap gameMap;
      private static final Scanner scanner = new Scanner(System.in);
      private static MenuTrieNode menu = read_xml();
 
      public ConsoleManager(){}
-
-     public static void check(String userInput){
-       /*check whether user input matches the target commands
-       * if so, game continues
-       * otherwise, a warning pops up and the question repeats
-       * */
-     }
 
      public static void gameIntro() {
           System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
@@ -51,7 +50,6 @@ public class ConsoleManager {
                } else {
                     System.out.println("I didn't understand that option, please try again.");
                }
-
           }
 
           return (choice == options.size() - 1 ? -1 : choice == options.size() - 2 ? -2 : choice); // -> -1 or -2 or some number in list
@@ -77,6 +75,32 @@ public class ConsoleManager {
                     curr = curr.getChild(choice);
                }
           }
+     }
+
+     public static Player choosePlayer(RoomMap map) {
+         String[] instructions = {
+                 "Please just type in the letter 'A' or 'B' to choose the type of player you want to play with.",
+                 "A: [Wolverine] has special ability of health boost;\n" +
+                         "B: [Iron Man] has special ability to randomly generate one item that's already in inventory.",
+                 "Wrong input!\n"+"Enter A or B: ",
+         };
+
+         System.out.println(instructions[0]);
+         System.out.println(instructions[1]);
+         String playerChoice = scanner.nextLine();
+         exit(playerChoice);
+         while (!playerChoice.toUpperCase().strip().equals(Character.toString('A')) &&
+                 !playerChoice.toUpperCase().strip().equals(Character.toString('B'))) {
+             System.out.println(instructions[2]);
+             System.out.println(instructions[0]);
+             System.out.println(instructions[1]);
+             playerChoice = scanner.nextLine();
+             exit(playerChoice);
+         }
+         String playName = (playerChoice.toUpperCase().strip().equals(Character.toString('A')))? "Wolverine":"Iron Man";
+             System.out.println("Player type: ["+ playName + "] has been chosen.");
+
+         return  PlayerFactory.createPlayer(map.getStart(), new ArrayList<>(), playerChoice);
      }
 
       static MenuTrieNode recursiveHelper(Node current) {

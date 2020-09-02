@@ -1,19 +1,11 @@
 package com.mwl.ard;
 
-import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
-import com.mwl.characters.PlayerA;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
-import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 public class Game {
     Player player;
@@ -22,8 +14,6 @@ public class Game {
     public Game() {
         // default constructor
         gameMap = new RoomMap();
-        player = new PlayerA("player1", 100, gameMap.getStart(), new ArrayList<>());
-
     }
 
     boolean play() {
@@ -31,9 +21,9 @@ public class Game {
         System.out.println(player.getCurrentRoom().getDescription());
 
         // ask what player wants to do
-            // Text parser
+        // Text parser
         String[] command = TextParser.parser();
-            // do that thing
+        // do that thing
         switch (command[0]) {
             case "move" -> gameMap.moveCharacter(player, Direction.valueOf(command[1]));
             case "look" -> Look(player, command[1]);
@@ -52,6 +42,7 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
+        player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
         while (playGame) {
@@ -65,13 +56,13 @@ public class Game {
     }
 
     void Flight(Player player, String option) {
-            System.out.println("Flying " + option);
-            // run method to do the action
+        System.out.println("Flying " + option);
+        // run method to do the action
     }
 
     void Fight (Player player, String option) {
-            System.out.println("fighting " + option);
-            // run method to do the action
+        System.out.println("fighting " + option);
+        // run method to do the action
     }
 
     void Look(Player player, String option) {
@@ -82,3 +73,4 @@ public class Game {
     }
 
 }
+

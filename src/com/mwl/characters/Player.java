@@ -1,12 +1,9 @@
 package com.mwl.characters;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
-import com.mwl.environment.Direction;
-import com.mwl.environment.Room;
 import com.mwl.environment.Item;
+import com.mwl.environment.Room;
+
+import java.util.List;
 
 
 public abstract class Player {

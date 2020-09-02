@@ -76,13 +76,28 @@ public class ConsoleManager {
      }
 
      public static Player choosePlayer(RoomMap map) {
-         System.out.println("Name your player: ");
+         String[] instructions = {
+                 "Name your player: ",
+                 "[Player type A has special ability of health boost;]\n" +
+                         "[Player type B has special ability to randomly generate one item that's already in inventory.]",
+                 "Choose Player type A or B: ",
+                 "Wrong input!\n" +
+                         "[Please just type in the letter 'A' or 'B' to choose the type of player you want to play with.]"
+         };
+         System.out.println(instructions[0]);
          String name = scanner.nextLine();
 
-         System.out.println("[Player type A has special ability of health boost];\n " +
-                 "[Player type B has special ability to randomly generate one item that's already in inventory].");
-         System.out.println("Choose Player type A or Player type B: ");
+         System.out.println(instructions[1]);
+         System.out.println(instructions[2]);
          String playerChoice = scanner.nextLine();
+         while (!playerChoice.toUpperCase().strip().equals(Character.toString('A')) &&
+                 !playerChoice.toUpperCase().strip().equals(Character.toString('B'))) {
+             System.out.println(instructions[3]);
+             System.out.println(instructions[1]);
+             System.out.println(instructions[2]);
+             playerChoice = scanner.nextLine();
+         }
+             System.out.println("Player type "+ playerChoice.toUpperCase().strip() + " has been chosen.");
 
          return  PlayerFactory.createPlayer(name, 100, map.getStart(), new ArrayList<>(), playerChoice);
      }

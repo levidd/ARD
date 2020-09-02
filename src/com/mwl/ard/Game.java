@@ -22,8 +22,6 @@ public class Game {
     public Game() {
         // default constructor
         gameMap = new RoomMap();
-        player = new PlayerA("player1", 100, gameMap.getStart(), new ArrayList<>());
-
     }
 
     boolean play() {
@@ -52,6 +50,7 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
+        player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
         while (playGame) {

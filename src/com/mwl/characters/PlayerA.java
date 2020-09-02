@@ -17,11 +17,11 @@ public class PlayerA extends Player{
 
     }
 
-    public void health_boost(){
-       int lifeValue = getLife();
-       lifeValue += 50;
-       setLife(lifeValue);
+    @Override //health boost
+    public void useSpecialPower() {
+        int lifeValue = getLife();
+        lifeValue += 50;
+        setLife(lifeValue);
     }
-
 
 }

@@ -19,6 +19,8 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.mwl.util.ExitGame.exit;
+
 public class ConsoleManager {
      private String input;
      RoomMap gameMap;
@@ -86,16 +88,19 @@ public class ConsoleManager {
          };
          System.out.println(instructions[0]);
          String name = scanner.nextLine();
+         exit(name);
 
          System.out.println(instructions[1]);
          System.out.println(instructions[2]);
          String playerChoice = scanner.nextLine();
+         exit(playerChoice);
          while (!playerChoice.toUpperCase().strip().equals(Character.toString('A')) &&
                  !playerChoice.toUpperCase().strip().equals(Character.toString('B'))) {
              System.out.println(instructions[3]);
              System.out.println(instructions[1]);
              System.out.println(instructions[2]);
              playerChoice = scanner.nextLine();
+             exit(playerChoice);
          }
              System.out.println("Player type "+ playerChoice.toUpperCase().strip() + " has been chosen.");
 

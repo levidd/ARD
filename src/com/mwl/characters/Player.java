@@ -60,6 +60,7 @@ public abstract class Player {
     }
 
     public abstract void attack();
+    public abstract void useSpecialPower();
 
     public String getName() {
         return name;

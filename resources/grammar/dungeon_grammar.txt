@@ -1,0 +1,14 @@
+<sentence>::= <np> <vp>
+<np>::= <dp> <nom> | <dp> <adjp> <n>
+<adjp>::= <adj> | <adj> <comma> <adjp>
+<nom>::= <nom> <n> | <n>
+<vp>::= <iv> | <tv> <np> | <tv> <np> <pp> | <tv> <pp>
+<pp>::= <p> <np>
+
+<comma>::= ,
+<p>::= from
+<n>::= television | snake | smoke | rock | fire | slime | spider | chair | bat | children | pot | anvil | bench | animals(?) | cow | computer | horse | song
+<adj>::= big | fat | wet| gross | pleasant | hard | pretty | soft | light | heavy | hot | bland
+<dp>::= the | a
+<tv>::=bends | breaks | sings | drag | collects | flicks | gathers | imitates | loads | tighten | smells | wraps | spreads
+<iv>::=looked | grew | screamed | swim | swing | vanished | emerged | exists | exploded | faded | floated | kneeled | listened | look | panicked | paused | shook | smiled | wiggled

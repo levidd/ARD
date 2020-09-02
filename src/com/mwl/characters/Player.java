@@ -31,10 +31,10 @@ public abstract class Player {
     * if input is not in Item Enum, throw Exception
     * */
     public void pickUpItem(Item item){
-        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
-            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
-        }
-        else if(currentRoom.getItems().contains(item)){
+//        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
+//            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
+//        }
+         if(currentRoom.getItems().contains(item)){
             itemsInventory.add(item);
             currentRoom.grabItem(item);
         } else {
@@ -48,10 +48,10 @@ public abstract class Player {
     * if input is not in Item Enum, throw Exception
     * */
     public void dropItem(Item item){
-        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
-            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
-        }
-        else if(itemsInventory.contains(item)){
+//        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
+//            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
+//        }
+         if(itemsInventory.contains(item)){
             itemsInventory.remove(item);
             currentRoom.addItem(item);
         } else {

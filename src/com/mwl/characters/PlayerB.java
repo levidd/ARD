@@ -19,7 +19,7 @@ public class PlayerB extends Player{
     public void more_power (){
         List<Item> inventory = getItemsInventory();
         int len = inventory.size();
-       if( len >=1) {
+       if(len >= 1) {
            int random = (int) (Math.random()*len + 1);
            inventory.add(inventory.get(random));
        }

@@ -20,6 +20,7 @@ public class PlayerA extends Player{
     public void health_boost(){
        int lifeValue = getLife();
        lifeValue += 50;
+       setLife(lifeValue);
     }
 
 

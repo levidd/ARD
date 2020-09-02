@@ -3,7 +3,7 @@ package com.mwl.environment;
 import com.mwl.characters.Monster;
 import com.mwl.characters.Normal;
 import com.mwl.characters.Player;
-import com.mwl.characters.PlayerA;
+import com.mwl.characters.Wolverine;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class RoomMapTest {
     @Before
     public void setUp() throws Exception {
         map = new RoomMap();
-        player = new PlayerA("temp", 100, map.getStart(), new ArrayList<>());
+        player = new Wolverine("temp", 100, map.getStart(), new ArrayList<>());
         monster = new Normal("monster1", 100, map.getStart(), "A normal monster");
     }
 

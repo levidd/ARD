@@ -6,8 +6,8 @@ import com.mwl.environment.Room;
 import java.util.Collection;
 import java.util.List;
 
-public class PlayerB extends Player{
-    public PlayerB(String name, int life, Room currentRoom, List<Item> itemsInventory){
+public class Ironman extends Player{
+    public Ironman(String name, int life, Room currentRoom, List<Item> itemsInventory){
         super(name, life, currentRoom, itemsInventory);
     }
 

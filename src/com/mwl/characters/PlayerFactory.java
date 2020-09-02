@@ -11,14 +11,14 @@ public class PlayerFactory {
 
     }
 
-    public static Player createPlayer(String name, int life, Room currentRoom, List<Item> itemInventory, String playerOption) {
+    public static Player createPlayer(Room currentRoom, List<Item> itemInventory, String playerOption) {
         Player player = null;
         switch (playerOption.toUpperCase().strip()) {
             case "A":
-                player = new PlayerA(name, life, currentRoom, itemInventory);
+                player = new Wolverine("Wolverine", 100, currentRoom, itemInventory);
                 break;
             case "B":
-                player = new PlayerB(name, life, currentRoom, itemInventory);
+                player = new Ironman("Iron Man", 100, currentRoom, itemInventory);
                 break;
         }
         return player;

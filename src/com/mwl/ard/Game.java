@@ -1,19 +1,11 @@
 package com.mwl.ard;
 
-import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
-import com.mwl.characters.PlayerA;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
-import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 public class Game {
     Player player;

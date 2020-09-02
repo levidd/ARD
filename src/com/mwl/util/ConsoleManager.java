@@ -79,32 +79,28 @@ public class ConsoleManager {
 
      public static Player choosePlayer(RoomMap map) {
          String[] instructions = {
-                 "Name your player: ",
-                 "[Player type A has special ability of health boost;]\n" +
-                         "[Player type B has special ability to randomly generate one item that's already in inventory.]",
-                 "Choose Player type A or B: ",
-                 "Wrong input!\n" +
-                         "[Please just type in the letter 'A' or 'B' to choose the type of player you want to play with.]"
+                 "Please just type in the letter 'A' or 'B' to choose the type of player you want to play with.",
+                 "A: [Wolverine] has special ability of health boost;\n" +
+                         "B: [Iron Man] has special ability to randomly generate one item that's already in inventory.",
+                 "Wrong input!\n"+"Enter A or B: ",
          };
-         System.out.println(instructions[0]);
-         String name = scanner.nextLine();
-         exit(name);
 
+         System.out.println(instructions[0]);
          System.out.println(instructions[1]);
-         System.out.println(instructions[2]);
          String playerChoice = scanner.nextLine();
          exit(playerChoice);
          while (!playerChoice.toUpperCase().strip().equals(Character.toString('A')) &&
                  !playerChoice.toUpperCase().strip().equals(Character.toString('B'))) {
-             System.out.println(instructions[3]);
-             System.out.println(instructions[1]);
              System.out.println(instructions[2]);
+             System.out.println(instructions[0]);
+             System.out.println(instructions[1]);
              playerChoice = scanner.nextLine();
              exit(playerChoice);
          }
-             System.out.println("Player type "+ playerChoice.toUpperCase().strip() + " has been chosen.");
+         String playName = (playerChoice.toUpperCase().strip().equals(Character.toString('A')))? "Wolverine":"Iron Man";
+             System.out.println("Player type: ["+ playName + "] has been chosen.");
 
-         return  PlayerFactory.createPlayer(name, 100, map.getStart(), new ArrayList<>(), playerChoice);
+         return  PlayerFactory.createPlayer(map.getStart(), new ArrayList<>(), playerChoice);
      }
 
       static MenuTrieNode recursiveHelper(Node current) {

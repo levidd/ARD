@@ -16,7 +16,7 @@ public class PlayerB extends Player{
 
     }
 
-    public void more_power (){
+    public void more_power(){
         List<Item> inventory = getItemsInventory();
         int len = inventory.size();
        if(len >= 1) {

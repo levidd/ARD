@@ -2,6 +2,7 @@ package com.mwl.environment;
 
 import com.mwl.characters.Monster;
 import com.mwl.characters.Normal;
+import com.mwl.util.Codes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,10 +123,10 @@ public class Room {
      *  Brief overview of what is in a room
      */
     public void overview(){
-        System.out.println("\u22a1 " + "You are in room " + getId() + "\n" +
+        System.out.println(Codes.Room.getCode() + " " + "You are in room " + getId() + "\n" +
                 getDescription()+"\n"+
-                "\u2200 " + itemsPresent() + "\n"+
-                "\u2648 " + monstersPresent());
+                Codes.Item.getCode() + " " + itemsPresent() + "\n"+
+                Codes.Monster.getCode() + " " + monstersPresent());
 
     }
 

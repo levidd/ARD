@@ -38,7 +38,6 @@ public class Grammar {
                 }
             }
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +51,7 @@ public class Grammar {
      */
     private void addTo(String key, List<String> values) throws IllegalArgumentException {
         if (grammar.containsKey(key)) {
-            throw new IllegalArgumentException("Redundant nonterminal! :: " + key);
+            throw new IllegalArgumentException("Redundant non-terminal! :: " + key);
         }
         grammar.put(key, values);
     }
@@ -68,8 +67,6 @@ public class Grammar {
             throw new IllegalArgumentException("Grammar is missing sentence non-terminal!");
         }
         return capitalize(fixGrammar(generate("<sentence>"))) + ".";
-
-
     }
 
     /**

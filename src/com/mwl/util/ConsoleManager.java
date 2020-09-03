@@ -164,7 +164,6 @@ public class ConsoleManager {
           return failure;
      }
 
-
     /**
      * scanInput gets user input and validates input
      * @param commands
@@ -213,5 +212,4 @@ public class ConsoleManager {
     public static Scanner scanner() {
         return scanner;
     }
-
 }

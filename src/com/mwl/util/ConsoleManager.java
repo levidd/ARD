@@ -10,6 +10,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,15 +25,20 @@ public class ConsoleManager {
 
      public ConsoleManager(){}
 
-     public static void check(String userInput){
-       /*check whether user input matches the target commands
-       * if so, game continues
-       * otherwise, a warning pops up and the question repeats
-       * */
+     private static String gameTitle() {
+         String result;
+         try {
+             result = Files.lines(Path.of("resources/title_art/title_slanted.txt")).collect(Collectors.joining("\n"));
+         } catch (IOException e) {
+             result = "A. R. D.\n\n";
+         }
+
+         return result;
      }
 
      public static void gameIntro() {
-          System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
+         System.out.println(gameTitle());
+         System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
      }
 
      private static int getInput(List<List<String>> options) {

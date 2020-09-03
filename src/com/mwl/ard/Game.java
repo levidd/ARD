@@ -1,15 +1,20 @@
 package com.mwl.ard;
 
+import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Player;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
+import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
+import java.util.Random;
+
 public class Game {
     Player player;
     RoomMap gameMap;
+    Random random = new Random();
 
     public Game() {
         // default constructor
@@ -35,6 +40,12 @@ public class Game {
         }
 
         // if any monsters on map, have them move to new location if applicable
+//        int number = random.nextInt(100);
+//        Room currentRoom = player.getCurrentRoom();
+//        if(number<20){
+//            currentRoom.addMonster(MonsterFactory.createMonster(currentRoom));
+//        }
+
 
         return true;
     }

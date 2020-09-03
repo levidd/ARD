@@ -16,8 +16,10 @@ public class Wolverine extends Player{
     @Override
     public void attack() {
        int lifeValue = monster.getLife();
-       lifeValue -= 10;
-       setLife(lifeValue);
+       lifeValue -= 20;
+       monster.setLife(lifeValue);
+        System.out.println("Wolverine has attacked monster and monster lost life value of: 20");
+        System.out.println("Monster current life value is: " + lifeValue);
     }
 
     @Override //health boost

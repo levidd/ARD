@@ -97,7 +97,7 @@ public class Room {
     //randomly generate normal monsters with a probability of 20%
     public void generateRandomNormalMonsters(){
         int number = random.nextInt(100);
-        if(number<100){
+        if(number<33){
             addMonster(MonsterFactory.createMonster());
         }
     }
@@ -170,7 +170,7 @@ public class Room {
      */
     private String monstersPresent(){
         if(getMonsters().size() > 0){
-            return getMonsters().size() + " monster(s):"+ getMonsters().toString();
+            return getMonsters().size() + " monster:"+ getMonsters().toString();
         }else {
             return "No monsters present in this room.";
         }

@@ -98,9 +98,9 @@ public class RoomMap {
      * @param direction which direction to move into
      * @throws IllegalArgumentException
      */
-    public void moveCharacter(Monster monster, Direction direction) throws IllegalArgumentException {
-        monster.setCurrentRoom(moveRoom(monster.getCurrentRoom(), direction, "monster"));
-    }
+//    public void moveCharacter(Monster monster, Direction direction) throws IllegalArgumentException {
+//        monster.setCurrentRoom(moveRoom(monster.getCurrentRoom(), direction, "monster"));
+//    }
 
     /**
      * Returns the opposing direction string

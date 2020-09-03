@@ -45,6 +45,7 @@ public class ConsoleManager {
          System.out.println(gameTitle());
          System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
          System.out.println("To learn about the game, type \"help me\".");
+         System.out.println();
      }
 
      private static int getInput(List<List<String>> options) {

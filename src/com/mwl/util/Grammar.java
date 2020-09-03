@@ -26,7 +26,7 @@ public class Grammar {
      */
     private void readRules() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("resources/grammar/dungeon_grammar2.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("resources/grammar/dungeon_grammar.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] rules = line.split("::=");

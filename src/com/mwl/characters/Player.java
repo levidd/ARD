@@ -69,9 +69,9 @@ public abstract class Player {
     }
 
     public void printStats() {
-        System.out.println(Codes.Player.getCode() + " " + getName());
-        System.out.println(Codes.Life.getCode() + " " + getLife());
-        System.out.println(Codes.Room.getCode() + " Room " + getCurrentRoom().getId());
-        System.out.println(Codes.Item.getCode() + " " + getItemsInventory());
+        System.out.println(Codes.Player.getCode() + getName());
+        System.out.println(Codes.Life.getCode() + getLife());
+        System.out.println(Codes.Room.getCode()  + "Room " + getCurrentRoom().getId());
+        System.out.println(Codes.Item.getCode() + getItemsInventory());
     }
 }

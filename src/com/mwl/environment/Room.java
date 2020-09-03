@@ -123,10 +123,10 @@ public class Room {
      *  Brief overview of what is in a room
      */
     public void overview(){
-        System.out.println(Codes.Room.getCode() + " " + "You are in room " + getId() + "\n" +
+        System.out.println(Codes.Room.getCode() + "You are in room " + getId() + "\n" +
                 getDescription()+"\n"+
-                Codes.Item.getCode() + " " + itemsPresent() + "\n"+
-                Codes.Monster.getCode() + " " + monstersPresent());
+                Codes.Item.getCode() + itemsPresent() + "\n"+
+                Codes.Monster.getCode() + monstersPresent());
 
     }
 

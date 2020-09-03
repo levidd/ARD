@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class Wolverine extends Player{
+    Monster monster;
 
     public Wolverine(String name, int life, Room currentRoom, List<Item> itemsInventory){
         super(name, life, currentRoom, itemsInventory);
@@ -14,7 +15,9 @@ public class Wolverine extends Player{
 
     @Override
     public void attack() {
-
+       int lifeValue = monster.getLife();
+       lifeValue -= 10;
+       setLife(lifeValue);
     }
 
     @Override //health boost

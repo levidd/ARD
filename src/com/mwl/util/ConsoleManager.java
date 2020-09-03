@@ -3,6 +3,7 @@ package com.mwl.util;
 import com.mwl.characters.Player;
 import com.mwl.characters.PlayerFactory;
 import com.mwl.environment.RoomMap;
+import com.mwl.util.commands.Commands;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -17,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -152,5 +154,52 @@ public class ConsoleManager {
           return failure;
      }
 
+    /**
+     * scanInput gets user input and validates input
+     * @param commands
+     * @param str
+     * @return Array of valid words
+     */
+    public static String[] scanInput(Map<String, Commands> commands, String str) {
+        String playerInput = null;
+        boolean valid = false;
+        String[] words;
+        int counter = 0;
+        do {
+            if (counter == 0) {
+                playerInput = str.strip().toLowerCase();
+                counter++;
+            } else {
+                playerInput = scanner().nextLine().strip().toLowerCase();
+            }
+            // check if input text is "exit." We need to do this on every input scanner.
+            exit(playerInput);
+            words = playerInput.split("\\W+");
+            if (words.length != 2) {
+                System.out.println("Not a valid action. Try again!");
 
+            } else {
+                if (commands.containsKey(words[0])) {
+                    try {
+                        words[1] = words[1].substring(0, 1).toUpperCase() + words[1].substring(1);
+                        commands.get(words[0]).do_command(words[1]);
+                        valid = true;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Not a valid action. Try again!");
+                    }
+                } else {
+                    System.out.println("Invalid command. Try again!");
+                }
+            }
+        } while (!valid);
+        return words;
+    }
+
+    /**
+     * Scanner class enable used of the same scanner outside class.
+     * @return scanner
+     */
+    public static Scanner scanner() {
+        return scanner;
+    }
 }

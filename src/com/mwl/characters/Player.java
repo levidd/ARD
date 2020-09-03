@@ -1,6 +1,7 @@
 package com.mwl.characters;
 
 import com.mwl.environment.Item;
+import com.mwl.util.Codes;
 import com.mwl.environment.Room;
 
 import java.util.List;
@@ -87,9 +88,9 @@ public abstract class Player {
     }
 
     public void printStats() {
-        System.out.println("\u261b " + getName());
-        System.out.println("\u2665 " + getLife());
-        System.out.println("\u22a1 " + getCurrentRoom().getDescription());
-        System.out.println("\u2200 " + getItemsInventory());
+        System.out.println(Codes.Player.getCode() + getName());
+        System.out.println(Codes.Life.getCode() + getLife());
+        System.out.println(Codes.Room.getCode()  + "Room " + getCurrentRoom().getId());
+        System.out.println(Codes.Item.getCode() + getItemsInventory());
     }
 }

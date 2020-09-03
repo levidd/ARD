@@ -23,7 +23,8 @@ public class Game {
 
     boolean play() {
         // tell player what room they are in or if monster is in front of them
-        System.out.println(player.getCurrentRoom().getDescription());
+//        System.out.println(player.getCurrentRoom().getDescription());
+        System.out.print("> ");
 
         // ask what player wants to do
         // Text parser

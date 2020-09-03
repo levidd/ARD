@@ -3,6 +3,7 @@ package com.mwl.environment;
 import com.mwl.characters.Monster;
 import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Normal;
+import com.mwl.util.Codes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class Room {
      * @return description
      */
     public String getDescription() {
-        return description;
+        return "\u201f " + description + " \u201d";
     }
 
     /**
@@ -147,9 +148,10 @@ public class Room {
      *  Brief overview of what is in a room
      */
     public void overview(){
-        System.out.println("You are in room " + getId() + "\n" +
-                itemsPresent() + "\n"+
-                monstersPresent());
+        System.out.println(Codes.Room.getCode() + "You are in room " + getId() + "\n" +
+                getDescription()+"\n"+
+                Codes.Item.getCode() + itemsPresent() + "\n"+
+                Codes.Monster.getCode() + monstersPresent());
     }
 
     /**

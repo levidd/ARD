@@ -5,11 +5,11 @@ import com.mwl.environment.Room;
 public class Normal extends Monster{
 
     // Constructor
-    public Normal(String name, int life, Room currentRoom, String description){
+    public Normal(String name, int life, String description){
         setName(name);
         setDescription(description);
         setLife(life);
-        setCurrentRoom(currentRoom);
+     //   setCurrentRoom(currentRoom);
     }
 
     // Abstract methods with local logic

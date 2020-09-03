@@ -1,5 +1,6 @@
 package com.mwl.util;
 
+import com.mwl.util.commands.*;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -10,11 +11,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStream;
+import java.util.*;
 
 import static com.mwl.util.ConsoleManager.recursiveHelper;
+import static com.mwl.util.TextParser.parser;
 import static org.junit.Assert.*;
 
 public class ConsoleManagerTest {
@@ -27,18 +31,10 @@ public class ConsoleManagerTest {
 
     }
 
-    @org.junit.Test
-    public void testGameIntro() {
-    }
-
-    @org.junit.Test
-    public void testGameExplanation() {
-    }
-
     @Test
     public void testRecursiveHelper() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse("test/com/mwl/util/test.xml");
+        Document doc = builder.parse("testResources/menu/test.xml");
         menuNodeList = doc.getElementsByTagName("menu");
         Node menuNode = menuNodeList.item(0);
 
@@ -157,5 +153,102 @@ public class ConsoleManagerTest {
         assertEquals(node2, node3);
 
 
+    }
+
+    @Test
+    public void scanInputAcceptanceTestMoveNorthAllCases() {
+        Map<String, Commands> commands = new HashMap<>();
+        commands.put("pickup", new Pickup());
+        commands.put("drop", new Drop());
+        commands.put("move", new Move());
+        commands.put("flight", new Flight());
+        commands.put("look", new Look());
+        commands.put("fight", new Fight());
+        commands.put("help", new Help());
+        List<String> lineList = new ArrayList<>();
+        try {
+            File myFile = new File("testResources/inputMoveNorth.txt");
+            Scanner scanner = new Scanner(myFile);
+            while (scanner.hasNextLine()) {
+                lineList.add(scanner.nextLine());
+            }
+        } catch (IOException ioe) {
+            System.out.println("IOException");
+        }
+
+        for(int i=0; i < lineList.size(); i++ ){
+            String input = lineList.get(i);
+            System.out.println(input);
+//            InputStream in = new ByteArrayInputStream(input.getBytes());
+//            System.setIn(in);
+            String[] expected = {"move", "North"};
+            String[] actual = ConsoleManager.scanInput(commands,input);
+            assertEquals(expected, actual);
+        }
+    }
+
+    @Test
+    public void scanInputAcceptanceTestLookAroundAllCases() {
+        Map<String, Commands> commands = new HashMap<>();
+        commands.put("pickup", new Pickup());
+        commands.put("drop", new Drop());
+        commands.put("move", new Move());
+        commands.put("flight", new Flight());
+        commands.put("look", new Look());
+        commands.put("fight", new Fight());
+        commands.put("help", new Help());
+        List<String> lineList = new ArrayList<>();
+        try {
+            File myFile = new File("testResources/inputLookAround.txt");
+            Scanner scanner = new Scanner(myFile);
+            while (scanner.hasNextLine()) {
+                lineList.add(scanner.nextLine());
+            }
+        } catch (IOException ioe) {
+            System.out.println("IOException");
+        }
+
+        for(int i=0; i < lineList.size(); i++ ){
+            String input = lineList.get(i);
+            System.out.println(input);
+//            InputStream in = new ByteArrayInputStream(input.getBytes());
+//            System.setIn(in);
+            String[] expected = {"look", "Around"};
+            String[] actual = ConsoleManager.scanInput(commands,input);
+            assertEquals(expected, actual);
+        }
+    }
+
+
+    @Test
+    public void scanInputAcceptanceTestMoveWestWithSpaceBeforeAndAfter() {
+        Map<String, Commands> commands = new HashMap<>();
+        commands.put("pickup", new Pickup());
+        commands.put("drop", new Drop());
+        commands.put("move", new Move());
+        commands.put("flight", new Flight());
+        commands.put("look", new Look());
+        commands.put("fight", new Fight());
+        commands.put("help", new Help());
+        List<String> lineList = new ArrayList<>();
+        try {
+            File myFile = new File("testResources/inputMoveWest.txt");
+            Scanner scanner = new Scanner(myFile);
+            while (scanner.hasNextLine()) {
+                lineList.add(scanner.nextLine());
+            }
+        } catch (IOException ioe) {
+            System.out.println("IOException");
+        }
+
+        for(int i=0; i < lineList.size(); i++ ){
+            String input = lineList.get(i);
+            System.out.println(input);
+//            InputStream in = new ByteArrayInputStream(input.getBytes());
+//            System.setIn(in);
+            String[] expected = {"move", "West"};
+            String[] actual = ConsoleManager.scanInput(commands,input);
+            assertEquals(expected, actual);
+        }
     }
 }

@@ -4,11 +4,11 @@ import com.mwl.environment.Room;
 
 public class Boss extends Monster {
 
-    public Boss(String name, int life, Room currentRoom, String description) {
+    public Boss(String name, int life, String description) {
         setName(name);
         setDescription(description);
         setLife(life);
-        setCurrentRoom(currentRoom);
+ //       setCurrentRoom(currentRoom);
     }
 
     // Abstract methods with local logic

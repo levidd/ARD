@@ -6,7 +6,7 @@ public abstract class Monster {
    private String name;
    private String description;
    private int life;
-   private Room currentRoom;
+ //  private Room currentRoom;
 
     public Monster() {
         // default constructor
@@ -32,13 +32,13 @@ public abstract class Monster {
         this.life = life;
     }
 
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Room currentRoom) {
-        this.currentRoom = currentRoom;
-    }
+//    public Room getCurrentRoom() {
+//        return currentRoom;
+//    }
+//
+//    public void setCurrentRoom(Room currentRoom) {
+//        this.currentRoom = currentRoom;
+//    }
 
     public String getDescription() {
         return description;
@@ -50,11 +50,11 @@ public abstract class Monster {
 
     @Override
     public String toString() {
-        return "Monster{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", life=" + life +
-                ", currentRoom=" + currentRoom +
-                '}';
+        return //"[" +
+                "name:'" + name + '\'' +
+                ", description:'" + description + '\'' +
+                ", life:" + life;
+           //     ", currentRoom=" + currentRoom +
+           //     ']';
     }
 }

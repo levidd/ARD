@@ -14,7 +14,7 @@ public class RoomTest {
     @Before
     public void setUp() throws Exception {
         room1 = new Room("room desc", 1);
-        monster1 = new Normal("Chucky", 100, room1, "Bad");
+   //     monster1 = new Normal("Chucky", 100, room1, "Bad");
         item1 = Item.Food;
         room1.addMonster(monster1);
         room1.addItem(item1);

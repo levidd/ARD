@@ -30,7 +30,7 @@ public class Room {
      * @return description
      */
     public String getDescription() {
-        return description;
+        return "\u201f " + description + " \u201d";
     }
 
     /**
@@ -122,10 +122,10 @@ public class Room {
      *  Brief overview of what is in a room
      */
     public void overview(){
-        System.out.println("You are in room " + getId() + "\n" +
+        System.out.println("\u22a1 " + "You are in room " + getId() + "\n" +
                 getDescription()+"\n"+
-                itemsPresent() + "\n"+
-                monstersPresent());
+                "\u2200 " + itemsPresent() + "\n"+
+                "\u2648 " + monstersPresent());
 
     }
 

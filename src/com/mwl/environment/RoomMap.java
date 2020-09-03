@@ -3,6 +3,7 @@ package com.mwl.environment;
 
 import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
+import com.mwl.util.Grammar;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,12 +11,14 @@ import java.util.Map;
 public class RoomMap {
     private final Map<Room, Map<Direction, Room>> map; // underlying data structure
     private final Room start; // starting room
+    private final Grammar grammar; // grammar object for generating room descriptions
 
     /**
      * Default Constructor
      */
     public RoomMap() {
         map = new HashMap<>();
+        grammar = new Grammar();
         start = makeNewRoom();
         map.put(start, new HashMap<>());
     }
@@ -122,6 +125,6 @@ public class RoomMap {
      * @return
      */
     private Room makeNewRoom() {
-        return new Room("Room #"+ String.valueOf(map.size()), map.size());
+        return new Room(grammar.generate_Sentence(), map.size());
     }
 }

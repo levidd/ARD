@@ -70,7 +70,7 @@ public abstract class Player {
     public void printStats() {
         System.out.println("\u261b " + getName());
         System.out.println("\u2665 " + getLife());
-        System.out.println("\u22a1 " + getCurrentRoom().getDescription());
+        System.out.println("\u22a1 Room " + getCurrentRoom().getId());
         System.out.println("\u2200 " + getItemsInventory());
     }
 }

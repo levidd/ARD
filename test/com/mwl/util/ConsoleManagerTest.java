@@ -31,14 +31,6 @@ public class ConsoleManagerTest {
 
     }
 
-    @org.junit.Test
-    public void testGameIntro() {
-    }
-
-    @org.junit.Test
-    public void testGameExplanation() {
-    }
-
     @Test
     public void testRecursiveHelper() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilder builder = factory.newDocumentBuilder();

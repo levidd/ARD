@@ -7,9 +7,9 @@
             <kill_boss title="How to kill the boss" description="You need special items to defeat Bezos. They are sword, shield, potion, ...">
             </kill_boss>
         </winning>
-        <rooms title="What are rooms" description="Rooms are good.">
+        <rooms title="What are rooms" description="Rooms are the places where player might see items or/and monsters. Rooms are created instantly as player moves in any direction.">
         </rooms>
-        <survival title="How do I survive" description="You kill the monsters.">
+        <survival title="How do I survive" description="You kill the monsters and keep your life value is above 0.">
         </survival>
     </story>
     <gameplay title="Game Controls" description="To play the game, you type commands into the console. There are a plethora of commands to choose from, here are a few options. To call any of these, it is [command] [option]">
@@ -21,5 +21,7 @@
         </drop>
         <attack title="attack" description="to attack an enemy, say attack [monster]. MORE DETAILS LATER WHEN WE FIGURE OUT HOW IT WORKS">
         </attack>
+        <useSpecialPower title="use special power" description="to use the special power of the hero you have chosen. MORE DETAILS LATER.">
+        </useSpecialPower>
     </gameplay>
 </menu>

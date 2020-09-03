@@ -1,6 +1,7 @@
 package com.mwl.environment;
 
 import com.mwl.characters.Monster;
+import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Normal;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Room {
     private final int id; // room id (for ensuring hashcode is different)
     private Random random = new Random(); // Generate random numbers
 
+
     /**
      * Constructor
      * @param description
@@ -26,6 +28,7 @@ public class Room {
         items = new ArrayList<>();
         monsters = new ArrayList<>();
         generateRandomRoomItems();
+        generateRandomNormalMonsters();
     }
 
     /**
@@ -89,6 +92,13 @@ public class Room {
     public void addMonster(Monster monster){
         if(monster != null){
             monsters.add(monster);
+        }
+    }
+    //randomly generate normal monsters with a probability of 20%
+    public void generateRandomNormalMonsters(){
+        int number = random.nextInt(100);
+        if(number<33){
+            addMonster(MonsterFactory.createMonster());
         }
     }
 
@@ -160,7 +170,7 @@ public class Room {
      */
     private String monstersPresent(){
         if(getMonsters().size() > 0){
-            return getMonsters().size() + " monster(s):"+ getMonsters().toString();
+            return getMonsters().size() + " monster:"+ getMonsters().toString();
         }else {
             return "No monsters present in this room.";
         }
@@ -184,4 +194,5 @@ public class Room {
     public static void main(String[] args) {
         System.out.println();
     }
+
 }

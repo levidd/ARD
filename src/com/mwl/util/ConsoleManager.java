@@ -9,33 +9,43 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static com.mwl.util.ExitGame.exit;
 
 public class ConsoleManager {
-     private String input;
-     RoomMap gameMap;
      private static final Scanner scanner = new Scanner(System.in);
      private static MenuTrieNode menu = read_xml();
 
      public ConsoleManager(){}
 
+     private static String gameTitle() {
+         String result;
+         try {
+             result = Files.lines(Path.of("resources/title_art/title_slanted.txt")).collect(Collectors.joining("\n"));
+         } catch (IOException e) {
+             result = "A. R. D.\n\n";
+         }
+
+         return result;
+     }
+
      public static void gameIntro() {
-          System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
+         System.out.println(gameTitle());
+         System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
+         System.out.println("To learn about the game, type \"help me\".");
+         System.out.println();
      }
 
      private static int getInput(List<List<String>> options) {

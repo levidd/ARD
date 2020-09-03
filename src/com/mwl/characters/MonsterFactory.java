@@ -16,7 +16,7 @@ public class MonsterFactory {
     public static Monster createMonster(){
         Stream<String> content = null;
         try {
-            content = Files.lines(Paths.get("resources/normal_monsters.txt"));
+            content = Files.lines(Paths.get("resources/monsters/normal_monsters.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -12,8 +12,8 @@ import static com.mwl.combat.combatEngine.fightRoomMonster;
 public class Ironman extends Player{
     Monster monster;
 
-    public Ironman(String name, int life, Room currentRoom, List<Item> itemsInventory){
-        super(name, life, currentRoom, itemsInventory);
+    public Ironman(String name, int life, Room currentRoom, List<Item> itemsInventory, int level){
+        super(name, life, currentRoom, itemsInventory, level);
     }
 
     @Override

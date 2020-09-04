@@ -11,9 +11,11 @@ import com.mwl.util.Colors;
 import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static com.mwl.combat.WinOrLose.LevelUp;
 import static com.mwl.util.ExitGame.exit;
 
 public class combatEngine {
+
 
     /**
      * static method a player can call to attack monsters
@@ -30,6 +32,7 @@ public class combatEngine {
             monster.setLife(lifeValue);
             if (!checkIfMonsterAlive(currentRoom)) {
                 removeDefeatedMonsterFromRoom(currentRoom);
+                LevelUp(player);
                 System.out.println("You killed " + Codes.Monster.withColor(monster.getName()));
             } else {
                 System.out.println(Codes.Player.withColor(player.getName()) + " has attacked "

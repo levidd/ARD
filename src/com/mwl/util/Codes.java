@@ -8,8 +8,8 @@ public enum Codes {
     Life("\u2665 ", Colors.LIGHTRED),
     Item("\u2200 ", Colors.LIGHTCYAN),
     Left("\u201f", Colors.MAGENTA),
-    Right("\u201d", Colors.MAGENTA);
-
+    Right("\u201d", Colors.MAGENTA),
+    Level("\u21a5", Colors.LIGHTBLUE);
 
     String code;
     Colors color;

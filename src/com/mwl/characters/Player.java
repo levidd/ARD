@@ -15,15 +15,17 @@ public abstract class Player {
     private int life;
     private Room currentRoom;
     private List<Item> itemsInventory;
+    private int level;
 
     public Player(){
     }
 
-    public Player(String name, int life, Room currentRoom, List<Item> itemsInventory){
+    public Player(String name, int life, Room currentRoom, List<Item> itemsInventory, int level){
         this.name = name;
         this.life = life;
         this.currentRoom = currentRoom;
         this.itemsInventory = itemsInventory;
+        this.level = level;
     }
 
 
@@ -92,5 +94,14 @@ public abstract class Player {
         System.out.println(Codes.Room.getCode()  + Codes.Room.withColor("Room " + getCurrentRoom().getId()));
         System.out.println(Codes.Item.getCode() + getItemsInventory().stream()
                 .map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", ")));
+        System.out.println(Codes.Level.getCode() + Codes.Level.withColor(" Level " + getLevel()));
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }

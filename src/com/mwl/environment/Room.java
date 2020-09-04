@@ -31,6 +31,7 @@ public class Room {
         monsters = new ArrayList<>();
         generateRandomRoomItems();
         generateRandomNormalMonsters();
+
     }
 
     /**

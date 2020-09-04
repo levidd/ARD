@@ -21,7 +21,7 @@ public class RoomMapTest {
     @Before
     public void setUp() throws Exception {
         map = new RoomMap();
-        player = new Wolverine("temp", 100, map.getStart(), new ArrayList<>());
+        player = new Wolverine("temp", 100, map.getStart(), new ArrayList<>(), 1);
     //    monster = new Normal("monster1", 100, map.getStart(), "A normal monster");
     }
 

@@ -123,6 +123,7 @@ public class ConsoleManager {
          return  PlayerFactory.createPlayer(map.getStart(), new ArrayList<>(), playerChoice);
      }
 
+     //method made package level access only on purpose
       static MenuTrieNode recursiveHelper(Node current) {
           List<MenuTrieNode> result = new ArrayList<>();
           NodeList children = current.getChildNodes();
@@ -146,6 +147,7 @@ public class ConsoleManager {
           return returning;
      }
 
+     //method made package level access only on purpose
       static MenuTrieNode read_xml() {
           DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
           NodeList menuNodeList = null;

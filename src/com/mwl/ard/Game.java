@@ -1,5 +1,6 @@
 package com.mwl.ard;
 
+import com.mwl.characters.Monster;
 import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Player;
 import com.mwl.environment.Direction;
@@ -11,10 +12,14 @@ import com.mwl.util.TextParser;
 
 import java.util.Random;
 
+import static com.mwl.util.ExitGame.exit;
+
 public class Game {
     Player player;
     RoomMap gameMap;
     Random random = new Random();
+    Monster boss;
+
 
     public Game() {
         // default constructor
@@ -40,14 +45,6 @@ public class Game {
             case "help" -> ConsoleManager.gameExplanation();
         }
 
-        // if any monsters on map, have them move to new location if applicable
-//        int number = random.nextInt(100);
-//        Room currentRoom = player.getCurrentRoom();
-//        if(number<20){
-//            currentRoom.addMonster(MonsterFactory.createMonster(currentRoom));
-//        }
-
-
         return true;
     }
 
@@ -57,9 +54,19 @@ public class Game {
         player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
+        boolean bossIsHere = false;
         while (playGame) {
             // keep playing game until it passes back as false
             playGame = play();
+
+            if (boss == null) {
+                boss = MonsterFactory.createBossMonster(player);
+                player.getCurrentRoom().addMonster(boss);
+            }
+            if (boss != null && boss.getLife() <= 0) {
+                System.out.println("You killed Bezos! You win!!!!");
+                exit("exit");
+            }
         }
 
         // quit message
@@ -72,7 +79,7 @@ public class Game {
         // run method to do the action
     }
 
-    void Fight (Player player, String option) {
+    void Fight(Player player, String option) {
         System.out.println("fighting " + option);
         player.attack();
     }

@@ -1,5 +1,7 @@
 package com.mwl.characters;
 
+import com.mwl.environment.Item;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -29,6 +31,14 @@ public class MonsterFactory {
         Monster monster = new Normal(str[0], 50, str[1].strip());
 
         return monster;
+    }
+
+    public static Monster createBossMonster(Player player){
+        Monster boss = null;
+        if(player.getItemsInventory().contains(Item.valueOf("Soul_stone")))
+            boss = new Boss("Bezos", 200, "The ultimate monster with great power.");
+
+        return boss;
     }
 
 }

@@ -60,6 +60,12 @@ public class Game {
         while (playGame) {
             // keep playing game until it passes back as false
             playGame = play();
+          boolean bossIsHere = false;
+          while(!bossIsHere){
+              player.getCurrentRoom().addMonster(MonsterFactory.createBossMonster(player));
+              bossIsHere = true;
+          }
+
         }
 
         // quit message

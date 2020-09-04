@@ -35,8 +35,13 @@ public class MonsterFactory {
 
     public static Monster createBossMonster(Player player){
         Monster boss = null;
-        if(player.getItemsInventory().contains(Item.valueOf("Soul_stone")))
-            boss = new Boss("Bezos", 200, "The ultimate monster with great power.");
+        if(player.getItemsInventory().contains(Item.valueOf("Soul_stone")) ||
+                player.getItemsInventory().contains(Item.valueOf("Power_stone")) ||
+                  player.getItemsInventory().contains(Item.valueOf("Time_stone")) ||
+                    player.getItemsInventory().contains(Item.valueOf("Space_stone")) ||
+                       player.getItemsInventory().contains(Item.valueOf("Mind_stone")) ||
+                         player.getItemsInventory().contains(Item.valueOf("Reality_stone")))
+            boss = new Boss("Bezos", 5, "The ultimate monster with great power.");
 
         return boss;
     }

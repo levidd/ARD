@@ -12,8 +12,8 @@ import static com.mwl.combat.combatEngine.fightRoomMonster;
 public class Wolverine extends Player{
     Monster monster;
 
-    public Wolverine(String name, int life, Room currentRoom, List<Item> itemsInventory){
-        super(name, life, currentRoom, itemsInventory);
+    public Wolverine(String name, int life, Room currentRoom, List<Item> itemsInventory, int level){
+        super(name, life, currentRoom, itemsInventory, level);
     }
 
     @Override

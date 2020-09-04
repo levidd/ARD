@@ -8,9 +8,11 @@ import com.mwl.environment.Room;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import static com.mwl.combat.WinOrLose.LevelUp;
 import static com.mwl.util.ExitGame.exit;
 
 public class combatEngine {
+
 
     /**
      * static method a player can call to attack monsters
@@ -25,6 +27,7 @@ public class combatEngine {
             currentRoom.getMonsters().get(0).setLife(lifeValue);
             if(!checkIfMonsterAlive(currentRoom)){
                 removeDefeatedMonsterFromRoom(currentRoom);
+                LevelUp(player);
                 System.out.println("You killed the monster");
             }else {
                 System.out.println(player.getName() + " has attacked monster and monster lost life value of: " + damage);

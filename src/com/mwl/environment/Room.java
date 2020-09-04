@@ -1,17 +1,22 @@
 package com.mwl.environment;
 
 import com.mwl.characters.Monster;
+import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Normal;
+import com.mwl.util.Codes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class Room {
     private String description; // description of the room
     private List<Item> items; // list of items in room
     private List<Monster> monsters; // list of monsters in room
     private final int id; // room id (for ensuring hashcode is different)
+    private Random random = new Random(); // Generate random numbers
+
 
     /**
      * Constructor
@@ -23,6 +28,8 @@ public class Room {
         this.id = id;
         items = new ArrayList<>();
         monsters = new ArrayList<>();
+        generateRandomRoomItems();
+        generateRandomNormalMonsters();
     }
 
     /**
@@ -30,7 +37,7 @@ public class Room {
      * @return description
      */
     public String getDescription() {
-        return description;
+        return "\u201f " + description + " \u201d";
     }
 
     /**
@@ -68,12 +75,31 @@ public class Room {
     }
 
     /**
+     * generates between 0 and 3 items in rooms randomly
+     */
+    private void generateRandomRoomItems(){
+        //Returns a random number.
+        //between 0 (inclusive) and 3 (exclusive).
+        int quantity = random.nextInt(3);
+        for (int i = 0; i < quantity; i++){
+            addItem(Item.values()[random.nextInt(Item.values().length)]);
+        }
+    }
+
+    /**
      * Adds monster to room's monster list
      * @param monster
      */
     public void addMonster(Monster monster){
         if(monster != null){
             monsters.add(monster);
+        }
+    }
+    //randomly generate normal monsters with a probability of 20%
+    public void generateRandomNormalMonsters(){
+        int number = random.nextInt(100);
+        if(number<33){
+            addMonster(MonsterFactory.createMonster());
         }
     }
 
@@ -122,13 +148,16 @@ public class Room {
      *  Brief overview of what is in a room
      */
     public void overview(){
-        System.out.println("You are in room " + getId() + "\n" +
+        System.out.println(Codes.Room.getCode() + "You are in room " + getId() + "\n" +
                 getDescription()+"\n"+
-                itemsPresent() + "\n"+
-                monstersPresent());
-
+                Codes.Item.getCode() + itemsPresent() + "\n"+
+                Codes.Monster.getCode() + monstersPresent());
     }
 
+    /**
+     * Check for items present in a room
+     * @return prints list of items present or no items message
+     */
     private String itemsPresent(){
         if(getItems().size() > 0){
             return getItems().size() + " item(s):"+ getItems().toString();
@@ -137,9 +166,13 @@ public class Room {
         }
     }
 
+    /**
+     * Check for monsters present in a room
+     * @return Prints list of monsters or no monsters message
+     */
     private String monstersPresent(){
         if(getMonsters().size() > 0){
-            return getMonsters().size() + " monster(s):"+ getMonsters().toString();
+            return getMonsters().size() + " monster:"+ getMonsters().toString();
         }else {
             return "No monsters present in this room.";
         }
@@ -158,4 +191,10 @@ public class Room {
     public int hashCode() {
         return Objects.hash(getDescription(), getId());
     }
+
+
+    public static void main(String[] args) {
+        System.out.println();
+    }
+
 }

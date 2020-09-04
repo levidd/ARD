@@ -1,8 +1,7 @@
 package com.mwl.ard;
 
-import com.mwl.characters.Monster;
+import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Player;
-import com.mwl.characters.PlayerA;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
 import com.mwl.environment.Room;
@@ -10,35 +9,30 @@ import com.mwl.environment.RoomMap;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.Random;
 
 public class Game {
     Player player;
     RoomMap gameMap;
-//    List<Monster> monsters;
+    Random random = new Random();
 
     public Game() {
         // default constructor
         gameMap = new RoomMap();
-        player = new PlayerA("player1", 100, gameMap.getStart(), new ArrayList<>());
-//        monsters = new ArrayList<Monster>();
-
     }
 
     boolean play() {
         // tell player what room they are in or if monster is in front of them
-        System.out.println(player.getCurrentRoom().getDescription());
+//        System.out.println(player.getCurrentRoom().getDescription());
+        System.out.print("> ");
 
         // ask what player wants to do
-            // Text parser
+        // Text parser
         String[] command = TextParser.parser();
-            // do that thing
+        // do that thing
         switch (command[0]) {
             case "move" -> gameMap.moveCharacter(player, Direction.valueOf(command[1]));
-            case "look" -> player.getCurrentRoom().overview();
+            case "look" -> Look(player, command[1]);
             case "flight" -> Flight(player, command[1]);
             case "fight" -> Fight(player, command[1]);
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
@@ -47,6 +41,12 @@ public class Game {
         }
 
         // if any monsters on map, have them move to new location if applicable
+//        int number = random.nextInt(100);
+//        Room currentRoom = player.getCurrentRoom();
+//        if(number<20){
+//            currentRoom.addMonster(MonsterFactory.createMonster(currentRoom));
+//        }
+
 
         return true;
     }
@@ -54,7 +54,7 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
-        //ConsoleManager.gameExplanation();
+        player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
         while (playGame) {
@@ -68,13 +68,21 @@ public class Game {
     }
 
     void Flight(Player player, String option) {
-            System.out.println("Flying " + option);
-            // run method to do the action
+        System.out.println("Flying " + option);
+        // run method to do the action
     }
 
     void Fight (Player player, String option) {
-            System.out.println("fighting " + option);
-            // run method to do the action
+        System.out.println("fighting " + option);
+        player.attack();
+    }
+
+    void Look(Player player, String option) {
+        switch (option) {
+            case "Around" -> player.getCurrentRoom().overview();
+            case "Me" -> player.printStats();
+        }
     }
 
 }
+

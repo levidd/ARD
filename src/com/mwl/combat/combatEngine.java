@@ -33,7 +33,7 @@ public class combatEngine {
             if (!checkIfMonsterAlive(currentRoom)) {
                 removeDefeatedMonsterFromRoom(currentRoom);
                 LevelUp(player);
-                System.out.println("You killed " + Codes.Monster.withColor(monster.getName()));
+                System.out.println(Codes.Player.withColor(player.getName()) + " killed " + Codes.Monster.withColor(monster.getName()));
             } else {
                 System.out.println(Codes.Player.withColor(player.getName()) + " has attacked "
                         + Codes.Monster.withColor(monster.getName()) + " and "

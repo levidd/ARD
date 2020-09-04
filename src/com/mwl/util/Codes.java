@@ -6,7 +6,8 @@ public enum Codes {
     Room("\u22a1 "),
     Player("\u261b "),
     Life("\u2665 "),
-    Item("\u2200 ");
+    Item("\u2200 "),
+    Level("\u21a5");
 
     String code;
 

@@ -6,7 +6,7 @@ package com.mwl.util.commands;
 public class Fight implements Commands {
     @Override
     public void do_command(String option) {
-        if (option == null)
+        if (!option.equals("Monster"))
             throw new IllegalArgumentException("Fight who?");
     }
 }

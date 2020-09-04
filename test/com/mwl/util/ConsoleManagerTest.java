@@ -167,7 +167,7 @@ public class ConsoleManagerTest {
         commands.put("help", new Help());
         List<String> lineList = new ArrayList<>();
         try {
-            File myFile = new File("testResources/inputMoveNorth.txt");
+            File myFile = new File("testResources/moving/inputMoveNorth.txt");
             Scanner scanner = new Scanner(myFile);
             while (scanner.hasNextLine()) {
                 lineList.add(scanner.nextLine());
@@ -199,7 +199,7 @@ public class ConsoleManagerTest {
         commands.put("help", new Help());
         List<String> lineList = new ArrayList<>();
         try {
-            File myFile = new File("testResources/inputLookAround.txt");
+            File myFile = new File("testResources/moving/inputLookAround.txt");
             Scanner scanner = new Scanner(myFile);
             while (scanner.hasNextLine()) {
                 lineList.add(scanner.nextLine());
@@ -232,7 +232,7 @@ public class ConsoleManagerTest {
         commands.put("help", new Help());
         List<String> lineList = new ArrayList<>();
         try {
-            File myFile = new File("testResources/inputMoveWest.txt");
+            File myFile = new File("testResources/moving/inputMoveWest.txt");
             Scanner scanner = new Scanner(myFile);
             while (scanner.hasNextLine()) {
                 lineList.add(scanner.nextLine());

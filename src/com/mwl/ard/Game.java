@@ -74,7 +74,7 @@ public class Game {
 
     void Fight (Player player, String option) {
         System.out.println("fighting " + option);
-        // run method to do the action
+        player.attack();
     }
 
     void Look(Player player, String option) {

@@ -6,6 +6,9 @@ import com.mwl.environment.Room;
 import java.util.Collection;
 import java.util.List;
 
+import static com.mwl.combat.combatEngine.MonsterFightsPlayer;
+import static com.mwl.combat.combatEngine.fightRoomMonster;
+
 public class Wolverine extends Player{
     Monster monster;
 
@@ -15,11 +18,10 @@ public class Wolverine extends Player{
 
     @Override
     public void attack() {
-       int lifeValue = monster.getLife();
-       lifeValue -= 20;
-       monster.setLife(lifeValue);
-        System.out.println("Wolverine has attacked monster and monster lost life value of: 20");
-        System.out.println("Monster current life value is: " + lifeValue);
+        fightRoomMonster(this,getCurrentRoom());
+        if(getCurrentRoom().getMonsters().size() > 0){
+            MonsterFightsPlayer(getCurrentRoom().getMonsters().get(0), this);
+        }
     }
 
     @Override //health boost

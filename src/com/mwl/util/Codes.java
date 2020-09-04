@@ -6,9 +6,9 @@ public enum Codes {
     Room("\u22a1 ", Colors.YELLOW),
     Player("\u261b ", Colors.BLUE),
     Life("\u2665 ", Colors.LIGHTRED),
-    Item("\u2200 ", Colors.LIGHTMAGENTA),
-    Left("\u201f", Colors.GREEN),
-    Right("\u201d", Colors.GREEN);
+    Item("\u2200 ", Colors.LIGHTCYAN),
+    Left("\u201f", Colors.MAGENTA),
+    Right("\u201d", Colors.MAGENTA);
 
 
     String code;

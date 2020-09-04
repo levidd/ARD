@@ -5,6 +5,8 @@ import com.mwl.characters.Monster;
 import com.mwl.characters.Normal;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
+import com.mwl.util.Codes;
+import com.mwl.util.Colors;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -19,15 +21,17 @@ public class combatEngine {
 
     public static void fightRoomMonster(Player player, Room currentRoom){
         if(checkForMonsterInRoom(currentRoom)){
-            int lifeValue = currentRoom.getMonsters().get(0).getLife();
+            Monster monster = currentRoom.getMonsters().get(0);
+            int lifeValue = monster.getLife();
             lifeValue -= 20;
-            currentRoom.getMonsters().get(0).setLife(lifeValue);
+            monster.setLife(lifeValue);
             if(!checkIfMonsterAlive(currentRoom)){
                 removeDefeatedMonsterFromRoom(currentRoom);
-                System.out.println("You killed the monster");
+                System.out.println("You killed " + Codes.Monster.withColor(monster.getName()));
             }else {
-                System.out.println(player.getName() + " has attacked monster and monster lost life value of: 20");
-                System.out.println("Monster current life value is: " + lifeValue);
+                System.out.println(Codes.Player.withColor(player.getName()) + " has attacked monster and monster lost life value of: " + Codes.Monster.getColor().negative("" + 20));
+                System.out.println(Codes.Monster.withColor(monster.getName()) + " current life value is: "
+                        + Codes.Life.withColor("" + lifeValue));
             }
         }
     }
@@ -44,8 +48,11 @@ public class combatEngine {
                 if(!checkIfPlayerAlive(player)){
                     ifPlayerDeath(monster);
                 }else {
-                    System.out.println(monster.getName() + " has attacked player and player lost life value of: 20");
-                    System.out.println("Player current life value is: " + lifeValue);
+                    System.out.println(Codes.Monster.withColor(monster.getName()) + " has attacked "
+                            + Codes.Player.withColor(player.getName()) + " and " + Codes.Player.withColor(player.getName())
+                            + " lost life value of: " + Codes.Player.getColor().negative("" + 20));
+                    System.out.println(Codes.Player.withColor(player.getName()) + " current life value is: "
+                            + Codes.Life.withColor("" + lifeValue));
                 }
             }
         }

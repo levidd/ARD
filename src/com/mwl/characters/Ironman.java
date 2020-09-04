@@ -6,6 +6,8 @@ import com.mwl.environment.Room;
 import java.util.Collection;
 import java.util.List;
 
+import static com.mwl.combat.combatEngine.fightRoomMonster;
+
 public class Ironman extends Player{
     Monster monster;
 
@@ -15,11 +17,7 @@ public class Ironman extends Player{
 
     @Override
     public void attack() {
-        int lifeValue = monster.getLife();
-        lifeValue -= 30;
-        monster.setLife(lifeValue);
-        System.out.println("Iron Man has attacked monster and monster lost life value of: 30");
-        System.out.println("Monster current life value is: " + lifeValue);
+        fightRoomMonster(this,getCurrentRoom());
     }
 
     @Override //generate more items
@@ -33,5 +31,4 @@ public class Ironman extends Player{
             System.out.println("Can't use more_power with empty items inventory!");
         }
     }
-
 }

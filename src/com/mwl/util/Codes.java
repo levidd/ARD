@@ -27,6 +27,10 @@ public enum Codes {
         return color.toColor(output);
     }
 
+    public String withColor(int output) {
+        return withColor("" + output);
+    }
+
     public Colors getColor() {
         return color;
     }

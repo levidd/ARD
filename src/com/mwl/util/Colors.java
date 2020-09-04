@@ -38,4 +38,8 @@ public enum Colors {
     public String negative(String output) {
         return escapeCode + "[7m" + toColor(output) + end;
     }
+
+    public String negative(int output) {
+        return negative("" + output);
+    }
 }

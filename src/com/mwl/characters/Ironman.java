@@ -6,6 +6,7 @@ import com.mwl.environment.Room;
 import java.util.Collection;
 import java.util.List;
 
+import static com.mwl.combat.combatEngine.MonsterFightsPlayer;
 import static com.mwl.combat.combatEngine.fightRoomMonster;
 
 public class Ironman extends Player{
@@ -18,6 +19,9 @@ public class Ironman extends Player{
     @Override
     public void attack() {
         fightRoomMonster(this,getCurrentRoom());
+        if(getCurrentRoom().getMonsters().size() > 0){
+            MonsterFightsPlayer(getCurrentRoom().getMonsters().get(0), this);
+        }
     }
 
     @Override //generate more items

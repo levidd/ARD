@@ -88,7 +88,7 @@ public abstract class Player {
 
     public void printStats() {
         System.out.println(Codes.Player.getCode() + Codes.Player.withColor(getName()));
-        System.out.println(Codes.Life.getCode() + Codes.Life.withColor("" + getLife()));
+        System.out.println(Codes.Life.getCode() + Codes.Life.withColor(getLife()));
         System.out.println(Codes.Room.getCode()  + Codes.Room.withColor("Room " + getCurrentRoom().getId()));
         System.out.println(Codes.Item.getCode() + getItemsInventory().stream()
                 .map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", ")));

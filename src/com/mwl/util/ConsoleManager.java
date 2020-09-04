@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -33,8 +35,11 @@ public class ConsoleManager {
      private static String gameTitle() {
          String result;
          try {
-             result = Files.lines(Path.of("resources/title_art/title_slanted.txt")).collect(Collectors.joining("\n"));
-         } catch (IOException e) {
+             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("resources/title_art/banners.xml");
+             NodeList banners = document.getElementsByTagName("banner");
+             result = banners.item(ThreadLocalRandom.current().nextInt(banners.getLength())).getTextContent();
+//             result = Files.lines(Path.of("resources/title_art/title_slanted.txt")).collect(Collectors.joining("\n"));
+         } catch (IOException | ParserConfigurationException | SAXException e) {
              result = "A. R. D.\n\n";
          }
 

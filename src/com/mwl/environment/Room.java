@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Room {
     private String description; // description of the room
@@ -38,7 +39,7 @@ public class Room {
      * @return description
      */
     public String getDescription() {
-        return "\u201f " + description + " \u201d";
+        return description;
     }
 
     /**
@@ -149,10 +150,11 @@ public class Room {
      *  Brief overview of what is in a room
      */
     public void overview(){
-        System.out.println(Codes.Room.getCode() + "You are in room " + getId() + "\n" +
-                getDescription()+"\n"+
-                Codes.Item.getCode() + itemsPresent() + "\n"+
-                Codes.Monster.getCode() + monstersPresent());
+        System.out.println(Codes.Room.getCode() + "You are in " + Codes.Room.withColor("Room " + getId()));
+        String temp = Codes.Left.getCode() + Codes.Left.withColor(" " + getDescription() + " ") + Codes.Right.getCode();
+        System.out.println(Codes.Left.getCode() + Codes.Left.withColor(" " + getDescription() + " ") + Codes.Right.getCode());
+        System.out.println(Codes.Item.getCode() + itemsPresent());
+        System.out.println(Codes.Monster.getCode() + monstersPresent());
     }
 
     /**
@@ -161,7 +163,7 @@ public class Room {
      */
     private String itemsPresent(){
         if(getItems().size() > 0){
-            return getItems().size() + " item(s):"+ getItems().toString();
+            return getItems().size() + " item(s): "+ getItems().stream().map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", "));
         }else {
             return "No items present in this room.";
         }

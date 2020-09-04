@@ -7,6 +7,7 @@ import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
 import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
+import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
@@ -64,7 +65,8 @@ public class Game {
                 player.getCurrentRoom().addMonster(boss);
             }
             if (boss != null && boss.getLife() <= 0) {
-                System.out.println("You killed Bezos! You win!!!!");
+                System.out.println(Codes.Player.withColor(player.getName()) + " killed "
+                        + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
                 exit("exit");
             }
         }

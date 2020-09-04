@@ -12,14 +12,13 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -38,7 +37,6 @@ public class ConsoleManager {
              Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("resources/title_art/banners.xml");
              NodeList banners = document.getElementsByTagName("banner");
              result = banners.item(ThreadLocalRandom.current().nextInt(banners.getLength())).getTextContent();
-//             result = Files.lines(Path.of("resources/title_art/title_slanted.txt")).collect(Collectors.joining("\n"));
          } catch (IOException | ParserConfigurationException | SAXException e) {
              result = "A. R. D.\n\n";
          }
@@ -47,10 +45,16 @@ public class ConsoleManager {
      }
 
      public static void gameIntro() {
-         System.out.println(gameTitle());
-         System.out.println("Welcome to ARD, the game where you get Another Random Destiny every time you play!");
+         System.out.println(getRandomColor().toColor(gameTitle()));
+         System.out.println("Welcome to " + Colors.CYAN.negative("ARD") + ", the game where you get "
+                 + Colors.CYAN.toColor("Another Random Destiny") + " every time you play!");
          System.out.println("To learn about the game, type \"help me\".");
          System.out.println();
+     }
+
+     private static Colors getRandomColor() {
+         Colors[] colors = Colors.values();
+         return colors[ThreadLocalRandom.current().nextInt(colors.length)];
      }
 
      private static int getInput(List<List<String>> options) {
@@ -99,9 +103,11 @@ public class ConsoleManager {
 
      public static Player choosePlayer(RoomMap map) {
          String[] instructions = {
-                 "Please just type in the letter 'A' or 'B' to choose the type of player you want to play with.",
-                 "A: [Wolverine] has special ability of health boost;\n" +
-                         "B: [Iron Man] has special ability to randomly generate one item that's already in inventory.",
+                 "Please just type in the letter 'A' or 'B' to choose the type of "
+                 + Codes.Player.withColor("player") + " you want to play with.",
+                 "A: [" + Codes.Player.withColor("Wolverine") + "] has special ability of health boost;\n" +
+                         "B: [" + Codes.Player.withColor("Iron Man") + "] has special ability to randomly " +
+                         "generate one item that's already in inventory.",
                  "Wrong input!\n"+"Enter A or B: ",
          };
 
@@ -118,7 +124,7 @@ public class ConsoleManager {
              exit(playerChoice);
          }
          String playName = (playerChoice.toUpperCase().strip().equals(Character.toString('A')))? "Wolverine":"Iron Man";
-             System.out.println("Player type: ["+ playName + "] has been chosen.");
+             System.out.println("Player type: ["+ Codes.Player.withColor(playName) + "] has been chosen.");
 
          return  PlayerFactory.createPlayer(map.getStart(), new ArrayList<>(), playerChoice);
      }

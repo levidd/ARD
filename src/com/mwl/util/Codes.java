@@ -2,20 +2,36 @@ package com.mwl.util;
 
 public enum Codes {
 
-    Monster("\u2648 "),
-    Room("\u22a1 "),
-    Player("\u261b "),
-    Life("\u2665 "),
-    Item("\u2200 "),
-    Level("\u21a5");
+    Monster("\u2648 ", Colors.RED),
+    Room("\u22a1 ", Colors.YELLOW),
+    Player("\u261b ", Colors.BLUE),
+    Life("\u2665 ", Colors.LIGHTRED),
+    Item("\u2200 ", Colors.LIGHTCYAN),
+    Left("\u201f", Colors.MAGENTA),
+    Right("\u201d", Colors.MAGENTA),
+    Level("\u21a5", Colors.LIGHTBLUE);
 
     String code;
+    Colors color;
 
-    Codes(String unicode) {
+    Codes(String unicode, Colors color) {
         this.code = unicode;
+        this.color = color;
     }
 
     public String getCode() {
-        return code;
+        return withColor(code);
+    }
+
+    public String withColor(String output) {
+        return color.toColor(output);
+    }
+
+    public String withColor(int output) {
+        return withColor("" + output);
+    }
+
+    public Colors getColor() {
+        return color;
     }
 }

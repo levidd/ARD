@@ -3,8 +3,11 @@ package com.mwl.characters;
 import com.mwl.environment.Item;
 import com.mwl.util.Codes;
 import com.mwl.environment.Room;
+import com.mwl.util.Colors;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 public abstract class Player {
@@ -26,14 +29,12 @@ public abstract class Player {
     }
 
 
-    /*If the item is in current room, add the item picked up by the user into the item inventory
+    /**
+    * If the item is in current room, add the item picked up by the user into the item inventory
     * and remove the item from the room item list
     * if input is not in Item Enum, throw Exception
     * */
     public void pickUpItem(Item item){
-//        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
-//            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
-//        }
          if(currentRoom.getItems().contains(item)){
             itemsInventory.add(item);
             currentRoom.grabItem(item);
@@ -43,14 +44,12 @@ public abstract class Player {
 
     }
 
-    /*If the item is in player inventory, remove the item dropped by the user from the item inventory
+    /**
+     * If the item is in player inventory, remove the item dropped by the user from the item inventory
     * and add the item into the room item list
     * if input is not in Item Enum, throw Exception
     * */
     public void dropItem(Item item){
-//        if(!Arrays.stream(Item.values()).anyMatch(item::equals)){
-//            throw new IllegalArgumentException("Can't pick up! NO such item in this game!");
-//        }
          if(itemsInventory.contains(item)){
             itemsInventory.remove(item);
             currentRoom.addItem(item);
@@ -90,11 +89,12 @@ public abstract class Player {
     }
 
     public void printStats() {
-        System.out.println(Codes.Player.getCode() + getName());
-        System.out.println(Codes.Life.getCode() + getLife());
-        System.out.println(Codes.Room.getCode()  + "Room " + getCurrentRoom().getId());
-        System.out.println(Codes.Item.getCode() + getItemsInventory());
-        System.out.println(Codes.Level.getCode() + " Level " + getLevel());
+        System.out.println(Codes.Player.getCode() + Codes.Player.withColor(getName()));
+        System.out.println(Codes.Life.getCode() + Codes.Life.withColor(getLife()));
+        System.out.println(Codes.Room.getCode()  + Codes.Room.withColor("Room " + getCurrentRoom().getId()));
+        System.out.println(Codes.Item.getCode() + getItemsInventory().stream()
+                .map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", ")));
+        System.out.println(Codes.Level.getCode() + Codes.Level.withColor(" Level " + getLevel()));
     }
 
     public int getLevel() {

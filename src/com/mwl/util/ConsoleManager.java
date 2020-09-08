@@ -224,23 +224,4 @@ public class ConsoleManager {
     public static Scanner scanner() {
         return scanner;
     }
-
-
-    public static void main(String[] args) {
-        keepScores();
-    }
-
-    public static void keepScores(){
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("resources/scores/scores.txt", "UTF-8");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        writer.println("Hello");
-        writer.println("world");
-        writer.close();
-    }
 }

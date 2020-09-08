@@ -11,6 +11,9 @@ import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 import static com.mwl.util.ExitGame.exit;
@@ -108,6 +111,20 @@ public class Game {
         if (newSize > previousSize) {
             player.incrementScore();
         }
+    }
+
+    public static void keepScores(Player player){
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("resources/scores/scores.txt", "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        writer.println("Hello");
+        writer.println("world");
+        writer.close();
     }
 }
 

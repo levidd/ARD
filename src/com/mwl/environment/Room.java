@@ -94,7 +94,7 @@ public class Room {
                 addItem(Item.values()[random.nextInt(6)]);
             }
         } else if (this.id > 5) {
-            int quantity = random.nextInt(5);
+            int quantity = random.nextInt(6);
             for (int i = 0; i < quantity; i++) {
                 addItem(Item.values()[random.nextInt(12)]);
             }

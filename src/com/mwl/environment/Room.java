@@ -184,10 +184,18 @@ public class Room {
         }
     }
 
+    /**
+     * Method to set the chest for the given room.
+     * @param chest
+     */
     public void setChest(Chest chest) {
         this.chest = chest;
     }
 
+    /**
+     * Runs the chest's question (if available) and get the reward from the chest. Adds rewarded items to the room's
+     * inventory.
+     */
     public void unlockChest() {
         if (chest != null) {
             List<Item> reward = chest.askQuestion();
@@ -212,11 +220,6 @@ public class Room {
     @Override
     public int hashCode() {
         return Objects.hash(getDescription(), getId());
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println();
     }
 
 }

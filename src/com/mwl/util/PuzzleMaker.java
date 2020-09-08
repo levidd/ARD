@@ -17,6 +17,9 @@ public class PuzzleMaker {
 
     private NodeList puzzles;
 
+    /**
+     * Constructor. Reads in a xml file from a specific source. Ready to be used to construct puzzles
+     */
     public PuzzleMaker() {
         try {
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse("resources/puzzles/many_questions.xml");
@@ -26,8 +29,11 @@ public class PuzzleMaker {
         }
     }
 
+    /**
+     * Picks a random puzzle element and pulls its child tags. Returns a new Puzzle object using those tags
+     * @return
+     */
     public Puzzle getRandomPuzzle() {
-//        NodeList nodes = puzzles.getElementsByTagName("puzzle");
         Element node = (Element) puzzles.item(ThreadLocalRandom.current().nextInt(puzzles.getLength()));
         String question = getContent(node, "question");
         String difficulty = getContent(node, "difficulty");
@@ -41,6 +47,9 @@ public class PuzzleMaker {
         return new Puzzle(question, difficulty, answer, wrong);
     }
 
+    /*
+    Helper method to get text content from a tag.
+     */
     private String getContent(Element e, String tag) {
         return e.getElementsByTagName(tag).item(0).getTextContent();
     }

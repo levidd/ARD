@@ -1,13 +1,10 @@
 package com.mwl.environment;
 
-import com.mwl.characters.Player;
 import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -22,7 +19,9 @@ public class Chest {
         reward = makeAward();
     }
 
-
+    /*
+    Helper method to get a bunch of random items and put it into reward list.
+     */
     private List<Item> makeAward() {
         List<Item> result = new ArrayList<>();
         int scale = puzzle.getDifficultyInt();
@@ -33,6 +32,14 @@ public class Chest {
         return result;
     }
 
+    /**
+     * Prints out the question and answers for the puzzle in the chest. If uyser chooses correctly, returns the reward
+     * list, else returns an empty list.
+     * <p>
+     * NOTE: Once this method is called it sets broken to be true, and will not be able to interact with the chest again.
+     *
+     * @return
+     */
     public List<Item> askQuestion() {
         List<Item> result = new ArrayList<>();
         if (!broken) {
@@ -55,10 +62,13 @@ public class Chest {
         return result;
     }
 
+    /*
+    Helper method to parse the inputs for given list of options.
+     */
     private int getInput(List<List<String>> options) {
         boolean doLoop = true;
         int choice = -1;
-        while (doLoop){
+        while (doLoop) {
             options.forEach(System.out::println); // print out the options
             String input = ConsoleManager.scanner().nextLine().strip(); // get the choice from console
 

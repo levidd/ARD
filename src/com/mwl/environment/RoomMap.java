@@ -130,7 +130,7 @@ public class RoomMap {
      */
     private Room makeNewRoom() {
         Room result = new Room(grammar.generate_Sentence(), map.size());
-        int percentChest = 20;
+        int percentChest = 40;
         if (ThreadLocalRandom.current().nextInt(100) < percentChest) {
             result.setChest(new Chest(puzzles.getRandomPuzzle()));
         }

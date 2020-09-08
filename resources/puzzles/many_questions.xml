@@ -11,7 +11,7 @@
                 <element>Disclosure</element>
                 <element>David Guetta</element>
             </incorrect_answers>
-            <question>What French artist/band is known for playing on the midi instrument &amp;quot;Launchpad&amp;quot;?</question>
+            <question>What French artist/band is known for playing on the midi instrument 'Launchpad'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -23,7 +23,7 @@
                 <element>Baroque</element>
                 <element>Renaissance</element>
             </incorrect_answers>
-            <question>Pianist Fr&amp;eacute;d&amp;eacute;ric Chopin was a composer of which musical era?</question>
+            <question>Pianist Fr'eacute;d'eacute;ric Chopin was a composer of which musical era?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -35,7 +35,7 @@
                 <element>Toronto Maple Leafs</element>
                 <element>Boston Bruins</element>
             </incorrect_answers>
-            <question>Which of these teams isn&amp;#039;t a member of the NHL&amp;#039;s &amp;quot;Original Six&amp;quot; era?</question>
+            <question>Which of these teams isn't a member of the NHL's 'Original Six' era?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -57,7 +57,7 @@
             <incorrect_answers>
                 <element>False</element>
             </incorrect_answers>
-            <question>There was a satirical candidate named &amp;quot;Deez Nuts&amp;quot; running in the 2016 US presidential elections.</question>
+            <question>There was a satirical candidate named 'Deez Nuts' running in the 2016 US presidential elections.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
@@ -67,11 +67,11 @@
             <incorrect_answers>
                 <element>True</element>
             </incorrect_answers>
-            <question>In the game &amp;quot;Melty Blood Actress Again Current Code&amp;quot;, you can enter Blood Heat mode in Half Moon style.</question>
+            <question>In the game 'Melty Blood Actress Again Current Code', you can enter Blood Heat mode in Half Moon style.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
-            <category>Science &amp; Nature</category>
+            <category>Science ' Nature</category>
             <correct_answer>Trees</correct_answer>
             <difficulty>hard</difficulty>
             <incorrect_answers>
@@ -101,7 +101,7 @@
             <incorrect_answers>
                 <element>True</element>
             </incorrect_answers>
-            <question>In &amp;quot;Team Fortress 2&amp;quot;, the &amp;quot;Bill&amp;#039;s Hat&amp;quot; is a reference to the game &amp;quot;Dota 2&amp;quot;.</question>
+            <question>In 'Team Fortress 2', the 'Bill's Hat' is a reference to the game 'Dota 2'.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
@@ -111,7 +111,7 @@
             <incorrect_answers>
                 <element>False</element>
             </incorrect_answers>
-            <question>In Half-Life 2, if you play the zombies&amp;#039; speech in reverse, they actually speak coherent English.</question>
+            <question>In Half-Life 2, if you play the zombies' speech in reverse, they actually speak coherent English.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
@@ -121,11 +121,11 @@
             <incorrect_answers>
                 <element>True</element>
             </incorrect_answers>
-            <question>In Undertale, having a &amp;quot;Fun Value&amp;quot; set to 56-57 will play the &amp;quot;Wrong Number Song Call&amp;quot;.</question>
+            <question>In Undertale, having a 'Fun Value' set to 56-57 will play the 'Wrong Number Song Call'.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
-            <category>Science &amp; Nature</category>
+            <category>Science ' Nature</category>
             <correct_answer>Iron</correct_answer>
             <difficulty>easy</difficulty>
             <incorrect_answers>
@@ -169,7 +169,7 @@
                 <element>Minnie</element>
                 <element>Broccoli</element>
             </incorrect_answers>
-            <question>What is Grumpy Cat&amp;#039;s real name?</question>
+            <question>What is Grumpy Cat's real name?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -191,7 +191,7 @@
                 <element>Winged Viper</element>
                 <element>Bastion Warrior</element>
             </incorrect_answers>
-            <question>In Xenoblade Chronicles X, which class has a sniper rifle as it&amp;#039;s primary weapon?</question>
+            <question>In Xenoblade Chronicles X, which class has a sniper rifle as it's primary weapon?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -207,7 +207,7 @@
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <category>Entertainment: Japanese Anime ' Manga</category>
             <correct_answer>Bones</correct_answer>
             <difficulty>medium</difficulty>
             <incorrect_answers>
@@ -215,7 +215,7 @@
                 <element>Shaft</element>
                 <element>Madhouse</element>
             </incorrect_answers>
-            <question>Which animation studio animated the 2016 anime &amp;quot;Mob Psycho 100&amp;quot;?</question>
+            <question>Which animation studio animated the 2016 anime 'Mob Psycho 100'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -261,7 +261,7 @@
                 <element>Graphics Processing Unit</element>
                 <element>Keyboard</element>
             </incorrect_answers>
-            <question>What is known as &amp;quot;the brain&amp;quot; of the Computer?</question>
+            <question>What is known as 'the brain' of the Computer?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -273,7 +273,7 @@
                 <element>Pete Tong</element>
                 <element>Ryan Seacrest</element>
             </incorrect_answers>
-            <question>Which radio personality calls himself &amp;quot;The King of All Media&amp;quot;?</question>
+            <question>Which radio personality calls himself 'The King of All Media'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -285,7 +285,7 @@
                 <element>Refrigerator</element>
                 <element>Televison</element>
             </incorrect_answers>
-            <question>What household item make the characters of &amp;quot;Steins; Gate&amp;quot; travel through time?</question>
+            <question>What household item make the characters of 'Steins; Gate' travel through time?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -307,9 +307,9 @@
             <incorrect_answers>
                 <element>Brazil</element>
                 <element>Brasilia</element>
-                <element>Bras&amp;iacute;l</element>
+                <element>Bras'iacute;l</element>
             </incorrect_answers>
-            <question>What is the Portuguese word for &amp;quot;Brazil&amp;quot;?</question>
+            <question>What is the Portuguese word for 'Brazil'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -321,7 +321,7 @@
                 <element>Blaze</element>
                 <element>Pixy</element>
             </incorrect_answers>
-            <question>Who is the main protagonist of &amp;quot;Ace Combat Zero: The Belkan War&amp;quot;?</question>
+            <question>Who is the main protagonist of 'Ace Combat Zero: The Belkan War'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -333,7 +333,7 @@
                 <element>Gersch Device</element>
                 <element>Mule Kick</element>
             </incorrect_answers>
-            <question>In &amp;quot;Call Of Duty: Zombies&amp;quot;, what is the name of the machine that upgrades weapons?</question>
+            <question>In 'Call Of Duty: Zombies', what is the name of the machine that upgrades weapons?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -345,17 +345,17 @@
                 <element>Coldplay</element>
                 <element>Bon Jovi</element>
             </incorrect_answers>
-            <question>Which of these bands was a featuring artist in Compton rapper Kendrick Lamar&amp;#039;s 2017 album, &amp;quot;DAMN.&amp;quot;?</question>
+            <question>Which of these bands was a featuring artist in Compton rapper Kendrick Lamar's 2017 album, 'DAMN.'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <category>Entertainment: Japanese Anime ' Manga</category>
             <correct_answer>True</correct_answer>
             <difficulty>medium</difficulty>
             <incorrect_answers>
                 <element>False</element>
             </incorrect_answers>
-            <question>In &amp;quot;To Love-Ru: Darkness&amp;quot;, Yami reveals her real name is Eve.</question>
+            <question>In 'To Love-Ru: Darkness', Yami reveals her real name is Eve.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
@@ -365,7 +365,7 @@
             <incorrect_answers>
                 <element>True</element>
             </incorrect_answers>
-            <question>In &amp;quot;League of Legends&amp;quot;, there exists four different types of Dragon.</question>
+            <question>In 'League of Legends', there exists four different types of Dragon.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
@@ -405,7 +405,7 @@
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <category>Entertainment: Japanese Anime ' Manga</category>
             <correct_answer>St. Marguerite</correct_answer>
             <difficulty>hard</difficulty>
             <incorrect_answers>
@@ -413,11 +413,11 @@
                 <element>St. Mary</element>
                 <element>St. Bernadette</element>
             </incorrect_answers>
-            <question>What is the name of the school in the anime and manga &amp;quot;Gosick&amp;quot;?</question>
+            <question>What is the name of the school in the anime and manga 'Gosick'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <category>Entertainment: Japanese Anime ' Manga</category>
             <correct_answer>Gonzo</correct_answer>
             <difficulty>hard</difficulty>
             <incorrect_answers>
@@ -451,7 +451,7 @@
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Science &amp; Nature</category>
+            <category>Science ' Nature</category>
             <correct_answer>299,792,458 m/s</correct_answer>
             <difficulty>easy</difficulty>
             <incorrect_answers>
@@ -471,7 +471,7 @@
                 <element>The Treasure of the Sierra Madre</element>
                 <element>Citizen Kane</element>
             </incorrect_answers>
-            <question>In which film does Humphrey Bogart say the famous line, &amp;quot;Here&amp;#039;s looking at you, kid&amp;quot;?</question>
+            <question>In which film does Humphrey Bogart say the famous line, 'Here's looking at you, kid'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -505,7 +505,7 @@
                 <element>Steven</element>
                 <element>Bryce</element>
             </incorrect_answers>
-            <question>What was Humphrey Bogart&amp;#039;s middle name?</question>
+            <question>What was Humphrey Bogart's middle name?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -521,25 +521,25 @@
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Entertainment: Cartoon &amp; Animations</category>
+            <category>Entertainment: Cartoon ' Animations</category>
             <correct_answer>False</correct_answer>
             <difficulty>medium</difficulty>
             <incorrect_answers>
                 <element>True</element>
             </incorrect_answers>
-            <question>In &amp;quot;Avatar: The Last Airbender&amp;quot; and &amp;quot;The Legend of Korra&amp;quot;, Lavabending is a specialized bending technique of Firebending.</question>
+            <question>In 'Avatar: The Last Airbender' and 'The Legend of Korra', Lavabending is a specialized bending technique of Firebending.</question>
             <type>boolean</type>
         </puzzle>
         <puzzle>
             <category>Entertainment: Music</category>
-            <correct_answer>&amp;quot;Database&amp;quot;</correct_answer>
+            <correct_answer>'Database'</correct_answer>
             <difficulty>medium</difficulty>
             <incorrect_answers>
-                <element>&amp;quot;Dead End in Tokyo&amp;quot;</element>
-                <element>&amp;quot;Raise Your Flag&amp;quot;</element>
-                <element>&amp;quot;Out of Control&amp;quot;</element>
+                <element>'Dead End in Tokyo'</element>
+                <element>'Raise Your Flag'</element>
+                <element>'Out of Control'</element>
             </incorrect_answers>
-            <question>Which song made by MAN WITH A MISSION was used as the opening for the anime &amp;quot;Log Horizon&amp;quot;?</question>
+            <question>Which song made by MAN WITH A MISSION was used as the opening for the anime 'Log Horizon'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -551,7 +551,7 @@
                 <element>Jonas Alto and Sarah Smith</element>
                 <element>James Kolein</element>
             </incorrect_answers>
-            <question>In 2004, which person(s) created &amp;quot;Roblox&amp;quot;?</question>
+            <question>In 2004, which person(s) created 'Roblox'?</question>
             <type>multiple</type>
         </puzzle>
         <puzzle>
@@ -567,7 +567,7 @@
             <type>multiple</type>
         </puzzle>
         <puzzle>
-            <category>Science &amp; Nature</category>
+            <category>Science ' Nature</category>
             <correct_answer>Great white shark</correct_answer>
             <difficulty>hard</difficulty>
             <incorrect_answers>

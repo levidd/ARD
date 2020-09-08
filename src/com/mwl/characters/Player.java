@@ -16,6 +16,7 @@ public abstract class Player {
     private Room currentRoom;
     private List<Item> itemsInventory;
     private int level;
+    private int score = 0;
 
     public Player(){
     }
@@ -26,6 +27,7 @@ public abstract class Player {
         this.currentRoom = currentRoom;
         this.itemsInventory = itemsInventory;
         this.level = level;
+        this.score = getScore();
     }
 
 
@@ -94,6 +96,7 @@ public abstract class Player {
         System.out.println(Codes.Room.getCode()  + Codes.Room.withColor("Room " + getCurrentRoom().getId()));
         System.out.println(Codes.Item.getCode() + getItemsInventory().stream()
                 .map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", ")));
+        System.out.println(Codes.Score.getCode() + Codes.Score.withColor(" Score " + getScore()));
         System.out.println(Codes.Level.getCode() + Codes.Level.withColor(" Level " + getLevel()));
     }
 
@@ -103,5 +106,17 @@ public abstract class Player {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void incrementScore(){
+        setScore(getScore() + 10);
     }
 }

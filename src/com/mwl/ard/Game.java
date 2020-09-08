@@ -11,6 +11,7 @@ import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
+import java.util.List;
 import java.util.Random;
 
 import static com.mwl.util.ExitGame.exit;
@@ -28,8 +29,7 @@ public class Game {
     }
 
     boolean play() {
-        // tell player what room they are in or if monster is in front of them
-//        System.out.println(player.getCurrentRoom().getDescription());
+        // let player know we expect something
         System.out.print("> ");
 
         // ask what player wants to do
@@ -48,6 +48,7 @@ public class Game {
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
             case "drop" -> player.dropItem(Item.valueOf(command[1]));
             case "help" -> ConsoleManager.gameExplanation();
+            case "unlock" -> unlockChest(player);
             case "use" -> UsePower(player, command[1]);
         }
 
@@ -101,6 +102,10 @@ public class Game {
             case "Around" -> player.getCurrentRoom().overview();
             case "Me" -> player.printStats();
         }
+    }
+
+    void unlockChest(Player player) {
+        player.getCurrentRoom().unlockChest();
     }
 
     private void increaseScore(int previousSize) {

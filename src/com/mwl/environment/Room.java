@@ -17,6 +17,7 @@ public class Room {
     private List<Monster> monsters; // list of monsters in room
     private final int id; // room id (for ensuring hashcode is different)
     private Random random = new Random(); // Generate random numbers
+    private Chest chest; // a chest of reward items
 
 
     /**
@@ -32,7 +33,6 @@ public class Room {
         monsters = new ArrayList<>();
         generateRandomRoomItems();
         generateRandomNormalMonsters();
-
     }
 
     /**
@@ -173,6 +173,9 @@ public class Room {
         String temp = Codes.Left.getCode() + Codes.Left.withColor(" " + getDescription() + " ") + Codes.Right.getCode();
         System.out.println(Codes.Left.getCode() + Codes.Left.withColor(" " + getDescription() + " ") + Codes.Right.getCode());
         System.out.println(Codes.Item.getCode() + itemsPresent());
+        if (chest != null) {
+            System.out.println(Codes.Chest.getCode() + Codes.Chest.withColor(" " + chest.toString()));
+        }
         System.out.println(Codes.Monster.getCode() + monstersPresent());
     }
 
@@ -199,6 +202,30 @@ public class Room {
             return getMonsters().size() + " monster:" + getMonsters().toString();
         } else {
             return "No monsters present in this room.";
+        }
+    }
+
+    /**
+     * Method to set the chest for the given room.
+     * @param chest
+     */
+    public void setChest(Chest chest) {
+        this.chest = chest;
+    }
+
+    /**
+     * Runs the chest's question (if available) and get the reward from the chest. Adds rewarded items to the room's
+     * inventory.
+     */
+    public void unlockChest() {
+        if (chest != null) {
+            List<Item> reward = chest.askQuestion();
+            if (reward.size() > 0) {
+                System.out.println("The " + Codes.Chest.withColor("chest") + " empties its contents onto the floor.");
+            }
+            this.addAllItems(reward);
+        } else {
+            System.out.println("No " + Codes.Chest.withColor("chest") + " in this room.");
         }
     }
 

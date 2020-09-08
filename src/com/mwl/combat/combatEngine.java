@@ -37,6 +37,7 @@ public class combatEngine {
             if (!checkIfMonsterAlive(player.getCurrentRoom())) {
                 removeDefeatedMonsterFromRoom(player.getCurrentRoom());
                 LevelUp(player);
+                player.incrementScore();
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed " + Codes.Monster.withColor(monster.getName()));
             } else {
                 System.out.println(Codes.Player.withColor(player.getName()) + fights[rand]

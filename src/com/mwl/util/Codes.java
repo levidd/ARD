@@ -9,7 +9,8 @@ public enum Codes {
     Item("\u2200 ", Colors.LIGHTCYAN),
     Left("\u201f", Colors.MAGENTA),
     Right("\u201d", Colors.MAGENTA),
-    Level("\u21a5", Colors.LIGHTBLUE);
+    Level("\u21a5", Colors.LIGHTBLUE),
+    Score("\u2713", Colors.GREEN);
 
     String code;
     Colors color;

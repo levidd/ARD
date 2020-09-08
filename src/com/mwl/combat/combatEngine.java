@@ -1,5 +1,6 @@
 package com.mwl.combat;
 
+import com.mwl.ard.Game;
 import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
@@ -75,7 +76,7 @@ public class combatEngine {
                 lifeValue -= damage;
                 player.setLife(lifeValue);
                 if (!checkIfPlayerAlive(player)) {
-                    ifPlayerDeath(monster);
+                    ifPlayerDeath(monster, player);
                 } else {
                     System.out.println(Codes.Monster.withColor(monster.getName()) + attacks[rand]
                             + Codes.Player.withColor(player.getName()) + " and "
@@ -145,9 +146,10 @@ public class combatEngine {
      *
      * @param monster current room's monster
      */
-    private static void ifPlayerDeath(Monster monster) {
+    private static void ifPlayerDeath(Monster monster, Player player) {
         System.out.println("Sorry " + Codes.Monster.withColor(monster.getName()) + " killed "
                 + Codes.Player.withColor("you."));
+        Game.keepScores(player);
         exit("exit");
     }
 

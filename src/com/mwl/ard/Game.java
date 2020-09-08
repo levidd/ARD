@@ -12,9 +12,7 @@ import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 
 import java.util.List;
 
@@ -27,7 +25,7 @@ public class Game {
     RoomMap gameMap;
     Random random = new Random();
     Monster boss;
-
+    static String name;
 
     public Game() {
         // default constructor
@@ -64,6 +62,8 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
+        System.out.println("Please enter your name: ");
+        name = ConsoleManager.scanner().nextLine();
         player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
@@ -79,6 +79,7 @@ public class Game {
             if (boss != null && boss.getLife() <= 0) {
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed "
                         + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
+                keepScores(player);
                 exit("exit");
             }
         }
@@ -121,17 +122,22 @@ public class Game {
         }
     }
 
-    public static void keepScores(Player player){
+    public static void keepScores(Player player) {
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("resources/scores/scores.txt", "UTF-8");
+            writer = new PrintWriter(new FileWriter("resources/scores/final_scores.txt", true));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        writer.println("Hello");
-        writer.println("world");
+
+        writer.append("<Final score for this game>" + "\n");
+        writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + "\n");
+        writer.println();
+
         writer.close();
     }
 }

@@ -21,9 +21,8 @@ public class combatEngine {
      * static method a player can call to attack monsters
      *
      * @param player      current player
-     * @param currentRoom room where the player is currently.
      */
-    public static void fightRoomMonster(Player player, Room currentRoom) {
+    public static void fightRoomMonster(Player player) {
         String[] fights = {
            " fiercely hit ",
            " successfully evaded and furiously punched ",
@@ -33,14 +32,14 @@ public class combatEngine {
         };
         int rand = ThreadLocalRandom.current().nextInt(fights.length);
 
-        if (checkForMonsterInRoom(currentRoom)) {
-            Monster monster = currentRoom.getMonsters().get(0);
+        if (checkForMonsterInRoom(player.getCurrentRoom())) {
+            Monster monster = player.getCurrentRoom().getMonsters().get(0);
             int lifeValue = monster.getLife();
             int damage = randomDamage();
             lifeValue -= damage;
             monster.setLife(lifeValue);
-            if (!checkIfMonsterAlive(currentRoom)) {
-                removeDefeatedMonsterFromRoom(currentRoom);
+            if (!checkIfMonsterAlive(player.getCurrentRoom())) {
+                removeDefeatedMonsterFromRoom(player.getCurrentRoom());
                 LevelUp(player);
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed " + Codes.Monster.withColor(monster.getName()));
             } else {
@@ -71,8 +70,8 @@ public class combatEngine {
         };
         int rand = ThreadLocalRandom.current().nextInt(attacks.length);
 
-        while (quantity > 0) {
-            quantity--;
+      //  while (quantity > 0) {
+      //      quantity--;
             if (checkIfMonsterAlive(player.getCurrentRoom())) {
                 int lifeValue = player.getLife();
                 int damage = randomDamage();
@@ -89,7 +88,7 @@ public class combatEngine {
                             + Codes.Life.withColor(lifeValue));
                 }
             }
-        }
+      //  }
     }
 
     /**

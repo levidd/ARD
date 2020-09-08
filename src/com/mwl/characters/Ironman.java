@@ -10,17 +10,17 @@ import java.util.concurrent.ThreadLocalRandom;
 import static com.mwl.combat.combatEngine.MonsterFightsPlayer;
 import static com.mwl.combat.combatEngine.fightRoomMonster;
 
-public class Ironman extends Player{
+public class Ironman extends Player {
     Monster monster;
 
-    public Ironman(String name, int life, Room currentRoom, List<Item> itemsInventory, int level){
+    public Ironman(String name, int life, Room currentRoom, List<Item> itemsInventory, int level) {
         super(name, life, currentRoom, itemsInventory, level);
     }
 
     @Override
     public void attack() {
         int rand = ThreadLocalRandom.current().nextInt(2);
-        switch(rand) {
+        switch (rand) {
             case 0:
                 fightRoomMonster(this);
                 if (getCurrentRoom().getMonsters().size() > 0) {
@@ -38,13 +38,12 @@ public class Ironman extends Player{
 
     @Override //generate more items
     public void useSpecialPower() {
-        List<Item> inventory = getItemsInventory();
-        int len = inventory.size();
-        if(len >= 1) {
-            int random = (int) (Math.random()*len + 1);
-            inventory.add(inventory.get(random));
-        } else{
-            System.out.println("Can't use more_power with empty items inventory!");
+        if (this.getItemsInventory().contains(Item.valueOf("Power_stone"))) {
+            List<Item> inventory = getItemsInventory();
+            int random = (int) (Math.random() * Item.values().length + 1);
+            inventory.add(Item.values()[random]);
+            inventory.remove(Item.valueOf("Power_stone"));
+            System.out.println(this.getName() + " has power stone in inventory and just used special power to generate one more item!");
         }
     }
 }

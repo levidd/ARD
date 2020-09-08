@@ -18,6 +18,7 @@ public class TextParser {
         commands.put("look", new Look());
         commands.put("fight", new Fight());
         commands.put("help", new Help());
+        commands.put("use", new UseSpecialPower());
         String str = ConsoleManager.scanner().nextLine();
         return ConsoleManager.scanInput(commands,str);
     }

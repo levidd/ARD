@@ -44,6 +44,7 @@ public class Game {
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
             case "drop" -> player.dropItem(Item.valueOf(command[1]));
             case "help" -> ConsoleManager.gameExplanation();
+            case "use" -> UsePower(player, command[1]);
         }
 
         return true;
@@ -84,6 +85,11 @@ public class Game {
     void Fight(Player player, String option) {
         System.out.println("fighting " + option);
         player.attack();
+    }
+
+    void UsePower(Player player, String option) {
+        System.out.println("use " + option);
+        player.useSpecialPower();
     }
 
     void Look(Player player, String option) {

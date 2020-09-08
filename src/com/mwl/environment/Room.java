@@ -21,6 +21,7 @@ public class Room {
 
     /**
      * Constructor
+     *
      * @param description
      * @param id
      */
@@ -36,6 +37,7 @@ public class Room {
 
     /**
      * Return room description
+     *
      * @return description
      */
     public String getDescription() {
@@ -44,6 +46,7 @@ public class Room {
 
     /**
      * Return all items in room
+     *
      * @return items
      */
     public List<Item> getItems() {
@@ -52,14 +55,16 @@ public class Room {
 
     /**
      * Return all monsters in room
+     *
      * @return
      */
-    public List<Monster> getMonsters(){
+    public List<Monster> getMonsters() {
         return monsters;
     }
 
     /**
      * Returns room id
+     *
      * @return id
      */
     public int getId() {
@@ -68,6 +73,7 @@ public class Room {
 
     /**
      * Adds item to room's item list
+     *
      * @param item
      */
     public void addItem(Item item) {
@@ -79,34 +85,44 @@ public class Room {
     /**
      * generates between 0 and 3 items in rooms randomly
      */
-    private void generateRandomRoomItems(){
+    private void generateRandomRoomItems() {
         //Returns a random number.
         //between 0 (inclusive) and 3 (exclusive).
-        int quantity = random.nextInt(3);
-        for (int i = 0; i < quantity; i++){
-            addItem(Item.values()[random.nextInt(Item.values().length)]);
+        if (this.id <= 5) {
+            int quantity = random.nextInt(3);
+            for (int i = 0; i < quantity; i++) {
+                addItem(Item.values()[random.nextInt(6)]);
+            }
+        } else if (this.id > 5) {
+            int quantity = random.nextInt(6);
+            for (int i = 0; i < quantity; i++) {
+                addItem(Item.values()[random.nextInt(12)]);
+            }
         }
     }
 
     /**
      * Adds monster to room's monster list
+     *
      * @param monster
      */
-    public void addMonster(Monster monster){
-        if(monster != null){
+    public void addMonster(Monster monster) {
+        if (monster != null) {
             monsters.add(monster);
         }
     }
+
     //randomly generate normal monsters with a probability of 80%
-    public void generateRandomNormalMonsters(){
+    public void generateRandomNormalMonsters() {
         int number = random.nextInt(100);
-        if(number<80){
+        if (number < 80) {
             addMonster(MonsterFactory.createMonster());
         }
     }
 
     /**
      * Adds a list of items to room's item list.
+     *
      * @param items
      */
     public void addAllItems(List<Item> items) {
@@ -117,10 +133,11 @@ public class Room {
 
     /**
      * Adds a list of monsters to room's monster list
+     *
      * @param monsters
      */
-    public void addAllMonsters(List<Monster> monsters){
-        if(monsters != null){
+    public void addAllMonsters(List<Monster> monsters) {
+        if (monsters != null) {
             this.monsters.addAll(monsters);
         }
     }
@@ -128,6 +145,7 @@ public class Room {
     /**
      * Grab an item from room. Removes item from room's item list, if present. Returns a boolean if successfully
      * removed the item.
+     *
      * @param item
      * @return
      */
@@ -138,18 +156,19 @@ public class Room {
     /**
      * Removes monster from room's monster list, if present. Returns a boolean if successfully
      * removed the monster.
+     *
      * @param monster
      * @return
      */
-    public boolean defeatMonster(Monster monster){
+    public boolean defeatMonster(Monster monster) {
         return monsters.remove(monster);
     }
 
 
     /**
-     *  Brief overview of what is in a room
+     * Brief overview of what is in a room
      */
-    public void overview(){
+    public void overview() {
         System.out.println(Codes.Room.getCode() + "You are in " + Codes.Room.withColor("Room " + getId()));
         String temp = Codes.Left.getCode() + Codes.Left.withColor(" " + getDescription() + " ") + Codes.Right.getCode();
         System.out.println(Codes.Left.getCode() + Codes.Left.withColor(" " + getDescription() + " ") + Codes.Right.getCode());
@@ -159,24 +178,26 @@ public class Room {
 
     /**
      * Check for items present in a room
+     *
      * @return prints list of items present or no items message
      */
-    private String itemsPresent(){
-        if(getItems().size() > 0){
-            return getItems().size() + " item(s): "+ getItems().stream().map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", "));
-        }else {
+    private String itemsPresent() {
+        if (getItems().size() > 0) {
+            return getItems().size() + " item(s): " + getItems().stream().map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", "));
+        } else {
             return "No items present in this room.";
         }
     }
 
     /**
      * Check for monsters present in a room
+     *
      * @return Prints list of monsters or no monsters message
      */
-    private String monstersPresent(){
-        if(getMonsters().size() > 0){
-            return getMonsters().size() + " monster:"+ getMonsters().toString();
-        }else {
+    private String monstersPresent() {
+        if (getMonsters().size() > 0) {
+            return getMonsters().size() + " monster:" + getMonsters().toString();
+        } else {
             return "No monsters present in this room.";
         }
     }

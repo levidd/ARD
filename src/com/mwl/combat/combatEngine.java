@@ -1,14 +1,10 @@
 package com.mwl.combat;
 
-import com.mwl.ard.Game;
 import com.mwl.characters.Monster;
-import com.mwl.characters.Normal;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
 import com.mwl.util.Codes;
-import com.mwl.util.Colors;
 
-import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static com.mwl.combat.WinOrLose.LevelUp;
@@ -97,7 +93,7 @@ public class combatEngine {
      * @param currentRoom Room that player is currently
      * @return return true if monster is in the current room, false otherwise
      */
-    private static boolean checkForMonsterInRoom(Room currentRoom) {
+    public static boolean checkForMonsterInRoom(Room currentRoom) {
         boolean monsterPresent = true;
         if (currentRoom.getMonsters().size() == 0) {
             System.out.println("Just kidding! No monster in this room");

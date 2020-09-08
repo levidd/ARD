@@ -38,13 +38,17 @@ public class Ironman extends Player{
 
     @Override //generate more items
     public void useSpecialPower() {
-        List<Item> inventory = getItemsInventory();
-        int len = inventory.size();
-        if(len >= 1) {
-            int random = (int) (Math.random()*len + 1);
-            inventory.add(inventory.get(random));
-        } else{
-            System.out.println("Can't use more_power with empty items inventory!");
-        }
+      if(this.getItemsInventory().contains("Power_stone")) {
+          List<Item> inventory = getItemsInventory();
+          int len = inventory.size();
+          if (len >= 1) {
+              int random = (int) (Math.random() * len + 1);
+              inventory.add(inventory.get(random));
+              inventory.remove(Item.valueOf("Power_stone"));
+              System.out.println(this.getName() + " has power stone in inventory and just used special power to generate one more item!");
+          } else {
+              System.out.println(this.getName() + " can't use special power with empty items inventory!");
+          }
+      }
     }
 }

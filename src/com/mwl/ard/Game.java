@@ -84,6 +84,7 @@ public class Game {
     void Fight(Player player, String option) {
         System.out.println("fighting " + option);
         player.attack();
+        player.useSpecialPower();
     }
 
     void Look(Player player, String option) {

@@ -37,7 +37,11 @@ public class Game {
         String[] command = TextParser.parser();
         // do that thing
         switch (command[0]) {
-            case "move" -> gameMap.moveCharacter(player, Direction.valueOf(command[1]));
+            case "move" -> {
+                int size = gameMap.size();
+                gameMap.moveCharacter(player, Direction.valueOf(command[1]));
+                increaseScore(size);
+            }
             case "look" -> Look(player, command[1]);
             case "flight" -> Flight(player, command[1]);
             case "fight" -> Fight(player, command[1]);
@@ -104,5 +108,11 @@ public class Game {
         player.getCurrentRoom().unlockChest();
     }
 
+    private void increaseScore(int previousSize) {
+        int newSize = gameMap.size();
+        if (newSize > previousSize) {
+            player.incrementScore();
+        }
+    }
 }
 

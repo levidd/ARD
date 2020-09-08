@@ -13,8 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -224,5 +223,24 @@ public class ConsoleManager {
      */
     public static Scanner scanner() {
         return scanner;
+    }
+
+
+    public static void main(String[] args) {
+        keepScores();
+    }
+
+    public static void keepScores(){
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("resources/scores/scores.txt", "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        writer.println("Hello");
+        writer.println("world");
+        writer.close();
     }
 }

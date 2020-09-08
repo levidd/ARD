@@ -24,6 +24,15 @@ public class combatEngine {
      * @param currentRoom room where the player is currently.
      */
     public static void fightRoomMonster(Player player, Room currentRoom) {
+        String[] fights = {
+           " fiercely hit ",
+           " successfully evaded and furiously punched ",
+           " heavily overthrew ",
+           " swiftly elbowed ",
+           " unexpected kicked ",
+        };
+        int rand = ThreadLocalRandom.current().nextInt(fights.length);
+
         if (checkForMonsterInRoom(currentRoom)) {
             Monster monster = currentRoom.getMonsters().get(0);
             int lifeValue = monster.getLife();
@@ -35,7 +44,7 @@ public class combatEngine {
                 LevelUp(player);
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed " + Codes.Monster.withColor(monster.getName()));
             } else {
-                System.out.println(Codes.Player.withColor(player.getName()) + " has attacked "
+                System.out.println(Codes.Player.withColor(player.getName()) + fights[rand]
                         + Codes.Monster.withColor(monster.getName()) + " and "
                         + Codes.Monster.withColor(monster.getName()) + " lost life value of: "
                         + Codes.Monster.getColor().negative(damage));
@@ -53,6 +62,14 @@ public class combatEngine {
      */
     public static void MonsterFightsPlayer(Monster monster, Player player) {
         int quantity = ThreadLocalRandom.current().nextInt(2, 3);
+        String[] attacks = {
+                " violently bit ",
+                " quietly stalked and suddenly attacked ",
+                " smartly dodged and viciously clawed ",
+                " aggressively knocked down ",
+                " ruthlessly hit "
+        };
+        int rand = ThreadLocalRandom.current().nextInt(attacks.length);
 
         while (quantity > 0) {
             quantity--;
@@ -64,7 +81,7 @@ public class combatEngine {
                 if (!checkIfPlayerAlive(player)) {
                     ifPlayerDeath(monster);
                 } else {
-                    System.out.println(Codes.Monster.withColor(monster.getName()) + " has attacked "
+                    System.out.println(Codes.Monster.withColor(monster.getName()) + attacks[rand]
                             + Codes.Player.withColor(player.getName()) + " and "
                             + Codes.Player.withColor(player.getName()) + " lost life value of: "
                             + Codes.Player.getColor().negative(damage));

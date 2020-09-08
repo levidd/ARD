@@ -97,10 +97,10 @@ public class Room {
             monsters.add(monster);
         }
     }
-    //randomly generate normal monsters with a probability of 20%
+    //randomly generate normal monsters with a probability of 80%
     public void generateRandomNormalMonsters(){
         int number = random.nextInt(100);
-        if(number<33){
+        if(number<80){
             addMonster(MonsterFactory.createMonster());
         }
     }
@@ -194,10 +194,4 @@ public class Room {
     public int hashCode() {
         return Objects.hash(getDescription(), getId());
     }
-
-
-    public static void main(String[] args) {
-        System.out.println();
-    }
-
 }

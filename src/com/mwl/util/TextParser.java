@@ -2,7 +2,8 @@ package com.mwl.util;
 
 import com.mwl.util.commands.*;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * TextParser Class integrates Scanner input located in Console manager with Parser,
@@ -18,6 +19,7 @@ public class TextParser {
         commands.put("look", new Look());
         commands.put("fight", new Fight());
         commands.put("help", new Help());
+        commands.put("unlock", new Unlock());
         String str = ConsoleManager.scanner().nextLine();
         return ConsoleManager.scanInput(commands,str);
     }

@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <response_code>0</response_code>
+    <results>
+        <puzzle>
+            <category>Entertainment: Music</category>
+            <correct_answer>Madeon</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Daft Punk </element>
+                <element>Disclosure</element>
+                <element>David Guetta</element>
+            </incorrect_answers>
+            <question>What French artist/band is known for playing on the midi instrument &amp;quot;Launchpad&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>History</category>
+            <correct_answer>Romantic</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Classic</element>
+                <element>Baroque</element>
+                <element>Renaissance</element>
+            </incorrect_answers>
+            <question>Pianist Fr&amp;eacute;d&amp;eacute;ric Chopin was a composer of which musical era?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Sports</category>
+            <correct_answer>Philadelphia Flyers</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>New York Rangers</element>
+                <element>Toronto Maple Leafs</element>
+                <element>Boston Bruins</element>
+            </incorrect_answers>
+            <question>Which of these teams isn&amp;#039;t a member of the NHL&amp;#039;s &amp;quot;Original Six&amp;quot; era?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Film</category>
+            <correct_answer>Auric Goldfinger</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Dr. Julius No</element>
+                <element>Rosa Klebb</element>
+                <element>Emilio Largo</element>
+            </incorrect_answers>
+            <question>Which of the following James Bond villains is not affiliated with the SPECTRE organization?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Politics</category>
+            <correct_answer>True</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>False</element>
+            </incorrect_answers>
+            <question>There was a satirical candidate named &amp;quot;Deez Nuts&amp;quot; running in the 2016 US presidential elections.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>In the game &amp;quot;Melty Blood Actress Again Current Code&amp;quot;, you can enter Blood Heat mode in Half Moon style.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Science &amp; Nature</category>
+            <correct_answer>Trees</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Flowers</element>
+                <element>Vegtables</element>
+                <element>Grains</element>
+            </incorrect_answers>
+            <question>If you planted the seeds of Quercus robur what would grow?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Science: Computers</category>
+            <correct_answer>December 20, 1990</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>December 17, 1996</element>
+                <element>November 12, 1990</element>
+                <element>November 24, 1995</element>
+            </incorrect_answers>
+            <question>On which day did the World Wide Web go online?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>In &amp;quot;Team Fortress 2&amp;quot;, the &amp;quot;Bill&amp;#039;s Hat&amp;quot; is a reference to the game &amp;quot;Dota 2&amp;quot;.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>True</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>False</element>
+            </incorrect_answers>
+            <question>In Half-Life 2, if you play the zombies&amp;#039; speech in reverse, they actually speak coherent English.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>In Undertale, having a &amp;quot;Fun Value&amp;quot; set to 56-57 will play the &amp;quot;Wrong Number Song Call&amp;quot;.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Science &amp; Nature</category>
+            <correct_answer>Iron</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Copper</element>
+                <element>Iridium</element>
+                <element>Cobalt</element>
+            </incorrect_answers>
+            <question>The element involved in making human blood red is which of the following?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Music</category>
+            <correct_answer>Matt Bellamy</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Dominic Howard</element>
+                <element>Thom Yorke</element>
+                <element>Jonny Greenwood</element>
+            </incorrect_answers>
+            <question>Who is the frontman of Muse?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>Bow </correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Hammer</element>
+                <element>Heavy Bowgun</element>
+                <element>Light Bowgun</element>
+            </incorrect_answers>
+            <question>Which of these weapon classes DO NOT appear in the first Monster Hunter game?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Animals</category>
+            <correct_answer>Tardar Sauce</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Sauce</element>
+                <element>Minnie</element>
+                <element>Broccoli</element>
+            </incorrect_answers>
+            <question>What is Grumpy Cat&amp;#039;s real name?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>General Knowledge</category>
+            <correct_answer>True</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>False</element>
+            </incorrect_answers>
+            <question>The Lego Group was founded in 1932.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>Partisan Eagle</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Blast Fencer</element>
+                <element>Winged Viper</element>
+                <element>Bastion Warrior</element>
+            </incorrect_answers>
+            <question>In Xenoblade Chronicles X, which class has a sniper rifle as it&amp;#039;s primary weapon?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Mythology</category>
+            <correct_answer>Orpheus</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Hercules</element>
+                <element>Perseus</element>
+                <element>Daedalus</element>
+            </incorrect_answers>
+            <question>Which figure from Greek mythology traveled to the underworld to return his wife Eurydice to the land of the living?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <correct_answer>Bones</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>A-1 Pictures</element>
+                <element>Shaft</element>
+                <element>Madhouse</element>
+            </incorrect_answers>
+            <question>Which animation studio animated the 2016 anime &amp;quot;Mob Psycho 100&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Music</category>
+            <correct_answer>Pink Floyd</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>AC/DC</element>
+                <element>Metallica</element>
+                <element>Red Hot Chili Peppers</element>
+            </incorrect_answers>
+            <question>Which of these bands is the oldest?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Mythology</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>According to Greek Mythology, Atlas was an Olympian God.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>History</category>
+            <correct_answer>The Apology</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>The Euthyphro</element>
+                <element>The Laws</element>
+                <element>The Republic</element>
+            </incorrect_answers>
+            <question>In what dialogue did Socrates defend himself to the court of Athens? </question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Science: Computers</category>
+            <correct_answer>Central Processing Unit</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Motherboard</element>
+                <element>Graphics Processing Unit</element>
+                <element>Keyboard</element>
+            </incorrect_answers>
+            <question>What is known as &amp;quot;the brain&amp;quot; of the Computer?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Celebrities</category>
+            <correct_answer>Howard Stern</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Rush Limbaugh</element>
+                <element>Pete Tong</element>
+                <element>Ryan Seacrest</element>
+            </incorrect_answers>
+            <question>Which radio personality calls himself &amp;quot;The King of All Media&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>Microwave</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Computer</element>
+                <element>Refrigerator</element>
+                <element>Televison</element>
+            </incorrect_answers>
+            <question>What household item make the characters of &amp;quot;Steins; Gate&amp;quot; travel through time?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Science: Gadgets</category>
+            <correct_answer>2007</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>2005</element>
+                <element>2006</element>
+                <element>2004</element>
+            </incorrect_answers>
+            <question>When was the iPhone released?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>General Knowledge</category>
+            <correct_answer>Brasil</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Brazil</element>
+                <element>Brasilia</element>
+                <element>Bras&amp;iacute;l</element>
+            </incorrect_answers>
+            <question>What is the Portuguese word for &amp;quot;Brazil&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>Cipher</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Mobius 1</element>
+                <element>Blaze</element>
+                <element>Pixy</element>
+            </incorrect_answers>
+            <question>Who is the main protagonist of &amp;quot;Ace Combat Zero: The Belkan War&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>Pack-A-Punch</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Wunderfizz</element>
+                <element>Gersch Device</element>
+                <element>Mule Kick</element>
+            </incorrect_answers>
+            <question>In &amp;quot;Call Of Duty: Zombies&amp;quot;, what is the name of the machine that upgrades weapons?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Music</category>
+            <correct_answer>U2</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Radiohead</element>
+                <element>Coldplay</element>
+                <element>Bon Jovi</element>
+            </incorrect_answers>
+            <question>Which of these bands was a featuring artist in Compton rapper Kendrick Lamar&amp;#039;s 2017 album, &amp;quot;DAMN.&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <correct_answer>True</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>False</element>
+            </incorrect_answers>
+            <question>In &amp;quot;To Love-Ru: Darkness&amp;quot;, Yami reveals her real name is Eve.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>In &amp;quot;League of Legends&amp;quot;, there exists four different types of Dragon.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>August 24, 1996</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>December 26, 1994</element>
+                <element>March 22, 1997</element>
+                <element>March 13, 1997</element>
+            </incorrect_answers>
+            <question>When was the Valve Corporation founded?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>Avalice</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Freedom</element>
+                <element>Galaxytrail</element>
+                <element>Shang Mu</element>
+            </incorrect_answers>
+            <question>On which planet does the game Freedom Planet (2014) take place?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Celebrities</category>
+            <correct_answer>Martin Sheen</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Charlie Sheen</element>
+                <element>Ramon Sheen</element>
+                <element>Emilio Estevez</element>
+            </incorrect_answers>
+            <question>By which name is Ramon Estevez better known as?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <correct_answer>St. Marguerite</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>St. Augustine</element>
+                <element>St. Mary</element>
+                <element>St. Bernadette</element>
+            </incorrect_answers>
+            <question>What is the name of the school in the anime and manga &amp;quot;Gosick&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Japanese Anime &amp; Manga</category>
+            <correct_answer>Gonzo</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Kyoto Animation</element>
+                <element>xebec</element>
+                <element>Production I.G</element>
+            </incorrect_answers>
+            <question>Which studio animated Afro Samurai?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>History</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>The United States of America was the first country to launch a man into space.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Animals</category>
+            <correct_answer>Pan troglodytes</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Gorilla gorilla</element>
+                <element>Pan paniscus</element>
+                <element>Panthera leo</element>
+            </incorrect_answers>
+            <question>What is the scientific name of the Common Chimpanzee?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Science &amp; Nature</category>
+            <correct_answer>299,792,458 m/s</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>50,461 m/s</element>
+                <element>308,215,043 m/s</element>
+                <element>751,665,014,151 m/s</element>
+            </incorrect_answers>
+            <question>What is the speed of light in a vacuum?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Film</category>
+            <correct_answer>Casablanca</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>The Maltese Falcon</element>
+                <element>The Treasure of the Sierra Madre</element>
+                <element>Citizen Kane</element>
+            </incorrect_answers>
+            <question>In which film does Humphrey Bogart say the famous line, &amp;quot;Here&amp;#039;s looking at you, kid&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>General Knowledge</category>
+            <correct_answer>Twins</correct_answer>
+            <difficulty>easy</difficulty>
+            <incorrect_answers>
+                <element>Fish</element>
+                <element>Scales</element>
+                <element>Maiden</element>
+            </incorrect_answers>
+            <question>What is the Zodiac symbol for Gemini?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Animals</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>You can tell the age of a ladybird by counting the spots on his back.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Film</category>
+            <correct_answer>DeForest</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>DeWinter</element>
+                <element>Steven</element>
+                <element>Bryce</element>
+            </incorrect_answers>
+            <question>What was Humphrey Bogart&amp;#039;s middle name?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Sports</category>
+            <correct_answer>Portugal</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>West Germany</element>
+                <element>Soviet Union</element>
+                <element>Brazil</element>
+            </incorrect_answers>
+            <question>What team did England beat in the semi-final stage to win in the 1966 World Cup final?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Cartoon &amp; Animations</category>
+            <correct_answer>False</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>True</element>
+            </incorrect_answers>
+            <question>In &amp;quot;Avatar: The Last Airbender&amp;quot; and &amp;quot;The Legend of Korra&amp;quot;, Lavabending is a specialized bending technique of Firebending.</question>
+            <type>boolean</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Music</category>
+            <correct_answer>&amp;quot;Database&amp;quot;</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>&amp;quot;Dead End in Tokyo&amp;quot;</element>
+                <element>&amp;quot;Raise Your Flag&amp;quot;</element>
+                <element>&amp;quot;Out of Control&amp;quot;</element>
+            </incorrect_answers>
+            <question>Which song made by MAN WITH A MISSION was used as the opening for the anime &amp;quot;Log Horizon&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Entertainment: Video Games</category>
+            <correct_answer>David Baszucki and Erik Cassel</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Erik Cassel</element>
+                <element>Jonas Alto and Sarah Smith</element>
+                <element>James Kolein</element>
+            </incorrect_answers>
+            <question>In 2004, which person(s) created &amp;quot;Roblox&amp;quot;?</question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>History</category>
+            <correct_answer>Otto Von Bismark</correct_answer>
+            <difficulty>medium</difficulty>
+            <incorrect_answers>
+                <element>Kaiser Wilhelm </element>
+                <element>Fredrick the 2nd</element>
+                <element>Robert Koch</element>
+            </incorrect_answers>
+            <question>Who was the first Chancellor of a united Germany in 1871? </question>
+            <type>multiple</type>
+        </puzzle>
+        <puzzle>
+            <category>Science &amp; Nature</category>
+            <correct_answer>Great white shark</correct_answer>
+            <difficulty>hard</difficulty>
+            <incorrect_answers>
+                <element>Octopus</element>
+                <element>Killer whale</element>
+                <element>Catfish</element>
+            </incorrect_answers>
+            <question>Which of these animals belongs in class Chondrichthyes?</question>
+            <type>multiple</type>
+        </puzzle>
+    </results>
+</root>

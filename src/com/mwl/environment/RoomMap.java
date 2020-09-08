@@ -4,14 +4,17 @@ package com.mwl.environment;
 import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
 import com.mwl.util.Grammar;
+import com.mwl.util.PuzzleMaker;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RoomMap {
     private final Map<Room, Map<Direction, Room>> map; // underlying data structure
     private final Room start; // starting room
     private final Grammar grammar; // grammar object for generating room descriptions
+    private final PuzzleMaker puzzles;
 
     /**
      * Default Constructor
@@ -19,6 +22,7 @@ public class RoomMap {
     public RoomMap() {
         map = new HashMap<>();
         grammar = new Grammar();
+        puzzles = new PuzzleMaker();
         start = makeNewRoom();
         map.put(start, new HashMap<>());
     }
@@ -125,6 +129,11 @@ public class RoomMap {
      * @return
      */
     private Room makeNewRoom() {
-        return new Room(grammar.generate_Sentence(), map.size());
+        Room result = new Room(grammar.generate_Sentence(), map.size());
+        int percentChest = 20;
+        if (ThreadLocalRandom.current().nextInt(100) < percentChest) {
+            result.setChest(new Chest(puzzles.getRandomPuzzle()));
+        }
+        return result;
     }
 }

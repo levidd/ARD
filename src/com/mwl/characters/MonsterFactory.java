@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MonsterFactory {
+    private static int startingLife = 50;
     private MonsterFactory(){
 
     }
@@ -28,7 +29,7 @@ public class MonsterFactory {
         int random = rand.nextInt(monsters.size());
         String[] str = monsters.get(random).split(",");
 
-        Monster monster = new Normal(str[0], 50, str[1].strip());
+        Monster monster = new Normal(str[0], getMonsterStartingLife(), str[1].strip());
 
         return monster;
     }
@@ -46,4 +47,11 @@ public class MonsterFactory {
         return boss;
     }
 
+    public static int getMonsterStartingLife() {
+        return startingLife;
+    }
+
+    public static void setMonsterStartingLife(int startingLife) {
+        MonsterFactory.startingLife = startingLife;
+    }
 }

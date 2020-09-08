@@ -5,6 +5,7 @@ import com.mwl.environment.Room;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static com.mwl.combat.combatEngine.MonsterFightsPlayer;
 import static com.mwl.combat.combatEngine.fightRoomMonster;
@@ -18,9 +19,20 @@ public class Wolverine extends Player{
 
     @Override
     public void attack() {
-        fightRoomMonster(this,getCurrentRoom());
-        if(getCurrentRoom().getMonsters().size() > 0){
-            MonsterFightsPlayer(getCurrentRoom().getMonsters().get(0), this);
+        int rand = ThreadLocalRandom.current().nextInt(2);
+        switch(rand) {
+            case 0:
+                fightRoomMonster(this);
+                if (getCurrentRoom().getMonsters().size() > 0) {
+                    MonsterFightsPlayer(getCurrentRoom().getMonsters().get(0), this);
+                }
+                break;
+            case 1:
+                if (getCurrentRoom().getMonsters().size() > 0) {
+                    MonsterFightsPlayer(getCurrentRoom().getMonsters().get(0), this);
+                }
+                fightRoomMonster(this);
+                break;
         }
     }
 

@@ -1,7 +1,6 @@
 
 package com.mwl.environment;
 
-import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
 import com.mwl.util.Grammar;
 import com.mwl.util.PuzzleMaker;
@@ -51,6 +50,10 @@ public class RoomMap {
         return map;
     }
 
+//    public Set<Room> roomList(){
+//        Set<Room> rooms = map.keySet();
+//        return rooms;
+//    }
     /**
      * Logic for moving around on the game map. Moves in the passed direction from given room, and returns the new room
      * location. If the room moving to has not yet been visited and is a player, creates one and updates the map

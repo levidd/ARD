@@ -20,6 +20,7 @@ public class TextParser {
         commands.put("fight", new Fight());
         commands.put("help", new Help());
         commands.put("unlock", new Unlock());
+        commands.put("use", new UseSpecialPower());
         String str = ConsoleManager.scanner().nextLine();
         return ConsoleManager.scanInput(commands,str);
     }

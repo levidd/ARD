@@ -1,14 +1,10 @@
 package com.mwl.combat;
 
-import com.mwl.ard.Game;
 import com.mwl.characters.Monster;
-import com.mwl.characters.Normal;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
 import com.mwl.util.Codes;
-import com.mwl.util.Colors;
 
-import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static com.mwl.combat.WinOrLose.LevelUp;
@@ -21,21 +17,29 @@ public class combatEngine {
      * static method a player can call to attack monsters
      *
      * @param player      current player
-     * @param currentRoom room where the player is currently.
      */
-    public static void fightRoomMonster(Player player, Room currentRoom) {
-        if (checkForMonsterInRoom(currentRoom)) {
-            Monster monster = currentRoom.getMonsters().get(0);
+    public static void fightRoomMonster(Player player) {
+        String[] fights = {
+           " fiercely hit ",
+           " successfully evaded and furiously punched ",
+           " heavily overthrew ",
+           " swiftly elbowed ",
+           " unexpected kicked ",
+        };
+        int rand = ThreadLocalRandom.current().nextInt(fights.length);
+
+        if (checkForMonsterInRoom(player.getCurrentRoom())) {
+            Monster monster = player.getCurrentRoom().getMonsters().get(0);
             int lifeValue = monster.getLife();
             int damage = randomDamage();
             lifeValue -= damage;
             monster.setLife(lifeValue);
-            if (!checkIfMonsterAlive(currentRoom)) {
-                removeDefeatedMonsterFromRoom(currentRoom);
+            if (!checkIfMonsterAlive(player.getCurrentRoom())) {
+                removeDefeatedMonsterFromRoom(player.getCurrentRoom());
                 LevelUp(player);
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed " + Codes.Monster.withColor(monster.getName()));
             } else {
-                System.out.println(Codes.Player.withColor(player.getName()) + " has attacked "
+                System.out.println(Codes.Player.withColor(player.getName()) + fights[rand]
                         + Codes.Monster.withColor(monster.getName()) + " and "
                         + Codes.Monster.withColor(monster.getName()) + " lost life value of: "
                         + Codes.Monster.getColor().negative(damage));
@@ -53,9 +57,17 @@ public class combatEngine {
      */
     public static void MonsterFightsPlayer(Monster monster, Player player) {
         int quantity = ThreadLocalRandom.current().nextInt(2, 3);
+        String[] attacks = {
+                " violently bit ",
+                " quietly stalked and suddenly attacked ",
+                " smartly dodged and viciously clawed ",
+                " aggressively knocked down ",
+                " ruthlessly hit "
+        };
+        int rand = ThreadLocalRandom.current().nextInt(attacks.length);
 
-        while (quantity > 0) {
-            quantity--;
+      //  while (quantity > 0) {
+      //      quantity--;
             if (checkIfMonsterAlive(player.getCurrentRoom())) {
                 int lifeValue = player.getLife();
                 int damage = randomDamage();
@@ -64,7 +76,7 @@ public class combatEngine {
                 if (!checkIfPlayerAlive(player)) {
                     ifPlayerDeath(monster);
                 } else {
-                    System.out.println(Codes.Monster.withColor(monster.getName()) + " has attacked "
+                    System.out.println(Codes.Monster.withColor(monster.getName()) + attacks[rand]
                             + Codes.Player.withColor(player.getName()) + " and "
                             + Codes.Player.withColor(player.getName()) + " lost life value of: "
                             + Codes.Player.getColor().negative(damage));
@@ -72,7 +84,7 @@ public class combatEngine {
                             + Codes.Life.withColor(lifeValue));
                 }
             }
-        }
+      //  }
     }
 
     /**
@@ -81,7 +93,7 @@ public class combatEngine {
      * @param currentRoom Room that player is currently
      * @return return true if monster is in the current room, false otherwise
      */
-    private static boolean checkForMonsterInRoom(Room currentRoom) {
+    public static boolean checkForMonsterInRoom(Room currentRoom) {
         boolean monsterPresent = true;
         if (currentRoom.getMonsters().size() == 0) {
             System.out.println("Just kidding! No monster in this room");

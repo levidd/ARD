@@ -58,12 +58,9 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
-//        System.out.println("Please enter your name: ");
-//        name = ConsoleManager.scanner().nextLine();
         player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
-        boolean bossIsHere = false;
         while (playGame) {
             // keep playing game until it passes back as false
             playGame = play();

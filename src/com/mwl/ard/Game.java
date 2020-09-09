@@ -5,6 +5,7 @@ import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Player;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
+import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
 import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
@@ -12,6 +13,7 @@ import com.mwl.util.TextParser;
 
 import java.io.*;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Random;
 
 import static com.mwl.util.ExitGame.exit;
@@ -101,6 +103,7 @@ public class Game {
         switch (option) {
             case "Around" -> player.getCurrentRoom().overview();
             case "Me" -> player.printStats();
+            default -> itemRequestDesc(option);
         }
     }
 
@@ -114,6 +117,20 @@ public class Game {
             player.incrementScore();
         }
     }
+
+    public void itemRequestDesc(String item){
+        if(player.playerAndRoomItems().contains(Item.valueOf(item))){
+            for (Item itemx : player.playerAndRoomItems()) {
+                if (itemx.name().equals(item)){
+                    System.out.println(itemx.getDescription());
+                    break;
+                }
+            }
+        }else {
+            System.out.println("Item not present");
+        }
+    }
+
 
     public static void keepScores(Player player) {
         PrintWriter writer = null;

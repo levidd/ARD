@@ -2,7 +2,6 @@ package com.mwl.environment;
 
 import com.mwl.characters.Player;
 import com.mwl.util.Grammar;
-import com.mwl.util.PuzzleMaker;
 
 import java.util.HashMap;
 import java.util.Map;

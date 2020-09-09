@@ -1,11 +1,9 @@
-package com.mwl.util;
+package com.mwl.environment;
 
-import com.mwl.environment.Puzzle;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;

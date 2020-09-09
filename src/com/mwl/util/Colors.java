@@ -27,14 +27,34 @@ public enum Colors {
         this.end = escapeCode + "[0m";
     }
 
+    /**
+     * Changes the passed string to have terminal escape codes injected into the front and back of string, allowing
+     * string to be printed in color in terminals.
+     *
+     * @param output string to be changed to have color
+     * @return colored output string
+     */
     public String toColor(String output) {
         return foreground + output + end;
     }
 
+    /**
+     * Highlights the passed string to have background as the enum color.
+     *
+     * @param output string to be highlighted
+     * @return highlighted string
+     */
     public String highlight(String output) {
         return background + output + end;
     }
 
+    /**
+     * Changes the text to be the color of the enum, and then flips the text color and background color. (Similar to
+     * highlighting but invert the two colors).
+     *
+     * @param output string to be negated
+     * @return negated string
+     */
     public String negative(String output) {
         return escapeCode + "[7m" + toColor(output) + end;
     }

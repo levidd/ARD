@@ -3,7 +3,6 @@ package com.mwl.characters;
 import com.mwl.environment.Item;
 import com.mwl.environment.Room;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 

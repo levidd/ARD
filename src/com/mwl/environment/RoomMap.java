@@ -1,9 +1,7 @@
-
 package com.mwl.environment;
 
 import com.mwl.characters.Player;
 import com.mwl.util.Grammar;
-import com.mwl.util.PuzzleMaker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +26,7 @@ public class RoomMap {
 
     /**
      * Gets the map's starting room.
+     *
      * @return
      */
     public Room getStart() {
@@ -36,6 +35,7 @@ public class RoomMap {
 
     /**
      * Get the size of the map, i.e. the number of rooms on the map at the given moment
+     *
      * @return
      */
     public int size() {
@@ -44,6 +44,7 @@ public class RoomMap {
 
     /**
      * Returns the underlying data structure for Testing purposes
+     *
      * @return
      */
     Map<Room, Map<Direction, Room>> getMap() {
@@ -54,12 +55,14 @@ public class RoomMap {
 //        Set<Room> rooms = map.keySet();
 //        return rooms;
 //    }
+
     /**
      * Logic for moving around on the game map. Moves in the passed direction from given room, and returns the new room
      * location. If the room moving to has not yet been visited and is a player, creates one and updates the map
      * accordingly. New rooms are linked in the opposite direction. If a monster type, tries the direction and returns
      * same room if that room was not yet created. If room passed is null, throws an IllegalArgumentException.
-     * @param currRoom room moving from
+     *
+     * @param currRoom  room moving from
      * @param direction which direction to go through
      * @return room that was moved to
      * @throws IllegalArgumentException thrown if given direction is not applicable, or if currRoom is null
@@ -74,14 +77,16 @@ public class RoomMap {
                         Room temp = makeNewRoom();
                         options.put(direction, temp);
                         map.put(temp, new HashMap<>());
-                        map.get(temp).put(flipDirection(direction),currRoom);
+                        map.get(temp).put(flipDirection(direction), currRoom);
                     }
                     return options.get(direction);
                 }
                 case "monster" -> { // monster can only move if room attempting to go has already been created
                     return options.getOrDefault(direction, currRoom);
                 }
-                default -> {return currRoom;}
+                default -> {
+                    return currRoom;
+                }
             }
 
         } else {
@@ -92,7 +97,8 @@ public class RoomMap {
     /**
      * Moves the given character from their current room to room in given direction. If player's current room is null,
      * throws an IllegalArgumentException.
-     * @param player to move rooms
+     *
+     * @param player    to move rooms
      * @param direction which room to move to
      * @throws IllegalArgumentException
      */
@@ -114,6 +120,7 @@ public class RoomMap {
 
     /**
      * Returns the opposing direction string
+     *
      * @param direction starting direction
      * @return opposite direction
      */
@@ -129,6 +136,7 @@ public class RoomMap {
 
     /**
      * Makes a new room with ID the current size of room.
+     *
      * @return
      */
     private Room makeNewRoom() {

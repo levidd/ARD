@@ -2,7 +2,6 @@ package com.mwl.environment;
 
 import com.mwl.characters.Monster;
 import com.mwl.characters.MonsterFactory;
-import com.mwl.characters.Normal;
 import com.mwl.util.Codes;
 
 import java.util.ArrayList;
@@ -207,6 +206,7 @@ public class Room {
 
     /**
      * Method to set the chest for the given room.
+     *
      * @param chest
      */
     public void setChest(Chest chest) {

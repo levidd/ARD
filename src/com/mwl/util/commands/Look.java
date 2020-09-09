@@ -10,9 +10,8 @@ import java.util.List;
  */
 public class Look implements Commands {
     @Override
-    public void do_command(String option) {
-
-        List<String> valid = List.of("Around", "Me");
+    public void do_command(String option) throws IllegalArgumentException {
+     List<String> valid = List.of("Around", "Me");
         if (option == null || !valid.contains(option)
                 && !Arrays.stream(Item.values()).anyMatch((items) -> items.name().equals(option)))
             throw new IllegalArgumentException("Look what?");

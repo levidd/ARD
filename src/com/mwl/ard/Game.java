@@ -58,8 +58,8 @@ public class Game {
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
-        System.out.println("Please enter your name: ");
-        name = ConsoleManager.scanner().nextLine();
+//        System.out.println("Please enter your name: ");
+//        name = ConsoleManager.scanner().nextLine();
         player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
@@ -130,9 +130,12 @@ public class Game {
             e.printStackTrace();
         }
 
+        System.out.println("Please enter your name here to record your " + Codes.Score.withColor("score") + " for this game: ");
+        name = ConsoleManager.scanner().nextLine();
+
         LocalDateTime time = LocalDateTime.now();
         writer.append("<Final score for this game @" + time + ">" + "\n");
-        writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + "\n");
+        writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + " points \n");
         writer.println();
 
         writer.close();

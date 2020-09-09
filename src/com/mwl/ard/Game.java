@@ -11,6 +11,8 @@ import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
+import java.io.*;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -21,7 +23,7 @@ public class Game {
     RoomMap gameMap;
     Random random = new Random();
     Monster boss;
-
+    static String name;
 
     public Game() {
         // default constructor
@@ -29,8 +31,7 @@ public class Game {
     }
 
     boolean play() {
-        // tell player what room they are in or if monster is in front of them
-//        System.out.println(player.getCurrentRoom().getDescription());
+        // let player know we expect something
         System.out.print("> ");
 
         // ask what player wants to do
@@ -49,6 +50,7 @@ public class Game {
             case "pickup" -> player.pickUpItem(Item.valueOf(command[1]));
             case "drop" -> player.dropItem(Item.valueOf(command[1]));
             case "help" -> ConsoleManager.gameExplanation();
+            case "unlock" -> unlockChest(player);
             case "use" -> UsePower(player, command[1]);
         }
 
@@ -61,7 +63,6 @@ public class Game {
         player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
-        boolean bossIsHere = false;
         while (playGame) {
             // keep playing game until it passes back as false
             playGame = play();
@@ -73,6 +74,7 @@ public class Game {
             if (boss != null && boss.getLife() <= 0) {
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed "
                         + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
+                keepScores(player);
                 exit("exit");
             }
         }
@@ -105,6 +107,10 @@ public class Game {
         }
     }
 
+    void unlockChest(Player player) {
+        player.getCurrentRoom().unlockChest();
+    }
+
     private void increaseScore(int previousSize) {
         int newSize = gameMap.size();
         if (newSize > previousSize) {
@@ -125,5 +131,28 @@ public class Game {
         }
     }
 
+
+    public static void keepScores(Player player) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(new FileWriter("resources/scores/final_scores.txt", true));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Please enter your name here to record your " + Codes.Score.withColor("score") + " for this game: ");
+        name = ConsoleManager.scanner().nextLine();
+
+        LocalDateTime time = LocalDateTime.now();
+        writer.append("<Final score for this game @" + time + ">" + "\n");
+        writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + " points \n");
+        writer.println();
+
+        writer.close();
+    }
 }
 

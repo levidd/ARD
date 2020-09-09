@@ -10,6 +10,7 @@ public enum Codes {
     Left("\u201f", Colors.MAGENTA),
     Right("\u201d", Colors.MAGENTA),
     Level("\u21a5", Colors.LIGHTBLUE),
+    Chest("\u223a", Colors.CYAN),
     Score("\u2713", Colors.GREEN);
 
     String code;

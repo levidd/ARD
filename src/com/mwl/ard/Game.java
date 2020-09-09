@@ -9,7 +9,10 @@ import com.mwl.environment.RoomMap;
 import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
 import java.util.Random;
 
 import static com.mwl.util.ExitGame.exit;
@@ -77,6 +80,7 @@ public class Game {
             if (boss != null && boss.getLife() <= 0) {
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed "
                         + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
+                keepScores(player);
                 exit("exit");
             }
         }
@@ -136,6 +140,25 @@ public class Game {
         if (newSize > previousSize) {
             player.incrementScore();
         }
+    }
+
+    public static void keepScores(Player player) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(new FileWriter("resources/scores/final_scores.txt", true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Please enter your name here to record your " + Codes.Score.withColor("score") + " for this game: ");
+        String name = ConsoleManager.scanner().nextLine();
+
+        LocalDateTime time = LocalDateTime.now();
+        writer.append("<Final score for this game @" + time + ">" + "\n");
+        writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + " points \n");
+        writer.println();
+
+        writer.close();
     }
 }
 

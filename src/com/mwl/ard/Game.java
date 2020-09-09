@@ -14,6 +14,8 @@ import com.mwl.util.TextParser;
 
 import java.io.*;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import java.util.Random;
@@ -134,7 +136,8 @@ public class Game {
             e.printStackTrace();
         }
 
-        writer.append("<Final score for this game>" + "\n");
+        LocalDateTime time = LocalDateTime.now();
+        writer.append("<Final score for this game @" + time + ">" + "\n");
         writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + "\n");
         writer.println();
 

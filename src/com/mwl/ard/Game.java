@@ -5,13 +5,13 @@ import com.mwl.characters.MonsterFactory;
 import com.mwl.characters.Player;
 import com.mwl.environment.Direction;
 import com.mwl.environment.Item;
-import com.mwl.environment.Room;
 import com.mwl.environment.RoomMap;
 import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
 
-import java.util.List;
+import java.io.*;
+import java.time.LocalDateTime;
 import java.util.Random;
 
 import static com.mwl.util.ExitGame.exit;
@@ -21,7 +21,7 @@ public class Game {
     RoomMap gameMap;
     Random random = new Random();
     Monster boss;
-
+    static String name;
 
     public Game() {
         // default constructor
@@ -61,7 +61,6 @@ public class Game {
         player = ConsoleManager.choosePlayer(gameMap);
 
         boolean playGame = true;
-        boolean bossIsHere = false;
         while (playGame) {
             // keep playing game until it passes back as false
             playGame = play();
@@ -73,6 +72,7 @@ public class Game {
             if (boss != null && boss.getLife() <= 0) {
                 System.out.println(Codes.Player.withColor(player.getName()) + " killed "
                         + Codes.Monster.withColor(boss.getName()) + "! You win!!!!");
+                keepScores(player);
                 exit("exit");
             }
         }
@@ -113,6 +113,29 @@ public class Game {
         if (newSize > previousSize) {
             player.incrementScore();
         }
+    }
+
+    public static void keepScores(Player player) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(new FileWriter("resources/scores/final_scores.txt", true));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Please enter your name here to record your " + Codes.Score.withColor("score") + " for this game: ");
+        name = ConsoleManager.scanner().nextLine();
+
+        LocalDateTime time = LocalDateTime.now();
+        writer.append("<Final score for this game @" + time + ">" + "\n");
+        writer.append("[" + name + "] (" + player.getName() + "): " + player.getScore() + " points \n");
+        writer.println();
+
+        writer.close();
     }
 }
 

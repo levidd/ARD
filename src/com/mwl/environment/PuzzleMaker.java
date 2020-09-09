@@ -1,11 +1,9 @@
-package com.mwl.util;
+package com.mwl.environment;
 
-import com.mwl.environment.Puzzle;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
@@ -31,6 +29,7 @@ public class PuzzleMaker {
 
     /**
      * Picks a random puzzle element and pulls its child tags. Returns a new Puzzle object using those tags
+     *
      * @return
      */
     public Puzzle getRandomPuzzle() {
@@ -47,8 +46,8 @@ public class PuzzleMaker {
         return new Puzzle(question, difficulty, answer, wrong);
     }
 
-    /*
-    Helper method to get text content from a tag.
+    /**
+     * Helper method to get text content from a tag.
      */
     private String getContent(Element e, String tag) {
         return e.getElementsByTagName(tag).item(0).getTextContent();

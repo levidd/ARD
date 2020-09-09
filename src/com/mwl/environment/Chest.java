@@ -19,15 +19,15 @@ public class Chest {
         reward = makeAward();
     }
 
-    /*
-    Helper method to get a bunch of random items and put it into reward list.
+    /**
+     * Helper method to get a bunch of random items (not power stones) and put it into reward list.
      */
     private List<Item> makeAward() {
         List<Item> result = new ArrayList<>();
         int scale = puzzle.getDifficultyInt();
         int items = Item.values().length;
         for (int i = 0; i < ThreadLocalRandom.current().nextInt(scale, scale * 2); i++) {
-            result.add(Item.values()[ThreadLocalRandom.current().nextInt(items)]);
+            result.add(Item.values()[ThreadLocalRandom.current().nextInt(items - 6)]);
         }
         return result;
     }
@@ -62,8 +62,8 @@ public class Chest {
         return result;
     }
 
-    /*
-    Helper method to parse the inputs for given list of options.
+    /**
+     * Helper method to parse the inputs for given list of options.
      */
     private int getInput(List<List<String>> options) {
         boolean doLoop = true;

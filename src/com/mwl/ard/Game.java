@@ -10,8 +10,9 @@ import com.mwl.environment.RoomMap;
 import com.mwl.util.Codes;
 import com.mwl.util.ConsoleManager;
 import com.mwl.util.TextParser;
-
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Random;
@@ -19,18 +20,22 @@ import java.util.Random;
 import static com.mwl.util.ExitGame.exit;
 
 public class Game {
-    Player player;
-    RoomMap gameMap;
-    Random random = new Random();
-    Monster boss;
-    static String name;
+    private Player player;              // player reference
+    private RoomMap gameMap;            // map of the rooms
+    private Random random = new Random();
+    private Monster boss;               // boss monster reference
 
+    // default constructor
     public Game() {
-        // default constructor
         gameMap = new RoomMap();
     }
 
-    boolean play() {
+    /**
+     * Method to run the basic logic behind the game. Parse text, do command, return boolean if game is still going.
+     *
+     * @return
+     */
+    private boolean play() {
         // let player know we expect something
         System.out.print("> ");
 
@@ -57,6 +62,9 @@ public class Game {
         return true;
     }
 
+    /**
+     * Method to start a new game. Prints out a welcome message and game banner.
+     */
     public void newGame() {
         // new game logic
         ConsoleManager.gameIntro();
@@ -84,22 +92,35 @@ public class Game {
 
     }
 
-    void Flight(Player player, String option) {
+    /*
+    Stubbed out method to prepare for flight action
+     */
+    private void Flight(Player player, String option) {
         System.out.println("Flying " + option);
         // run method to do the action
     }
 
-    void Fight(Player player, String option) {
+    /**
+     * Method to instigate player fighting. Calls player's attack method
+     */
+    private void Fight(Player player, String option) {
         System.out.println("fighting " + option);
         player.attack();
     }
 
-    void UsePower(Player player, String option) {
+    /**
+     * Method to instigate player using their special power.
+     */
+    private void UsePower(Player player, String option) {
         System.out.println("use " + option);
         player.useSpecialPower();
     }
 
-    void Look(Player player, String option) {
+    /**
+     * Method to look at different objects. Either "Around" to give details about the room. "Me" to give details about the
+     * player.
+     */
+    private void Look(Player player, String option) {
         switch (option) {
             case "Around" -> player.getCurrentRoom().overview();
             case "Me" -> player.printStats();
@@ -107,10 +128,16 @@ public class Game {
         }
     }
 
-    void unlockChest(Player player) {
+    /**
+     * Method to invoke unlock chest method
+     */
+    private void unlockChest(Player player) {
         player.getCurrentRoom().unlockChest();
     }
 
+    /**
+     * Method to call increment score for the player when the gamemap has increased in size.
+     */
     private void increaseScore(int previousSize) {
         int newSize = gameMap.size();
         if (newSize > previousSize) {
@@ -136,16 +163,12 @@ public class Game {
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new FileWriter("resources/scores/final_scores.txt", true));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         System.out.println("Please enter your name here to record your " + Codes.Score.withColor("score") + " for this game: ");
-        name = ConsoleManager.scanner().nextLine();
+        String name = ConsoleManager.scanner().nextLine();
 
         LocalDateTime time = LocalDateTime.now();
         writer.append("<Final score for this game @" + time + ">" + "\n");

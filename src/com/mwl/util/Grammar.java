@@ -46,6 +46,7 @@ public class Grammar {
     /**
      * Adds the given key and list of values to grammar dictionary, if not already present. Throws IllegalArgumentException
      * if true.
+     *
      * @param key
      * @param values
      */
@@ -59,6 +60,7 @@ public class Grammar {
     /**
      * Generate a random sentence from the built grammar and return as a String. Throws an IllegalArgumentException if
      * grammar built does not have a "<sentence>" non-terminal.
+     *
      * @return
      * @throws IllegalArgumentException
      */
@@ -71,6 +73,7 @@ public class Grammar {
 
     /**
      * Capitalize the first character in the given string
+     *
      * @param s
      * @return
      */
@@ -80,6 +83,7 @@ public class Grammar {
 
     /**
      * Removes white spaces before commas and replaces "a" with "an" when next character is a vowel.
+     *
      * @param sentence
      * @return
      */
@@ -91,6 +95,7 @@ public class Grammar {
     /**
      * recursively choose a random value for each non-terminal, returning string that is made by joining each terminal
      * string with white spaces between them.
+     *
      * @param symbol
      * @return
      */

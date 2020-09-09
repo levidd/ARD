@@ -18,7 +18,7 @@ public class PlayerFactory {
                 player = new Wolverine("Wolverine", 100, currentRoom, itemInventory, 1);
                 break;
             case "B":
-                player = new Ironman("Iron Man", 100, currentRoom, itemInventory,1);
+                player = new Ironman("Iron Man", 100, currentRoom, itemInventory, 1);
                 break;
         }
         return player;

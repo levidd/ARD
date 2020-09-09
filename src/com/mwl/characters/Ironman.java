@@ -3,7 +3,6 @@ package com.mwl.characters;
 import com.mwl.environment.Item;
 import com.mwl.environment.Room;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -44,6 +43,8 @@ public class Ironman extends Player {
             inventory.add(Item.values()[random]);
             inventory.remove(Item.valueOf("Power_stone"));
             System.out.println(this.getName() + " has power stone in inventory and just used special power to generate one more item!");
+        } else {
+            System.out.println("Can't use special power without power stone in inventory!");
         }
     }
 }

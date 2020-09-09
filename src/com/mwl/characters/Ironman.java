@@ -43,6 +43,8 @@ public class Ironman extends Player {
             inventory.add(Item.values()[random]);
             inventory.remove(Item.valueOf("Power_stone"));
             System.out.println(this.getName() + " has power stone in inventory and just used special power to generate one more item!");
+        } else {
+            System.out.println("Can't use special power without power stone in inventory!");
         }
     }
 }

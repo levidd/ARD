@@ -1,7 +1,6 @@
 package com.mwl.environment;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
@@ -14,6 +13,7 @@ public class Puzzle {
 
     /**
      * Constructor
+     *
      * @param question
      * @param difficulty
      * @param answer
@@ -40,6 +40,7 @@ public class Puzzle {
 
     /**
      * Returns all the answers to the question. The correct answer is somewhere randomly in the mixture.
+     *
      * @return
      */
     public List<String> getAllAnswers() {
@@ -53,6 +54,7 @@ public class Puzzle {
      * Easy -> 1
      * Medium -> 2
      * Hard -> 3
+     *
      * @return
      */
     public int getDifficultyInt() {

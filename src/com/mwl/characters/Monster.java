@@ -1,20 +1,19 @@
 package com.mwl.characters;
 
-import com.mwl.environment.Room;
 import com.mwl.util.Codes;
-import com.mwl.util.Colors;
 
 public abstract class Monster {
-   private String name;
-   private String description;
-   private int life;
- //  private Room currentRoom;
+    private String name;
+    private String description;
+    private int life;
+    //  private Room currentRoom;
 
     public Monster() {
         // default constructor
     }
 
     public abstract void attack();
+
     public abstract void move();
 
     // Getters and Setters
@@ -44,10 +43,6 @@ public abstract class Monster {
 
     @Override
     public String toString() {
-//        return
-//                "name:'" + name + '\'' +
-//                ", description:'" + description + '\'' +
-//                ", life:" + life;
         return Codes.Monster.withColor(getName()) + " -- \'" + getDescription() + "\' -- " + Codes.Life.withColor("life: " + getLife());
     }
 }

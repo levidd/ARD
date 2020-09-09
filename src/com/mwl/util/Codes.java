@@ -21,10 +21,21 @@ public enum Codes {
         this.color = color;
     }
 
+    /**
+     * Get the unicode associated with this enum
+     *
+     * @return
+     */
     public String getCode() {
         return withColor(code);
     }
 
+    /**
+     * Method to change a string to be printable in color according to it's Colors enum.
+     *
+     * @param output string to change into colored version
+     * @return colored output
+     */
     public String withColor(String output) {
         return color.toColor(output);
     }
@@ -33,6 +44,11 @@ public enum Codes {
         return withColor("" + output);
     }
 
+    /**
+     * Get the color associated with this enum
+     *
+     * @return
+     */
     public Colors getColor() {
         return color;
     }

@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Look implements Commands {
     @Override
-    public void do_command(String option) {
+    public void do_command(String option) throws IllegalArgumentException {
         List<String> valid = List.of("Around", "Me");
         if (option == null || !valid.contains(option))
             throw new IllegalArgumentException("Look where?");

@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class Pickup implements Commands {
     @Override
-    public void do_command(String option) {
+    public void do_command(String option) throws IllegalArgumentException {
         if (!Arrays.stream(Item.values()).anyMatch((items) -> items.name().equals(option)))
             throw new IllegalArgumentException("pickup what?");
     }

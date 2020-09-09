@@ -1,11 +1,12 @@
 package com.mwl.characters;
-
 import com.mwl.environment.Item;
 import com.mwl.environment.Room;
 import com.mwl.util.Codes;
-
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public abstract class Player {
@@ -128,5 +129,12 @@ public abstract class Player {
 
     public void incrementScore() {
         setScore(getScore() + 10);
+    }
+
+    public Set<Item> playerAndRoomItems() {
+        Set<Item> newList = Stream.of(getItemsInventory(), getCurrentRoom().getItems())
+                .flatMap(Collection::stream)
+                .collect(Collectors.toSet());
+        return newList;
     }
 }

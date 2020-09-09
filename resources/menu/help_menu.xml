@@ -23,7 +23,7 @@
         </drop>
         <attack title="fight" description="say fight [monster] for each round of fighting. The order of player fighting monster and monster attacking player is randomized for each round.">
         </attack>
-        <useSpecialPower title="use special power" description="to use the special power of the hero you have chosen, you have to have [power stone] in player inventory.">
+        <useSpecialPower title="use power" description="to use the special power of the hero you have chosen, you have to have [power stone] in player inventory.">
         </useSpecialPower>
     </gameplay>
 </menu>

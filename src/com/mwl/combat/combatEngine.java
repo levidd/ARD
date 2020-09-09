@@ -5,14 +5,11 @@ import com.mwl.characters.Monster;
 import com.mwl.characters.Player;
 import com.mwl.environment.Room;
 import com.mwl.util.Codes;
-
 import java.util.concurrent.ThreadLocalRandom;
-
 import static com.mwl.combat.WinOrLose.LevelUp;
 import static com.mwl.util.ExitGame.exit;
 
 public class combatEngine {
-
 
     /**
      * static method a player can call to attack monsters
@@ -52,13 +49,12 @@ public class combatEngine {
     }
 
     /**
-     * static method that runs for the monster to fight back when a player attacks.
+     * static method that runs for the monster to fight back when a player attacks
      *
      * @param monster the monster in the current room.
      * @param player  the player currently in the room with the monster.
      */
     public static void MonsterFightsPlayer(Monster monster, Player player) {
-        int quantity = ThreadLocalRandom.current().nextInt(2, 3);
         String[] attacks = {
                 " violently bit ",
                 " quietly stalked and suddenly attacked ",
@@ -68,8 +64,6 @@ public class combatEngine {
         };
         int rand = ThreadLocalRandom.current().nextInt(attacks.length);
 
-        //  while (quantity > 0) {
-        //      quantity--;
         if (checkIfMonsterAlive(player.getCurrentRoom())) {
             int lifeValue = player.getLife();
             int damage = randomDamage();
@@ -86,14 +80,14 @@ public class combatEngine {
                         + Codes.Life.withColor(lifeValue));
             }
         }
-        //  }
+
     }
 
     /**
      * Helper method for fightRoomMonster to check if a monster is in the room
      *
-     * @param currentRoom Room that player is currently
-     * @return return true if monster is in the current room, false otherwise
+     * @param currentRoom Room that player is currently in
+     * @return return true if a monster is present in the current room, false otherwise
      */
     public static boolean checkForMonsterInRoom(Room currentRoom) {
         boolean monsterPresent = true;
@@ -114,12 +108,13 @@ public class combatEngine {
     }
 
     /**
-     * return true if current room's monster's life is more than 0, false otherwise
+     * return true if current room's, monster's life is more than 0, false otherwise
+     * package private for test purposes
      *
      * @param currentRoom Room where player is currently at
      * @return true or false depending if a monster is in the room
      */
-    private static boolean checkIfMonsterAlive(Room currentRoom) {
+    static boolean checkIfMonsterAlive(Room currentRoom) {
         boolean alive = false;
         if (currentRoom.getMonsters().get(0).getLife() > 0) {
             alive = true;
@@ -129,11 +124,12 @@ public class combatEngine {
 
     /**
      * returns true or false depending if current player's life is more than 0
+     * package private for test purposes
      *
      * @param player current game player
      * @return true or false based on player's life value
      */
-    private static boolean checkIfPlayerAlive(Player player) {
+    static boolean checkIfPlayerAlive(Player player) {
         boolean alive = false;
         if (player.getLife() > 0) {
             alive = true;
@@ -142,7 +138,7 @@ public class combatEngine {
     }
 
     /**
-     * end the game when monster kills current player.\
+     * end the game when monster kills current player
      *
      * @param monster current room's monster
      */

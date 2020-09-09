@@ -183,7 +183,7 @@ public class Room {
      */
     private String itemsPresent() {
         if (getItems().size() > 0) {
-            return getItems().size() + " item(s): " + getItems().stream().map(e -> Codes.Item.withColor(e.toString())).collect(Collectors.joining(", "));
+            return getItems().size() + " item(s): " + getItems().stream().map(e -> Codes.Item.withColor(e.toString()) + " -- " +e.getDescription()).collect(Collectors.joining(", "));
         } else {
             return "No items present in this room.";
         }

@@ -58,8 +58,7 @@ public class combatEngine {
      * @param player  the player currently in the room with the monster.
      */
     public static void MonsterFightsPlayer(Monster monster, Player player) {
-        int quantity = ThreadLocalRandom.current().nextInt(2, 3);
-        String[] attacks = {
+         String[] attacks = {
                 " violently bit ",
                 " quietly stalked and suddenly attacked ",
                 " smartly dodged and viciously clawed ",
@@ -68,8 +67,6 @@ public class combatEngine {
         };
         int rand = ThreadLocalRandom.current().nextInt(attacks.length);
 
-      //  while (quantity > 0) {
-      //      quantity--;
             if (checkIfMonsterAlive(player.getCurrentRoom())) {
                 int lifeValue = player.getLife();
                 int damage = randomDamage();
@@ -86,7 +83,6 @@ public class combatEngine {
                             + Codes.Life.withColor(lifeValue));
                 }
             }
-      //  }
     }
 
     /**

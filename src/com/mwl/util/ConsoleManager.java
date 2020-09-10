@@ -26,7 +26,7 @@ import static com.mwl.util.ExitGame.exit;
 
 public class ConsoleManager {
     private static final Scanner scanner = new Scanner(System.in);
-    private static MenuTrieNode menu = read_xml();
+    private static MenuTrieNode menu = read_xml("resources/menu/help_menu.xml");
 
     public ConsoleManager() {
     }
@@ -202,13 +202,13 @@ public class ConsoleManager {
      *
      * @return root of MenuTrie
      */
-    static MenuTrieNode read_xml() {
+    static MenuTrieNode read_xml(String path) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         NodeList menuNodeList = null;
 
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse("resources/menu/help_menu.xml");
+            Document doc = builder.parse(path);
             menuNodeList = doc.getElementsByTagName("menu");
 
             MenuTrieNode menu = recursiveHelper(menuNodeList.item(0));

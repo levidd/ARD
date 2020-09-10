@@ -3,13 +3,13 @@ package com.mwl.util;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MenuTrieNodeTest {
     MenuTrieNode root;
     MenuTrieNode child;
-    
-    
+
+
     @Before
     public void setUp() {
         root = new MenuTrieNode("Title", "Description");
@@ -54,13 +54,13 @@ public class MenuTrieNodeTest {
         assertEquals(child, root.getChild(5));
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void getChild_outBounds_negative() {
         root.addChild(child);
         root.getChild(-1);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void getChild_outBounds_Positive() {
         root.addChild(child);
         root.getChild(100);

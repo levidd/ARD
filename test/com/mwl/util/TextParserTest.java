@@ -1,26 +1,15 @@
 package com.mwl.util;
 
-import com.mwl.ard.Game;
-import com.mwl.ard.Main;
-import com.mwl.util.commands.*;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
 
 import static com.mwl.util.TextParser.parser;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class TextParserTest {
-
-    @Before
-    public void setUp() throws Exception {
-    }
 
     @Test
     public void parserAcceptanceTestMoveNorth() {

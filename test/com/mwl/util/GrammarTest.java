@@ -3,9 +3,7 @@ package com.mwl.util;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class GrammarTest {
     Grammar grammar;

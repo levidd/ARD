@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class Move implements Commands {
     @Override
-    public void do_command(String direction) {
+    public void do_command(String direction) throws IllegalArgumentException {
         // Check if the argument direction do not match a direction in the Direction enum
         if (!Arrays.stream(Direction.values()).anyMatch((directions) -> directions.name().equals(direction)))
             // throw exception if not match found. Catch by parser() method.

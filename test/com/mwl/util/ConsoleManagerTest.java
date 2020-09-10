@@ -148,11 +148,7 @@ public class ConsoleManagerTest {
         node3.addChild(node1);
         node1.setParent(node1);
 
-
-
         assertEquals(node2, node3);
-
-
     }
 
     @Test

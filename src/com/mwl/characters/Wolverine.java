@@ -43,6 +43,8 @@ public class Wolverine extends Player {
             setLife(lifeValue);
             this.getItemsInventory().remove(Item.valueOf("Power_stone"));
             System.out.println(this.getName() + " has power stone in inventory and just used special power to self boost health by 50!");
+        } else {
+            System.out.println("Can't use special power without power stone in inventory!");
         }
     }
 

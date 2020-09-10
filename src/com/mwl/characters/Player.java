@@ -137,4 +137,16 @@ public abstract class Player {
                 .collect(Collectors.toSet());
         return newList;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", life=" + life +
+                ", currentRoom=" + currentRoom +
+                ", itemsInventory=" + itemsInventory +
+                ", level=" + level +
+                ", score=" + score +
+                '}';
+    }
 }

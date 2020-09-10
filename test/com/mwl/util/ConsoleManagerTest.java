@@ -76,7 +76,6 @@ public class ConsoleManagerTest {
 
     @Test
     public void testRead_xml() throws ParserConfigurationException, IOException, SAXException {
-
         MenuTrieNode menu = new MenuTrieNode("Help Menu", "You asked for help, what item do you want to learn about?");
         MenuTrieNode story = new MenuTrieNode("Story Details", "This is a text based game, intro to what this help portion will be about.");
         MenuTrieNode winning = new MenuTrieNode("How do I win", "You can win by finding the boss and defeating him.");
@@ -98,8 +97,6 @@ public class ConsoleManagerTest {
         items.setParent(story);
         story.addChild(survival);
         survival.setParent(story);
-
-
 
         MenuTrieNode gamePlay = new MenuTrieNode("Game Controls", "To play the game, you type commands into the console. There are a plethora of commands to choose from, here are a few options. To call any of these, it is [command] [option]");
         MenuTrieNode move = new MenuTrieNode("move", "to move around the game you say move [direction]. Directions are north, south, west, east.");
